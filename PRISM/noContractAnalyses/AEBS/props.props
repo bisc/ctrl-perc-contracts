@@ -1,0 +1,6 @@
+Pmax=? [ F (carPos<=0) ]
+
+Pmax=? [ F (carSpeed<=0) ]
+
+Pmax=? [ F ((carSpeed<=0)|(carPos<=0)) ]
+

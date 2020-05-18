@@ -1,0 +1,92 @@
+mdp
+
+const int K = 68;
+const int N = 75;
+
+const int N1 = 32;
+const int N2 = 3;
+const int N3 = 3;
+const int N4 = 3;
+const int N5 = 4;
+const int N6 = 4;
+const int N7 = 4;
+const int N8 = 5;
+const int N9 = 7;
+const int N10 =7;
+const int N11 = 9;
+const int N12 = 13;
+const int N13 = 21;
+const int N14 = 31;
+
+const int K1 = 32;
+const int K2 = 1;
+const int K3 = 1;
+const int K4 = 1;
+const int K5 = 2;
+const int K6 = 2;
+const int K7 = 2;
+const int K8 = 3;
+const int K9 = 5;
+const int K10 = 5;
+const int K11 = 7;
+const int K12 = 11;
+const int K13 = 19;
+const int K14 = 29;
+
+
+
+
+//N1 = 32, K1 = 32
+//N2 = 3, K2 = 1
+//N3 = 3, K3 = 1
+//N4 = 3, K4 = 1
+//N5 = 4, K5 = 2
+//N6 = 4, K7 = 2
+//N7 = 4, K7 = 2
+//N8 = 5, K8 = 3
+//N9 = 7 , K9 = 5
+//N10 = 7,  K10=  5
+//N11= 9,  K11 = 7
+//N12 = 13,  K12 = 11
+//N13 = 21, K13 = 19
+//N14 = 31,  K14 = 29
+
+
+
+module LECMarkovChain
+
+    misdetects : [0..32] init 0;
+    trials : [0..32] init 0;
+
+    fail : [0..1] init 0; // fail state
+    pickKN : [0..1] init 1; // flag for changing K and N values to next interval's
+
+    currN : [0..32] init 0; // keeps track of num of readings in the current interval
+    currK : [0..32] init 0; // keeps track of num of misdetects in the current interval
+    inter : [0..14] init 0; // keeps track of interval num
+
+
+
+    [] trials<currN&pickKN=0 -> 0.9:(trials'=trials+1) + 0.1:(trials'=trials+1)&(misdetects'=misdetects+1);  // transitions if previous reading a detect
+
+    [] trials=currN&misdetects>currK&pickKN=0 -> (fail'=1); // go to fail state if K limit exceeded
+    [] trials=currN&misdetects<=currK&pickKN=0 -> (pickKN'=1);
+
+    [] pickKN=1&inter=0 -> (currN'=N1)&(currK'=K1)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=1 -> (currN'=N2)&(currK'=K2)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=2 -> (currN'=N3)&(currK'=K3)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=3 -> (currN'=N4)&(currK'=K4)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=4 -> (currN'=N5)&(currK'=K5)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=5 -> (currN'=N6)&(currK'=K6)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=6 -> (currN'=N7)&(currK'=K7)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=7 -> (currN'=N8)&(currK'=K8)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=8 -> (currN'=N9)&(currK'=K9)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=9 -> (currN'=N10)&(currK'=K10)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=10 -> (currN'=N11)&(currK'=K11)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=11 -> (currN'=N12)&(currK'=K12)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=12 -> (currN'=N13)&(currK'=K13)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+    [] pickKN=1&inter=13 -> (currN'=N14)&(currK'=K14)&(pickKN'=0)&(misdetects'=0)&(trials'=0)&(inter'=inter+1);
+
+    //[] pickKN=1&inter=5 -> (pickKN'=0);
+
+endmodule

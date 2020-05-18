@@ -1,0 +1,34 @@
+mdp
+
+const int B2=2000;
+const int freq=10;
+
+const int filterThresh=2;
+
+module LECMarkovChain
+
+    carSpeed : [-1 ..13400] init 1340;
+    carPos : [-1..100000] init 10000;
+
+    prevLECreadings : [0..3] init 0; // count of prev LEC readings for filter
+    prev1 : [0..1] init 1;  // current LEC reading
+    prev2 : [0..1] init 1;  // 2 LEC readings ago
+    prev3 : [0..1] init 1;  // 3 LEC readings ago
+    //prev4 : [0..1] init 1;  // 4 LEC readings ago
+    //prev5 : [0..1] init 1;  // 5 LEC readings ago
+
+    seqflag : [0..3] init 0;
+
+    [] seqflag=0&prev3=0&prevLECreadings>=1&prevLECreadings<=3 -> (prevLECreadings'=prevLECreadings-1)&(seqflag'=1)&(prev3'=prev2)&(prev2'=prev1);  // remove 5th to last reading from filter
+    [] seqflag=0&prev3=1&prevLECreadings>=0&prevLECreadings<=3 -> (prevLECreadings'=prevLECreadings)&(seqflag'=1)&(prev3'=prev2)&(prev2'=prev1); // remove 5th to last reading from filter
+
+    [] seqflag=1 -> 0.9:(prev1'=0)&(seqflag'=2) + 0.1:(prev1'=1)&(seqflag'=2); // compute new LEC reading from Markov chain
+
+    [] seqflag=2&prev1=0&prevLECreadings<=2 -> (prevLECreadings'=prevLECreadings+1)&(seqflag'=3); // add new LEC reading to filter
+    [] seqflag=2&prev1=1 -> (prevLECreadings'=prevLECreadings)&(seqflag'=3); // add new LEC reading to filter
+
+    [] seqflag=3&prevLECreadings>=filterThresh&carSpeed>0&carPos>0 -> (seqflag'=0)&(carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+    [] seqflag=3&prevLECreadings<filterThresh&carSpeed>0&carPos>0 -> (seqflag'=0)&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+
+
+endmodule

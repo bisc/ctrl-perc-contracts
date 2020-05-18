@@ -1,0 +1,16 @@
+mdp
+
+const int B2=2000;
+const int freq=10;
+
+module LECMarkovChain
+
+    carSpeed : [-5 ..13400] init 2680;
+    carPos : [-5..100000] init 5000;
+    //trials : [0..10000000] init 0;
+
+    //[] carSpeed>0&carPos>0 -> 0.9:(carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq))&(trials'=trials+1)+0.1:(carPos'=floor(carPos-carSpeed/freq))&(trials'=trials+1);
+    [] carSpeed>0&carPos>0 -> 0.9:(carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq))+0.1:(carPos'=floor(carPos-carSpeed/freq));
+
+
+endmodule

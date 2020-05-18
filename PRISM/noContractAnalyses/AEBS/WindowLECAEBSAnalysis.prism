@@ -1,0 +1,101 @@
+mdp
+
+const int B1=1000;
+const int B2=2000;
+
+const int TTCThresh = 10;
+const int xwarning = 2000;
+const int freq = 10;
+const int fmu=1;
+const int Thd=1;
+
+const int filterThresh=1;
+
+module LECMarkovChain
+
+    carSpeed : [0 .. 30000] init 1340;
+    carPos : [0..60000] init 10000;
+
+    seqflag : [0..4] init 0;         
+    contRegion : [0..2] init 0;
+
+    fail : [0..1] init 0;
+    success : [0..1] init 0;
+
+    prevLECreadings : [0..3] init 0; // count of prev LEC readings for filter
+    prev1 : [0..1] init 1;  // current LEC reading
+    prev2 : [0..1] init 1;  // 2 LEC readings ago
+    prev3 : [0..1] init 1;  // 3 LEC readings ago
+    seqflag_window : [0..3] init 0;
+
+    //TTC = carPos/carSpeed;
+    //xwarning = (carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)
+    // compute controller region
+    [] seqflag=0&seqflag_window=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag'=1)&(contRegion'=0)&(seqflag_window'=1); // safe region
+    [] seqflag=0&seqflag_window=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag'=1)&(contRegion'=1)&(seqflag_window'=1); // braking region
+    [] seqflag=0&seqflag_window=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag'=1)&(contRegion'=1)&(seqflag_window'=1); // braking region
+    [] seqflag=0&seqflag_window=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag'=1)&(contRegion'=2)&(seqflag_window'=1); // collision mitigation region
+
+	
+    [] seqflag_window=1&seqflag=1&prev3=0&prevLECreadings>=1&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings-1)&(seqflag_window'=2)&(prev3'=prev2)&(prev2'=prev1);  // remove 5th to last reading from filter
+    [] seqflag_window=1&seqflag=1&prev3=1&prevLECreadings>=0&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings)&(seqflag_window'=2)&(prev3'=prev2)&(prev2'=prev1); // remove 5th to last reading from filter
+
+    [] seqflag_window=2&seqflag=1 -> 0.9:(prev1'=0)&(seqflag_window'=3) + 0.1:(prev1'=1)&(seqflag_window'=3); // compute new LEC reading from Markov chain
+
+    [] seqflag_window=3&seqflag=1&prev1=0&prevLECreadings<=2 -> (prevLECreadings'=prevLECreadings+1)&(seqflag_window'=4); // add new LEC reading to filter
+    [] seqflag_window=3&seqflag=1&prev1=1 -> (prevLECreadings'=prevLECreadings)&(seqflag_window'=4); // add new LEC reading to filter
+
+    //[] seqflag_window=4&seqflag=1&prevLECreadings>=filterThresh&carSpeed>0&carPos>0 -> (seqflag_window'=0)&(carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+    //[] seqflag_window=4&seqflag=1&prevLECreadings<filterThresh&carSpeed>0&carPos>0 -> (seqflag_window'=0)&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+
+	
+    // compute carPos, carSpeed
+    [] seqflag=1&contRegion=0&seqflag_window=4&prevLECreadings>=filterThresh&carSpeed>0 -> (seqflag'=2)&(carPos'=carPos-ceil(carSpeed/freq));
+    [] seqflag=1&contRegion=1&seqflag_window=4&prevLECreadings>=filterThresh&carSpeed>0 -> 0.9:(carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B1/freq))&(seqflag'=2) + 0.1:(carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=2);
+    [] seqflag=1&contRegion=2&seqflag_window=4&prevLECreadings>=filterThresh&carSpeed>0 -> 0.9:(carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B2/freq))&(seqflag'=2) + 0.1:(carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=2);
+    //[] seqflag=2&s=1&contRegion=0 -> (seqflag'=3);
+    //[] seqflag=2&s=1&contRegion=1 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+    //[] seqflag=2&s=1&contRegion=2 ->(carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+
+    //[] seqflag=2&carPos<=0            -> (fail'=1)&(seqflag'=4);
+    //[] seqflag=2&carPos>0&carSpeed<=0 -> (success'=1)&(seqflag'=4);
+    [] seqflag=2&carPos>0&carSpeed>0&seqflag_window=4&prevLECreadings>=filterThresh&carSpeed>0  -> (seqflag'=0)&(seqflag_window'=0);
+
+
+
+    [] seqflag_window=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag_window'=1)&(contRegion'=0); // safe region
+    [] seqflag_window=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag_window'=1)&(contRegion'=1); // braking region
+    [] seqflag_window=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag_window'=1)&(contRegion'=1); // braking region
+    [] seqflag_window=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag_window'=1)&(contRegion'=2); // collision mitigation region
+
+
+
+    
+    // compute carPos, carSpeed
+    [] seqflag_window=1&contRegion=0 -> (seqflag_window'=2)&(carPos'=carPos-ceil(carSpeed/freq));
+    [] seqflag_window=1&contRegion=1 -> 0.9:(carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B1/freq))&(seqflag_window'=2) + 0.1:(carPos'=carPos-ceil(carSpeed/freq))&(seqflag_window'=2);
+    [] seqflag_window=1&contRegion=2 -> 0.9:(carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B2/freq))&(seqflag_window'=2) + 0.1:(carPos'=carPos-ceil(carSpeed/freq))&(seqflag_window'=2);
+    //[] seqflag=2&s=1&contRegion=0 -> (seqflag_window'=3);
+    //[] seqflag=2&s=1&contRegion=1 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag_window'=3);
+    //[] seqflag=2&s=1&contRegion=2 ->(carPos'=carPos-ceil(carSpeed/freq))&(seqflag_window'=3);
+
+    //[] seqflag=2&carPos<=0            -> (fail'=1)&(seqflag_window'=4);
+    //[] seqflag=2&carPos>0&carSpeed<=0 -> (success'=1)&(seqflag_window'=4);
+    [] seqflag_window=2&carPos>0&carSpeed>0  -> (seqflag_window'=0);
+	
+	
+	
+    [] seqflag_window=0&prev3=0&prevLECreadings>=1&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings-1)&(seqflag_window'=1)&(prev3'=prev2)&(prev2'=prev1);  // remove 5th to last reading from filter
+    [] seqflag_window=0&prev3=1&prevLECreadings>=0&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings)&(seqflag_window'=1)&(prev3'=prev2)&(prev2'=prev1); // remove 5th to last reading from filter
+
+    [] seqflag_window=1 -> 0.9:(prev1'=0)&(seqflag_window'=2) + 0.1:(prev1'=1)&(seqflag_window'=2); // compute new LEC reading from Markov chain
+
+    [] seqflag_window=2&prev1=0&prevLECreadings<=2 -> (prevLECreadings'=prevLECreadings+1)&(seqflag_window'=3); // add new LEC reading to filter
+    [] seqflag_window=2&prev1=1 -> (prevLECreadings'=prevLECreadings)&(seqflag_window'=3); // add new LEC reading to filter
+
+    [] seqflag_window=3&prevLECreadings>=filterThresh&carSpeed>0&carPos>0 -> (seqflag_window'=0)&(carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+    [] seqflag_window=3&prevLECreadings<filterThresh&carSpeed>0&carPos>0 -> (seqflag_window'=0)&(carPos'=floor(carPos-carSpeed/freq)); // compute filter's output and add to misdetect count if needed
+
+
+	
+endmodule

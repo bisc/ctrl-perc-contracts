@@ -1,0 +1,16 @@
+mdp
+
+const int K = 5;
+const int N = 19;
+
+module LECMarkovChain
+
+    misdetects : [0..K+1] init 0;
+    trials : [0..N] init 0;
+
+
+    [] misdetects<=K&trials<N -> 0.9:(trials'=trials+1) + 0.1:(trials'=trials+1)&(misdetects'=misdetects+1);  // transitions if previous reading a detect
+
+
+endmodule
+

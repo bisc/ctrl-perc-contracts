@@ -1,0 +1,36 @@
+mdp
+
+const int K = 68;
+const int N = 75;
+const int filterThresh = 3;
+
+module LECMarkovChain
+
+    s : [0..1] init 1;     // 0 is detect, 1 is misdetect, 
+    misdetects : [0..N] init 0;
+    trials : [0..N] init 0;
+    prevLECreadings : [0..5] init 0; // count of prev LEC readings for filter
+    prev1 : [0..1] init 1;  // current LEC reading
+    prev2 : [0..1] init 1;  // 2 LEC readings ago
+    prev3 : [0..1] init 1;  // 3 LEC readings ago
+    prev4 : [0..1] init 1;  // 4 LEC readings ago
+    prev5 : [0..1] init 1;  // 5 LEC readings ago
+
+    // Initial state is all 5 previous LEC readings were misdetects
+
+    seqflag : [0..4] init 0; // flag for ensuring correct order of model
+
+    [] seqflag=0&prev5=0&prevLECreadings>=1&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings-1)&(seqflag'=1);  // remove 5th to last reading from filter
+    [] seqflag=0&prev5=1&prevLECreadings>=0&prevLECreadings<=5 -> (prevLECreadings'=prevLECreadings)&(seqflag'=1); // remove 5th to last reading from filter
+    [] seqflag=1 -> (prev5'=prev4)&(prev4'=prev3)&(prev3'=prev2)&(prev2'=prev1)&(seqflag'=2); // propagate previous readings down the chain of readings
+    [] seqflag=2 -> 0.9:(prev1'=0)&(seqflag'=3) + 0.1:(prev1'=1)&(seqflag'=3); // compute new LEC reading from Markov chain
+
+    [] seqflag=3&prev1=0&prevLECreadings<=4 -> (prevLECreadings'=prevLECreadings+1)&(seqflag'=4); // add new LEC reading to filter
+    [] seqflag=3&prev1=1 -> (prevLECreadings'=prevLECreadings)&(seqflag'=4); // add new LEC reading to filter
+    [] seqflag=4&prevLECreadings>=filterThresh&misdetects<N&trials<N -> (seqflag'=0)&(trials'=trials+1); // compute filter's output and add to misdetect count if needed
+    [] seqflag=4&prevLECreadings<filterThresh&misdetects<N&trials<N -> (seqflag'=0)&(misdetects'=misdetects+1)&(trials'=trials+1); // compute filter's output and add to misdetect count if needed
+
+
+
+
+endmodule

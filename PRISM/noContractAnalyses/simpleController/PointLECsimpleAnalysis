@@ -1,0 +1,99 @@
+mdp
+
+
+const int N21 = 3;
+const int N22 = 2;
+const int N23 = 3;
+const int N24 = 6;
+const int N25 = 5;
+
+const int K21 = 3;
+const int K22 = 1;
+const int K23 = 1;
+const int K24 = 3;
+const int K25 = 5;
+
+
+const int B1=1000;
+const int B2=2000;
+
+const int TTCThresh = 10;
+const int xwarning = 2000;
+const int freq = 10;
+const int fmu=1;
+const int Thd=1;
+
+module LECMarkovChain
+
+    s : [0..1] init 1;  // 0 is detect, 1 is misdetect
+
+    //misdetects1 : [0..20] init 0;
+    //trials1 : [0..20] init 0;
+    //fail1 : [0..1] init 0; // fail state
+    //currK1 : [0..5] init 0; // keeps track of num of misdetects in the current interval
+    //currN1 : [0..20] init 0;
+    //pickKN1 : [0..1] init 1;
+    //inter1 : [0..10] init 1;
+
+    //misdetects2 : [0..20] init 0;
+    //trials2 : [0..20] init 0;
+    //fail2 : [0..1] init 0;
+    //currK2 : [0..5] init 0;
+    //currN2 : [0..20] init 0;
+    //pickKN2 : [0..1] init 1;
+    //inter2 : [0..10] init 1;
+
+    carSpeed : [0 .. 30000] init 5000;
+    carPos : [0..60000] init 60000;
+
+    seqflag : [0..4] init 0;         
+    contRegion : [0..2] init 0;
+
+    fail : [0..1] init 0;
+    success : [0..1] init 0;
+
+    //TTC = carPos/carSpeed;
+    //xwarning = (carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)
+    // compute controller region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag'=1)&(contRegion'=0); // safe region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag'=1)&(contRegion'=2); // collision mitigation region
+
+    // compute LEC reading
+    [] seqflag=1 -> 0.9:(s'=0)&(seqflag'=2)+ 0.1:(s'=1)&(seqflag'=2);  // transitions if previous reading a detect
+    //[] s=1&seqflag=1 -> 0.85:(s'=0)&(seqflag'=2) + 0.15:(s'=1)&(seqflag'=2);  // transitions if previous reading a misdetect
+
+
+    // compute carPos, carSpeed
+    [] seqflag=2&s=0&contRegion=0 -> (seqflag'=3);
+    [] seqflag=2&s=0&contRegion=1 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B1/freq))&(seqflag'=3);
+    [] seqflag=2&s=0&contRegion=2 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B2/freq))&(seqflag'=3);
+    [] seqflag=2&s=1&contRegion=0 -> (seqflag'=3);
+    [] seqflag=2&s=1&contRegion=1 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+    [] seqflag=2&s=1&contRegion=2 ->(carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+
+    [] seqflag=3&carPos<=0            -> (fail'=1)&(seqflag'=4);
+    [] seqflag=3&carPos>0&carSpeed<=0 -> (success'=1)&(seqflag'=4);
+    [] seqflag=3&carPos>0&carSpeed>0  -> (seqflag'=0);
+
+    //[] trials1=currN1&misdetects1>currK1&pickKN1=0 -> (fail1'=1)&(pickKN1'=1); // go to fail state if K limit exceeded
+    //[] trials1=currN1&misdetects1<=currK1&pickKN1=0 -> (pickKN1'=1);
+
+    //[] trials2=currN2&misdetects2>currK2&pickKN2=0 -> (fail2'=1)&(pickKN2'=1); // go to fail state if K limit exceeded
+    //[] trials2=currN2&misdetects2<=currK2&pickKN2=0 -> (pickKN2'=1);
+
+    //[] pickKN1=1&inter1=0 -> (currN1'=N11)&(currK1'=K11)&(pickKN1'=0)&(misdetects1'=0)&(trials1'=0)&(inter1'=inter1+1);
+    //[] pickKN1=1&inter1=1 -> (currN1'=N12)&(currK1'=K12)&(pickKN1'=0)&(misdetects1'=0)&(trials1'=0)&(inter1'=inter1+1);
+    //[] pickKN1=1&inter1=2 -> (currN1'=N13)&(currK1'=K13)&(pickKN1'=0)&(misdetects1'=0)&(trials1'=0)&(inter1'=inter1+1);
+    //[] pickKN1=1&inter1=3 -> (currN1'=N14)&(currK1'=K14)&(pickKN1'=0)&(misdetects1'=0)&(trials1'=0)&(inter1'=inter1+1);
+    //[] pickKN1=1&inter1=4 -> (currN1'=N15)&(currK1'=K15)&(pickKN1'=0)&(misdetects1'=0)&(trials1'=0)&(inter1'=inter1+1);
+
+    //[] pickKN2=1&inter2=0 -> (currN2'=N21)&(currK2'=K21)&(pickKN2'=0)&(misdetects2'=0)&(trials2'=0)&(inter2'=inter2+1);
+    //[] pickKN2=1&inter2=1 -> (currN2'=N22)&(currK2'=K22)&(pickKN2'=0)&(misdetects2'=0)&(trials2'=0)&(inter2'=inter2+1);
+    //[] pickKN2=1&inter2=2 -> (currN2'=N23)&(currK2'=K23)&(pickKN2'=0)&(misdetects2'=0)&(trials2'=0)&(inter2'=inter2+1);
+    //[] pickKN2=1&inter2=3 -> (currN2'=N24)&(currK2'=K24)&(pickKN2'=0)&(misdetects2'=0)&(trials2'=0)&(inter2'=inter2+1);
+    //[] pickKN2=1&inter2=4 -> (currN2'=N25)&(currK2'=K25)&(pickKN2'=0)&(misdetects2'=0)&(trials2'=0)&(inter2'=inter2+1);
+
+
+endmodule

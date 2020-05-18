@@ -1,0 +1,9 @@
+// k out of N contract
+Pmin=? [ F (misdetects>K) ]
+
+Pmax=? [ F ((misdetects<=61)&(trials=N)) ]
+
+Pmax=?[F (trials=N)&(misdetects<=K)]
+
+P>0 [ (misdetects<=K) U (false) ]
+
