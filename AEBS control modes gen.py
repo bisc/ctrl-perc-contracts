@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as pp
 
 # FUNCTION for calculating K for the worst-case for all but last sub-interval
-# p1 is the position of the first non-safe mode in the sub-interval, p2 is the position of the last safe mode in the sub-interval, v is the velocity at the safe mode before the start of sub-interval
+# p1 is the position of the first non-safe mode in the sub-interval, 
+# p2 is the position of the last safe mode in the sub-interval, 
+# v is the velocity at the safe mode before the start of sub-interval
 def calK(p1, p2, k, v):
 	i = 0
 	j = 0
