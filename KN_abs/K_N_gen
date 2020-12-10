@@ -8,16 +8,16 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Generate K/N pairs for abstraction')
 parser.add_argument('--no_traces', default=1, help='number of traces for the starting point of non-braking mode')
-parser.add_argument('--outf', default='PRISMInput.csv', help='output file from where PRISM model will be generated')
+parser.add_argument('--outf', default='PRISMInput_test.csv', help='output file from where PRISM model will be generated')
 parser.add_argument('--fmu', default=1)
 parser.add_argument('--thd', default=2)
 parser.add_argument('--ttc_th', default=6)
 parser.add_argument('--x_th', default=1)
-parser.add_argument('--init_pos', default=1200)
+parser.add_argument('--init_pos', default=1600)
 parser.add_argument('--r', default=10)
 parser.add_argument('--b1', default=40)
 parser.add_argument('--b2', default=80)
-parser.add_argument('--init_v', default=260)
+parser.add_argument('--init_v', default=200)
 parser.add_argument('--crash_pos', default=50)
 
 args = parser.parse_args()
@@ -25,7 +25,7 @@ args = parser.parse_args()
 prism_input_file = args.outf
 no_traces = int(args.no_traces)
 
-no_traces = 7
+#no_traces = 1
 
 # hyperparameters
 fmu = float(args.fmu)
@@ -405,10 +405,11 @@ def get_inputs_for_KN_cal(int_pos, start_bm_p, v):
             prev_v.append(v)        
 
     if v != 0:
-        br_intro_int = 0
+        br_intro_int = len(k)-2
         while(v>0):
             while(k[br_intro_int] == 0): # finding the first interval where we can add braking counts to make velocity = 0
-                br_intro_int += 1
+                br_intro_int -= 1
+                print("index: ", br_intro_int)
             # print(i)
             v = v - b1*(1/r)
             braking_actions_count[br_intro_int] += 1
@@ -670,4 +671,4 @@ with open(prism_input_file, 'a', newline='') as csvfile:
 # ax.set(ylabel='pr of failure', xlabel='start positions',
 #        title='Inc in acc with dec in conservatism?')
 # pp.show(block=False)
-    
+   
