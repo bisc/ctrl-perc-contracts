@@ -7,9 +7,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Generate PRISM model for K/N contract satisfaction')
 parser.add_argument('--no_traces', default=1, help='number of traces for the starting point of non-braking mode')
-parser.add_argument('--input_file', default='PRISMInput.csv', help='input file')
-parser.add_argument('--outf', default='PRISMLECModel.prism', help='PRISM model file')
-parser.add_argument('--m', default=4, help='window size for LEC filter')
+parser.add_argument('--input_file', default='PRISMInput_test.csv', help='input file')
+parser.add_argument('--outf', default='PRISMLECModel_test.prism', help='PRISM model file')
+parser.add_argument('--m', default=3, help='window size for LEC filter')
 parser.add_argument('--l_max', default=3, help='max value for conditioned LEC')
 parser.add_argument('--det_bin_l_filename', default='binsHistLenghts.csv', help='file with bin no, l information')
 parser.add_argument('--det_proba_filename', default='avgProbPerBinPerLen.csv', help='file with det proba valuesfor bins')
@@ -23,7 +23,7 @@ f.write("mdp \n")
 
 # parameters to be tuned for running experiments
 no_traces = int(args.no_traces)
-# no_traces = 5
+#no_traces = 1
 m = int(args.m)
 l_max = int(args.l_max)
 det_bin_l_filename = args.det_bin_l_filename
@@ -63,7 +63,7 @@ def getDetProb(fileName, line_no):
 # print(getDetProb('my-stateful-all-length-model/avgProbPerBinPerLen.csv',31))
 
 def readAndFillSymbolic(fileName,proba_values,lthis,num_next_condition,num_traces):
-    print(fileName)
+    #print(fileName)
     output = defaultdict(list)
 
     if lthis==0:
@@ -107,19 +107,20 @@ def readAndFillSymbolic(fileName,proba_values,lthis,num_next_condition,num_trace
 
 
             for j in range(2**num_bits):
-                p = probas[counter] 
+                p = probas[counter]
                 counter+=1
-                value_format+=str(p)
-                value_format+=':'
-                value_format+="(pickKN'=2)&"
-                bin_j = get_bin(j)[-num_bits:]
+                if p > 0.0:
+                    value_format+=str(p)
+                    value_format+=':'
+                    value_format+="(pickKN'=2)&"
+                    bin_j = get_bin(j)[-num_bits:]
 
-                for ii,kk in enumerate(bin_j):
-                    value_format+='(s{}\'={})&'.format(str(ii+1),kk)
-                
-                value_format+=fail_format
-                value_format=value_format[:-1]
-                value_format+='+'
+                    for ii,kk in enumerate(bin_j):
+                        value_format+='(s{}\'={})&'.format(str(ii+1),kk)
+                    
+                    value_format+=fail_format
+                    value_format=value_format[:-1]
+                    value_format+='+'
 
         value_format=value_format[:-1]
         value_format+=";"
@@ -206,8 +207,10 @@ with open(args.input_file, newline='') as csvfile:
         f.write("\n")
         j += 1
 
+    f.write("   fail : [0..1] init 0;\n")
+
     f.write("   pickKN : [0..2] init 1;\n")
-    f.write("   inter : [1.."+str(inter)+"] init 1;\n")
+    f.write("   inter : [0.."+str(inter)+"] init 0;\n")
     # f.write("   currPos : [0.."+str(curPos)+"] init "+str(curPos)+";\n")
     # f.write("   carPos : [0.."+str(curPos)+"] init "+str(curPos)+";\n")
     # f.write("   nextPos : [0.."+str(nextPos)+"] init "+str(nextPos)+";\n")
@@ -217,20 +220,16 @@ with open(args.input_file, newline='') as csvfile:
 
     f.write("\n")
 
-    i = 1
-    while i<inter:
-        f.write("   [] pickKN=1 & inter="+str(i)+"->(pickKN'=0)&(inter'=inter+1)")
-        # j = 0
-        # while j < no_traces:
-        #     f.write("&(currN_"+str(j+1)+"'=N"+str(j+1)+"_"+str(i)+")&(currK_"+str(j+1)+"'=K"+str(j+1)+"_"+str(i)+")")
-        #     j+=1
-        f.write(";\n")
-        i += 1
+    # i = 1
+    # while i<inter:
+    f.write("   [] pickKN=1 & inter<"+str(inter-1)+"->(pickKN'=0)&(inter'=inter+1);\n")
+        # f.write(";\n")
+        # i += 1
 
     f.write("\n")
 
     for i in range(1,inter):
-        print('For interval: ', i)
+        #print('For interval: ', i)
         cur_start_pos = start_positions[i-1]/10
         this_bin = int(cur_start_pos/10)+1
         next_start_pos = start_positions[i]/10
@@ -558,6 +557,20 @@ while j < no_traces:
     j += 1
 
 f.write("-> (pickKN' = 1);\n")
+
+
+f.write("   [] pickKN = 2 &")
+j = 0
+while j < no_traces:
+    if no_traces == 1:
+        f.write(" (fail_"+str(j+1)+" = 1) ->")
+    elif j == no_traces-1:
+        f.write(" (fail_"+str(j+1)+" = 1) ->")
+    else:
+        f.write(" (fail_"+str(j+1)+" = 1) &")
+    j += 1
+
+f.write(" (fail' = 1);\n")
 # j = 0
 # while j < no_traces:
 #     if j == no_traces - 1:
