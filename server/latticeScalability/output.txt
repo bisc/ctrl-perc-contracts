@@ -1,0 +1,4560 @@
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1000.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@5aaa6d82
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:13 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 8826 states
+Reachable states exploration and model construction done in 0.296 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.344 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      8826 (1 initial)
+Transitions: 20027
+Choices:     8826
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 73 iterations and 0.087 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 770 iterations and 0.377 seconds.
+target=38, yes=568, no=690, maybe=7568
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 111 iterations, 2060715 multiplications and 0.058 seconds.
+Probabilistic reachability took 0.537 seconds.
+
+Value in the initial state: 0.15848433477069468
+
+Time for model checking: 0.545 seconds.
+
+Result: 0.15848433477069468 (value in the initial state)
+0.15848433477069468
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1000.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@69b2283a
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:14 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 41141 states
+Reachable states exploration and model construction done in 1.253 secs.
+Sorting reachable states list...
+
+Time for model construction: 1.318 seconds.
+
+Warning: Deadlocks detected and fixed in 504 states
+
+Type:        MDP
+States:      41141 (1 initial)
+Transitions: 100463
+Choices:     41141
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.1 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1096 iterations and 1.421 seconds.
+target=54, yes=2568, no=2898, maybe=35675
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 132 iterations, 12460404 multiplications and 0.067 seconds.
+Probabilistic reachability took 1.593 seconds.
+
+Value in the initial state: 0.20658953120565154
+
+Time for model checking: 1.616 seconds.
+
+Result: 0.20658953120565154 (value in the initial state)
+0.20658953120565154
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1000.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@3c419631
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:17 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 22368 states
+Reachable states exploration and model construction done in 0.231 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.254 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      22368 (1 initial)
+Transitions: 58515
+Choices:     22368
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 67 iterations and 0.023 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 972 iterations and 0.526 seconds.
+target=78, yes=1524, no=1426, maybe=19418
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 120 iterations, 6603000 multiplications and 0.042 seconds.
+Probabilistic reachability took 0.592 seconds.
+
+Value in the initial state: 0.2638259763845316
+
+Time for model checking: 0.597 seconds.
+
+Result: 0.2638259763845316 (value in the initial state)
+0.2638259763845316
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1000.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@61230f6a
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:18 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11471 states
+Reachable states exploration and model construction done in 0.131 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.142 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11471 (1 initial)
+Transitions: 30195
+Choices:     11471
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 49 iterations and 0.009 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 867 iterations and 0.244 seconds.
+target=102, yes=918, no=690, maybe=9863
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 111 iterations, 3104559 multiplications and 0.018 seconds.
+Probabilistic reachability took 0.272 seconds.
+
+Value in the initial state: 0.3599073484206784
+
+Time for model checking: 0.274 seconds.
+
+Result: 0.3599073484206784 (value in the initial state)
+0.3599073484206784
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1000.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@63021689
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:18 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4608 states
+Reachable states exploration and model construction done in 0.046 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.052 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4608 (1 initial)
+Transitions: 11455
+Choices:     4608
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 22 iterations and 0.001 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 428 iterations and 0.047 seconds.
+target=138, yes=369, no=322, maybe=3917
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 99 iterations, 1052271 multiplications and 0.006 seconds.
+Probabilistic reachability took 0.056 seconds.
+
+Value in the initial state: 0.4264848365684689
+
+Time for model checking: 0.057 seconds.
+
+Result: 0.4264848365684689 (value in the initial state)
+0.4264848365684689
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1050.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@703580bf
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:19 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 8868 states
+Reachable states exploration and model construction done in 0.135 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.141 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      8868 (1 initial)
+Transitions: 20175
+Choices:     8868
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 73 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 770 iterations and 0.24 seconds.
+target=38, yes=568, no=690, maybe=7610
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 111 iterations, 2077143 multiplications and 0.021 seconds.
+Probabilistic reachability took 0.275 seconds.
+
+Value in the initial state: 0.15667395289021124
+
+Time for model checking: 0.277 seconds.
+
+Result: 0.15667395289021124 (value in the initial state)
+0.15667395289021124
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1050.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@3e92efc3
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:19 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 41903 states
+Reachable states exploration and model construction done in 0.658 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.705 seconds.
+
+Warning: Deadlocks detected and fixed in 504 states
+
+Type:        MDP
+States:      41903 (1 initial)
+Transitions: 100823
+Choices:     41903
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.083 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1060 iterations and 1.51 seconds.
+target=54, yes=2568, no=2898, maybe=36437
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 129 iterations, 12223653 multiplications and 0.107 seconds.
+Probabilistic reachability took 1.703 seconds.
+
+Value in the initial state: 0.2236380930200031
+
+Time for model checking: 1.711 seconds.
+
+Result: 0.2236380930200031 (value in the initial state)
+0.2236380930200031
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1050.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@2e4b8173
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:21 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 23460 states
+Reachable states exploration and model construction done in 0.439 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.46 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      23460 (1 initial)
+Transitions: 60807
+Choices:     23460
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 76 iterations and 0.053 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1180 iterations and 0.775 seconds.
+target=78, yes=1548, no=1426, maybe=20486
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 129 iterations, 7387701 multiplications and 0.058 seconds.
+Probabilistic reachability took 0.887 seconds.
+
+Value in the initial state: 0.288609593979676
+
+Time for model checking: 0.89 seconds.
+
+Result: 0.288609593979676 (value in the initial state)
+0.288609593979676
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1050.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@353d0772
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:23 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 17716 states
+Reachable states exploration and model construction done in 0.238 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.271 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      17716 (1 initial)
+Transitions: 45037
+Choices:     17716
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 52 iterations and 0.037 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 790 iterations and 0.521 seconds.
+target=110, yes=304, no=1426, maybe=15986
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 117 iterations, 5035329 multiplications and 0.032 seconds.
+Probabilistic reachability took 0.591 seconds.
+
+Value in the initial state: 0.2589686006700051
+
+Time for model checking: 0.594 seconds.
+
+Result: 0.2589686006700051 (value in the initial state)
+0.2589686006700051
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1050.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@67a20f67
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:24 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9138 states
+Reachable states exploration and model construction done in 0.103 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.11 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9138 (1 initial)
+Transitions: 23080
+Choices:     9138
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 28 iterations and 0.005 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 542 iterations and 0.128 seconds.
+target=140, yes=406, no=690, maybe=8042
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 105 iterations, 2285640 multiplications and 0.016 seconds.
+Probabilistic reachability took 0.149 seconds.
+
+Value in the initial state: 0.4016007457736016
+
+Time for model checking: 0.15 seconds.
+
+Result: 0.4016007457736016 (value in the initial state)
+0.4016007457736016
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1100.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@57c758ac
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:24 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9156 states
+Reachable states exploration and model construction done in 0.106 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.112 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9156 (1 initial)
+Transitions: 20579
+Choices:     9156
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 76 iterations and 0.013 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 806 iterations and 0.192 seconds.
+target=38, yes=592, no=690, maybe=7874
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 114 iterations, 2173866 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.222 seconds.
+
+Value in the initial state: 0.18298842481069247
+
+Time for model checking: 0.223 seconds.
+
+Result: 0.18298842481069247 (value in the initial state)
+0.18298842481069247
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1100.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@a9cd3b1
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:24 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 42812 states
+Reachable states exploration and model construction done in 0.66 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.686 seconds.
+
+Warning: Deadlocks detected and fixed in 504 states
+
+Type:        MDP
+States:      42812 (1 initial)
+Transitions: 103459
+Choices:     42812
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.068 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1138 iterations and 1.48 seconds.
+target=54, yes=2592, no=2898, maybe=37322
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 135 iterations, 13141575 multiplications and 0.093 seconds.
+Probabilistic reachability took 1.642 seconds.
+
+Value in the initial state: 0.24090200493053285
+
+Time for model checking: 1.644 seconds.
+
+Result: 0.24090200493053285 (value in the initial state)
+0.24090200493053285
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1100.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@13e39c73
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:27 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 47714 states
+Reachable states exploration and model construction done in 1.06 secs.
+Sorting reachable states list...
+
+Time for model construction: 1.107 seconds.
+
+Warning: Deadlocks detected and fixed in 504 states
+
+Type:        MDP
+States:      47714 (1 initial)
+Transitions: 122750
+Choices:     47714
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.084 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1315 iterations and 1.831 seconds.
+target=78, yes=2700, no=2898, maybe=42116
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 138 iterations, 16062648 multiplications and 0.136 seconds.
+Probabilistic reachability took 2.053 seconds.
+
+Value in the initial state: 0.3055820429178925
+
+Time for model checking: 2.055 seconds.
+
+Result: 0.3055820429178925 (value in the initial state)
+0.3055820429178925
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1100.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@9225652
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:30 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 36237 states
+Reachable states exploration and model construction done in 0.621 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.65 seconds.
+
+Warning: Deadlocks detected and fixed in 504 states
+
+Type:        MDP
+States:      36237 (1 initial)
+Transitions: 92932
+Choices:     36237
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 58 iterations and 0.042 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 880 iterations and 0.992 seconds.
+target=110, yes=304, no=2898, maybe=33035
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 123 iterations, 10979964 multiplications and 0.068 seconds.
+Probabilistic reachability took 1.103 seconds.
+
+Value in the initial state: 0.2674697755001915
+
+Time for model checking: 1.105 seconds.
+
+Result: 0.2674697755001915 (value in the initial state)
+0.2674697755001915
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1100.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@6a400542
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:32 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9434 states
+Reachable states exploration and model construction done in 0.107 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.114 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9434 (1 initial)
+Transitions: 23883
+Choices:     9434
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 31 iterations and 0.024 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 599 iterations and 0.134 seconds.
+target=138, yes=369, no=690, maybe=8375
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 108 iterations, 2445228 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.176 seconds.
+
+Value in the initial state: 0.46096694244878855
+
+Time for model checking: 0.176 seconds.
+
+Result: 0.46096694244878855 (value in the initial state)
+0.46096694244878855
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1150.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@7e0b85f9
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:32 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9682 states
+Reachable states exploration and model construction done in 0.116 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.122 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9682 (1 initial)
+Transitions: 22555
+Choices:     9682
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 73 iterations and 0.012 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 770 iterations and 0.194 seconds.
+target=46, yes=608, no=690, maybe=8384
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 114 iterations, 2394570 multiplications and 0.018 seconds.
+Probabilistic reachability took 0.224 seconds.
+
+Value in the initial state: 0.18242658815560311
+
+Time for model checking: 0.224 seconds.
+
+Result: 0.18242658815560311 (value in the initial state)
+0.18242658815560311
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1150.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@63355449
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:32 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 22978 states
+Reachable states exploration and model construction done in 0.326 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.342 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      22978 (1 initial)
+Transitions: 56255
+Choices:     22978
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.03 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1060 iterations and 0.68 seconds.
+target=62, yes=1084, no=1426, maybe=20468
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 135 iterations, 7194015 multiplications and 0.048 seconds.
+Probabilistic reachability took 0.76 seconds.
+
+Value in the initial state: 0.24562548893771521
+
+Time for model checking: 0.761 seconds.
+
+Result: 0.24562548893771521 (value in the initial state)
+0.24562548893771521
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1150.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@9353778
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:34 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 71764 states
+Reachable states exploration and model construction done in 1.374 secs.
+Sorting reachable states list...
+
+Time for model construction: 1.425 seconds.
+
+Warning: Deadlocks detected and fixed in 1016 states
+
+Type:        MDP
+States:      71764 (1 initial)
+Transitions: 184783
+Choices:     71764
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.107 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1066 iterations and 2.363 seconds.
+target=86, yes=220, no=5842, maybe=65702
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 144 iterations, 25619184 multiplications and 0.137 seconds.
+Probabilistic reachability took 2.607 seconds.
+
+Value in the initial state: 0.18289188228468295
+
+Time for model checking: 2.609 seconds.
+
+Result: 0.18289188228468295 (value in the initial state)
+0.18289188228468295
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1150.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@48ae9b55
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:38 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 18541 states
+Reachable states exploration and model construction done in 0.215 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.228 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      18541 (1 initial)
+Transitions: 47283
+Choices:     18541
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 61 iterations and 0.017 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 925 iterations and 0.419 seconds.
+target=110, yes=298, no=1426, maybe=16817
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 126 iterations, 5707170 multiplications and 0.036 seconds.
+Probabilistic reachability took 0.472 seconds.
+
+Value in the initial state: 0.26651099647203336
+
+Time for model checking: 0.473 seconds.
+
+Result: 0.26651099647203336 (value in the initial state)
+0.26651099647203336
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1150.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@21de60b4
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:38 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 18501 states
+Reachable states exploration and model construction done in 0.274 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.283 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      18501 (1 initial)
+Transitions: 46505
+Choices:     18501
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 37 iterations and 0.011 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 713 iterations and 0.311 seconds.
+target=144, yes=387, no=1426, maybe=16688
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 117 iterations, 5195619 multiplications and 0.032 seconds.
+Probabilistic reachability took 0.355 seconds.
+
+Value in the initial state: 0.4529095697525704
+
+Time for model checking: 0.355 seconds.
+
+Result: 0.4529095697525704 (value in the initial state)
+0.4529095697525704
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1450.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@c267ef4
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:39 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 8237 states
+Reachable states exploration and model construction done in 0.096 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.102 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      8237 (1 initial)
+Transitions: 19526
+Choices:     8237
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.011 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 642 iterations and 0.136 seconds.
+target=54, yes=120, no=690, maybe=7427
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 123 iterations, 2289522 multiplications and 0.014 seconds.
+Probabilistic reachability took 0.161 seconds.
+
+Value in the initial state: 0.05632796237130207
+
+Time for model checking: 0.162 seconds.
+
+Result: 0.05632796237130207 (value in the initial state)
+0.05632796237130207
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1450.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@30ee2816
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:39 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 18187 states
+Reachable states exploration and model construction done in 0.263 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.32 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      18187 (1 initial)
+Transitions: 43987
+Choices:     18187
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.028 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 920 iterations and 0.458 seconds.
+target=68, yes=160, no=1426, maybe=16601
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 141 iterations, 5948931 multiplications and 0.041 seconds.
+Probabilistic reachability took 0.527 seconds.
+
+Value in the initial state: 0.13093586909515076
+
+Time for model checking: 0.527 seconds.
+
+Result: 0.13093586909515076 (value in the initial state)
+0.13093586909515076
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1450.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@31d7b7bf
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:40 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 19885 states
+Reachable states exploration and model construction done in 0.445 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.461 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      19885 (1 initial)
+Transitions: 49981
+Choices:     19885
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.048 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1193 iterations and 0.844 seconds.
+target=92, yes=220, no=1426, maybe=18239
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 7216950 multiplications and 0.055 seconds.
+Probabilistic reachability took 0.947 seconds.
+
+Value in the initial state: 0.20782426070882284
+
+Time for model checking: 0.948 seconds.
+
+Result: 0.20782426070882284 (value in the initial state)
+0.20782426070882284
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1450.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@635eaaf1
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:42 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 20944 states
+Reachable states exploration and model construction done in 0.373 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.387 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      20944 (1 initial)
+Transitions: 53278
+Choices:     20944
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.03 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1322 iterations and 0.706 seconds.
+target=122, yes=298, no=1426, maybe=19220
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 7851042 multiplications and 0.051 seconds.
+Probabilistic reachability took 0.787 seconds.
+
+Value in the initial state: 0.3166917434597299
+
+Time for model checking: 0.787 seconds.
+
+Result: 0.3166917434597299 (value in the initial state)
+0.3166917434597299
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1450.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@1ddf84b8
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:43 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5274 states
+Reachable states exploration and model construction done in 0.084 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.088 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5274 (1 initial)
+Transitions: 12932
+Choices:     5274
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 55 iterations and 0.005 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1110 iterations and 0.159 seconds.
+target=150, yes=390, no=322, maybe=4562
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 138 iterations, 1664832 multiplications and 0.012 seconds.
+Probabilistic reachability took 0.176 seconds.
+
+Value in the initial state: 0.4293059312684985
+
+Time for model checking: 0.177 seconds.
+
+Result: 0.4293059312684985 (value in the initial state)
+0.4293059312684985
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1500.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@7a69b07
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:43 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 8354 states
+Reachable states exploration and model construction done in 0.109 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.115 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      8354 (1 initial)
+Transitions: 19773
+Choices:     8354
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.012 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 666 iterations and 0.152 seconds.
+target=54, yes=120, no=690, maybe=7544
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 126 iterations, 2376486 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.182 seconds.
+
+Value in the initial state: 0.059300890830039005
+
+Time for model checking: 0.183 seconds.
+
+Result: 0.059300890830039005 (value in the initial state)
+0.059300890830039005
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1500.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@5e82df6a
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:43 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 19553 states
+Reachable states exploration and model construction done in 0.303 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.317 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      19553 (1 initial)
+Transitions: 47050
+Choices:     19553
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.03 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 978 iterations and 0.524 seconds.
+target=76, yes=176, no=1426, maybe=17951
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 144 iterations, 6514272 multiplications and 0.048 seconds.
+Probabilistic reachability took 0.602 seconds.
+
+Value in the initial state: 0.1722130616720161
+
+Time for model checking: 0.603 seconds.
+
+Result: 0.1722130616720161 (value in the initial state)
+0.1722130616720161
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1500.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@3f197a46
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:44 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 19921 states
+Reachable states exploration and model construction done in 0.355 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.371 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      19921 (1 initial)
+Transitions: 49911
+Choices:     19921
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.039 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1154 iterations and 0.74 seconds.
+target=92, yes=226, no=1426, maybe=18269
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 147 iterations, 7060557 multiplications and 0.043 seconds.
+Probabilistic reachability took 0.822 seconds.
+
+Value in the initial state: 0.2152484121086536
+
+Time for model checking: 0.823 seconds.
+
+Result: 0.2152484121086536 (value in the initial state)
+0.2152484121086536
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1500.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@636be97c
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:46 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 21067 states
+Reachable states exploration and model construction done in 0.45 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.468 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      21067 (1 initial)
+Transitions: 53421
+Choices:     21067
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.038 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1322 iterations and 0.743 seconds.
+target=122, yes=298, no=1426, maybe=19343
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 7872921 multiplications and 0.05 seconds.
+Probabilistic reachability took 0.831 seconds.
+
+Value in the initial state: 0.31899489213390614
+
+Time for model checking: 0.832 seconds.
+
+Result: 0.31899489213390614 (value in the initial state)
+0.31899489213390614
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1500.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@1817d444
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:47 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10847 states
+Reachable states exploration and model construction done in 0.174 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.181 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10847 (1 initial)
+Transitions: 26658
+Choices:     10847
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 61 iterations and 0.01 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1230 iterations and 0.328 seconds.
+target=147, yes=366, no=690, maybe=9791
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 144 iterations, 3663360 multiplications and 0.026 seconds.
+Probabilistic reachability took 0.364 seconds.
+
+Value in the initial state: 0.4180914661917178
+
+Time for model checking: 0.365 seconds.
+
+Result: 0.4180914661917178 (value in the initial state)
+0.4180914661917178
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1550.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@50b472aa
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:47 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 8566 states
+Reachable states exploration and model construction done in 0.116 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.121 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      8566 (1 initial)
+Transitions: 20061
+Choices:     8566
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.01 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 642 iterations and 0.156 seconds.
+target=58, yes=128, no=690, maybe=7748
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 126 iterations, 2411766 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.183 seconds.
+
+Value in the initial state: 0.07298381862601999
+
+Time for model checking: 0.184 seconds.
+
+Result: 0.07298381862601999 (value in the initial state)
+0.07298381862601999
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1550.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@31368b99
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:48 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 18790 states
+Reachable states exploration and model construction done in 0.284 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.299 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      18790 (1 initial)
+Transitions: 45394
+Choices:     18790
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.027 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 890 iterations and 0.451 seconds.
+target=74, yes=172, no=1426, maybe=17192
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 141 iterations, 6145626 multiplications and 0.042 seconds.
+Probabilistic reachability took 0.521 seconds.
+
+Value in the initial state: 0.15091406549190473
+
+Time for model checking: 0.521 seconds.
+
+Result: 0.15091406549190473 (value in the initial state)
+0.15091406549190473
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1550.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@1725dc0f
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:49 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 20464 states
+Reachable states exploration and model construction done in 0.432 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.447 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      20464 (1 initial)
+Transitions: 51002
+Choices:     20464
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.039 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1154 iterations and 0.639 seconds.
+target=98, yes=232, no=1426, maybe=18806
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 7368300 multiplications and 0.047 seconds.
+Probabilistic reachability took 0.725 seconds.
+
+Value in the initial state: 0.22664900987723943
+
+Time for model checking: 0.726 seconds.
+
+Result: 0.22664900987723943 (value in the initial state)
+0.22664900987723943
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1550.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@3911c2a7
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:50 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10547 states
+Reachable states exploration and model construction done in 0.175 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.183 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10547 (1 initial)
+Transitions: 26245
+Choices:     10547
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1274 iterations and 0.349 seconds.
+target=120, yes=294, no=690, maybe=9563
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3767550 multiplications and 0.024 seconds.
+Probabilistic reachability took 0.387 seconds.
+
+Value in the initial state: 0.3033459748525197
+
+Time for model checking: 0.387 seconds.
+
+Result: 0.3033459748525197 (value in the initial state)
+0.3033459748525197
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1550.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@4facf68f
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:50 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10781 states
+Reachable states exploration and model construction done in 0.167 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.174 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10781 (1 initial)
+Transitions: 26313
+Choices:     10781
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 61 iterations and 0.009 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1230 iterations and 0.415 seconds.
+target=144, yes=333, no=690, maybe=9758
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 147 iterations, 3697785 multiplications and 0.033 seconds.
+Probabilistic reachability took 0.457 seconds.
+
+Value in the initial state: 0.42424661304692624
+
+Time for model checking: 0.458 seconds.
+
+Result: 0.42424661304692624 (value in the initial state)
+0.42424661304692624
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1600.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@76508ed1
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:51 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4295 states
+Reachable states exploration and model construction done in 0.071 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.074 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4295 (1 initial)
+Transitions: 9930
+Choices:     4295
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 666 iterations and 0.103 seconds.
+target=58, yes=128, no=322, maybe=3845
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 129 iterations, 1215954 multiplications and 0.012 seconds.
+Probabilistic reachability took 0.123 seconds.
+
+Value in the initial state: 0.07712520600040632
+
+Time for model checking: 0.123 seconds.
+
+Result: 0.07712520600040632 (value in the initial state)
+0.07712520600040632
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1600.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@41e36e46
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:51 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 19073 states
+Reachable states exploration and model construction done in 0.291 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.303 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      19073 (1 initial)
+Transitions: 46506
+Choices:     19073
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.029 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 978 iterations and 0.581 seconds.
+target=76, yes=176, no=1426, maybe=17471
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 141 iterations, 6301854 multiplications and 0.057 seconds.
+Probabilistic reachability took 0.668 seconds.
+
+Value in the initial state: 0.15919992608347872
+
+Time for model checking: 0.668 seconds.
+
+Result: 0.15919992608347872 (value in the initial state)
+0.15919992608347872
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1600.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@15c43bd9
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:52 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10215 states
+Reachable states exploration and model construction done in 0.22 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.228 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10215 (1 initial)
+Transitions: 25221
+Choices:     10215
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.02 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1154 iterations and 0.318 seconds.
+target=98, yes=232, no=690, maybe=9293
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3625950 multiplications and 0.019 seconds.
+Probabilistic reachability took 0.357 seconds.
+
+Value in the initial state: 0.22830214953390623
+
+Time for model checking: 0.358 seconds.
+
+Result: 0.22830214953390623 (value in the initial state)
+0.22830214953390623
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1600.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@3d74bf60
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:53 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11058 states
+Reachable states exploration and model construction done in 0.179 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.186 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11058 (1 initial)
+Transitions: 26957
+Choices:     11058
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 76 iterations and 0.033 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1302 iterations and 0.365 seconds.
+target=128, yes=310, no=690, maybe=10058
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 3949389 multiplications and 0.034 seconds.
+Probabilistic reachability took 0.432 seconds.
+
+Value in the initial state: 0.3493703163965576
+
+Time for model checking: 0.433 seconds.
+
+Result: 0.3493703163965576 (value in the initial state)
+0.3493703163965576
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1600.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@4f209819
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:54 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10838 states
+Reachable states exploration and model construction done in 0.235 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.242 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10838 (1 initial)
+Transitions: 26306
+Choices:     10838
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 67 iterations and 0.011 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1350 iterations and 0.384 seconds.
+target=147, yes=336, no=690, maybe=9812
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 3847644 multiplications and 0.028 seconds.
+Probabilistic reachability took 0.423 seconds.
+
+Value in the initial state: 0.43061017407422897
+
+Time for model checking: 0.423 seconds.
+
+Result: 0.43061017407422897 (value in the initial state)
+0.43061017407422897
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1650.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@15eb5ee5
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:54 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4295 states
+Reachable states exploration and model construction done in 0.058 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.06 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4295 (1 initial)
+Transitions: 9930
+Choices:     4295
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.01 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 666 iterations and 0.077 seconds.
+target=58, yes=128, no=322, maybe=3845
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 129 iterations, 1215954 multiplications and 0.007 seconds.
+Probabilistic reachability took 0.095 seconds.
+
+Value in the initial state: 0.076129409718339
+
+Time for model checking: 0.095 seconds.
+
+Result: 0.076129409718339 (value in the initial state)
+0.076129409718339
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1650.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@2145b572
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:54 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9478 states
+Reachable states exploration and model construction done in 0.142 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.149 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9478 (1 initial)
+Transitions: 22837
+Choices:     9478
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.015 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1011 iterations and 0.245 seconds.
+target=76, yes=176, no=690, maybe=8612
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 144 iterations, 3147408 multiplications and 0.024 seconds.
+Probabilistic reachability took 0.284 seconds.
+
+Value in the initial state: 0.1693003785943058
+
+Time for model checking: 0.284 seconds.
+
+Result: 0.1693003785943058 (value in the initial state)
+0.1693003785943058
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1650.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@39529185
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:55 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 20683 states
+Reachable states exploration and model construction done in 0.333 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.348 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      20683 (1 initial)
+Transitions: 51622
+Choices:     20683
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.052 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1193 iterations and 0.693 seconds.
+target=98, yes=232, no=1426, maybe=19025
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 7610526 multiplications and 0.05 seconds.
+Probabilistic reachability took 0.796 seconds.
+
+Value in the initial state: 0.2389059179157143
+
+Time for model checking: 0.796 seconds.
+
+Result: 0.2389059179157143 (value in the initial state)
+0.2389059179157143
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1650.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@72f926e6
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:56 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10803 states
+Reachable states exploration and model construction done in 0.18 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.187 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10803 (1 initial)
+Transitions: 26877
+Choices:     10803
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1404 iterations and 0.593 seconds.
+target=128, yes=316, no=690, maybe=9797
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 4012476 multiplications and 0.03 seconds.
+Probabilistic reachability took 0.637 seconds.
+
+Value in the initial state: 0.360694732935222
+
+Time for model checking: 0.637 seconds.
+
+Result: 0.360694732935222 (value in the initial state)
+0.360694732935222
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1650.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@31c88ec8
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:57 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11312 states
+Reachable states exploration and model construction done in 0.198 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.205 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11312 (1 initial)
+Transitions: 26985
+Choices:     11312
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 70 iterations and 0.012 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1410 iterations and 0.33 seconds.
+target=147, yes=327, no=690, maybe=10295
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 4109355 multiplications and 0.022 seconds.
+Probabilistic reachability took 0.364 seconds.
+
+Value in the initial state: 0.4497691304558914
+
+Time for model checking: 0.364 seconds.
+
+Result: 0.4497691304558914 (value in the initial state)
+0.4497691304558914
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1700.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@1cbbffcd
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:58 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4346 states
+Reachable states exploration and model construction done in 0.042 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.044 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4346 (1 initial)
+Transitions: 10063
+Choices:     4346
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.005 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 690 iterations and 0.063 seconds.
+target=58, yes=128, no=322, maybe=3896
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 132 iterations, 1261788 multiplications and 0.007 seconds.
+Probabilistic reachability took 0.075 seconds.
+
+Value in the initial state: 0.0794021839648497
+
+Time for model checking: 0.075 seconds.
+
+Result: 0.0794021839648497 (value in the initial state)
+0.0794021839648497
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1700.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@27ce24aa
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:58 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9787 states
+Reachable states exploration and model construction done in 0.113 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.119 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9787 (1 initial)
+Transitions: 23534
+Choices:     9787
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.013 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1011 iterations and 0.203 seconds.
+target=82, yes=188, no=690, maybe=8909
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 147 iterations, 3313674 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.233 seconds.
+
+Value in the initial state: 0.17891488620918483
+
+Time for model checking: 0.233 seconds.
+
+Result: 0.17891488620918483 (value in the initial state)
+0.17891488620918483
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1700.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@481a996b
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:58 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 21358 states
+Reachable states exploration and model construction done in 0.345 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.361 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      21358 (1 initial)
+Transitions: 52918
+Choices:     21358
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.061 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1284 iterations and 0.873 seconds.
+target=104, yes=250, no=1426, maybe=19682
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 7958184 multiplications and 0.045 seconds.
+Probabilistic reachability took 0.979 seconds.
+
+Value in the initial state: 0.2589305910418931
+
+Time for model checking: 0.98 seconds.
+
+Result: 0.2589305910418931 (value in the initial state)
+0.2589305910418931
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1700.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@3d51f06e
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:27:59 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10935 states
+Reachable states exploration and model construction done in 0.18 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.183 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10935 (1 initial)
+Transitions: 26938
+Choices:     10935
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1404 iterations and 0.337 seconds.
+target=128, yes=316, no=690, maybe=9929
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 4021992 multiplications and 0.022 seconds.
+Probabilistic reachability took 0.373 seconds.
+
+Value in the initial state: 0.3618750505330551
+
+Time for model checking: 0.374 seconds.
+
+Result: 0.3618750505330551 (value in the initial state)
+0.3618750505330551
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1700.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@28eaa59a
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:00 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11366 states
+Reachable states exploration and model construction done in 0.154 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.161 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11366 (1 initial)
+Transitions: 27179
+Choices:     11366
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 67 iterations and 0.012 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1350 iterations and 0.414 seconds.
+target=147, yes=339, no=690, maybe=10337
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 4058340 multiplications and 0.037 seconds.
+Probabilistic reachability took 0.463 seconds.
+
+Value in the initial state: 0.4514284855464391
+
+Time for model checking: 0.463 seconds.
+
+Result: 0.4514284855464391 (value in the initial state)
+0.4514284855464391
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1750.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@3427b02d
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:01 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4482 states
+Reachable states exploration and model construction done in 0.077 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.08 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4482 (1 initial)
+Transitions: 10504
+Choices:     4482
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 748 iterations and 0.12 seconds.
+target=66, yes=144, no=322, maybe=4016
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 132 iterations, 1317888 multiplications and 0.011 seconds.
+Probabilistic reachability took 0.139 seconds.
+
+Value in the initial state: 0.12461995564502604
+
+Time for model checking: 0.139 seconds.
+
+Result: 0.12461995564502604 (value in the initial state)
+0.12461995564502604
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1750.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@647e447
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:01 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9777 states
+Reachable states exploration and model construction done in 0.155 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.161 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9777 (1 initial)
+Transitions: 22972
+Choices:     9777
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1011 iterations and 0.257 seconds.
+target=80, yes=184, no=690, maybe=8903
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 147 iterations, 3231648 multiplications and 0.021 seconds.
+Probabilistic reachability took 0.292 seconds.
+
+Value in the initial state: 0.19799796354704347
+
+Time for model checking: 0.293 seconds.
+
+Result: 0.19799796354704347 (value in the initial state)
+0.19799796354704347
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1750.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@41fbdac4
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:01 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10986 states
+Reachable states exploration and model construction done in 0.178 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.185 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10986 (1 initial)
+Transitions: 26528
+Choices:     10986
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.022 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1242 iterations and 0.481 seconds.
+target=104, yes=244, no=690, maybe=10052
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 3973008 multiplications and 0.037 seconds.
+Probabilistic reachability took 0.54 seconds.
+
+Value in the initial state: 0.26599434494622465
+
+Time for model checking: 0.541 seconds.
+
+Result: 0.26599434494622465 (value in the initial state)
+0.26599434494622465
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1750.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@3c407114
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:02 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11163 states
+Reachable states exploration and model construction done in 0.237 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.245 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11163 (1 initial)
+Transitions: 27618
+Choices:     11163
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1353 iterations and 0.381 seconds.
+target=128, yes=310, no=690, maybe=10163
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 4050522 multiplications and 0.026 seconds.
+Probabilistic reachability took 0.421 seconds.
+
+Value in the initial state: 0.3478414359457265
+
+Time for model checking: 0.421 seconds.
+
+Result: 0.3478414359457265 (value in the initial state)
+0.3478414359457265
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1750.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@35ef1869
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:03 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5625 states
+Reachable states exploration and model construction done in 0.105 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.108 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5625 (1 initial)
+Transitions: 13087
+Choices:     5625
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.006 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1290 iterations and 0.184 seconds.
+target=147, yes=327, no=322, maybe=4976
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 1928628 multiplications and 0.014 seconds.
+Probabilistic reachability took 0.204 seconds.
+
+Value in the initial state: 0.463880326436355
+
+Time for model checking: 0.205 seconds.
+
+Result: 0.463880326436355 (value in the initial state)
+0.463880326436355
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1800.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@c33b74f
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:03 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4485 states
+Reachable states exploration and model construction done in 0.077 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.081 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4485 (1 initial)
+Transitions: 10507
+Choices:     4485
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.009 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 775 iterations and 0.124 seconds.
+target=66, yes=144, no=322, maybe=4019
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 135 iterations, 1348245 multiplications and 0.012 seconds.
+Probabilistic reachability took 0.145 seconds.
+
+Value in the initial state: 0.12660753526618124
+
+Time for model checking: 0.145 seconds.
+
+Result: 0.12660753526618124 (value in the initial state)
+0.12660753526618124
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1800.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@130161f7
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:03 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 9931 states
+Reachable states exploration and model construction done in 0.18 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.187 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      9931 (1 initial)
+Transitions: 23796
+Choices:     9931
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 94 iterations and 0.021 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1044 iterations and 0.367 seconds.
+target=82, yes=188, no=690, maybe=9053
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3420600 multiplications and 0.029 seconds.
+Probabilistic reachability took 0.417 seconds.
+
+Value in the initial state: 0.19194410177670446
+
+Time for model checking: 0.419 seconds.
+
+Result: 0.19194410177670446 (value in the initial state)
+0.19194410177670446
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1800.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@2c767a52
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:04 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10668 states
+Reachable states exploration and model construction done in 0.212 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.218 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10668 (1 initial)
+Transitions: 26102
+Choices:     10668
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.017 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1242 iterations and 0.437 seconds.
+target=104, yes=244, no=690, maybe=9734
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 3831426 multiplications and 0.035 seconds.
+Probabilistic reachability took 0.489 seconds.
+
+Value in the initial state: 0.25931661042286414
+
+Time for model checking: 0.489 seconds.
+
+Result: 0.25931661042286414 (value in the initial state)
+0.25931661042286414
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1800.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@619713e5
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:05 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11639 states
+Reachable states exploration and model construction done in 0.278 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.287 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11639 (1 initial)
+Transitions: 27833
+Choices:     11639
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.019 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1353 iterations and 0.438 seconds.
+target=132, yes=315, no=690, maybe=10634
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 4243233 multiplications and 0.03 seconds.
+Probabilistic reachability took 0.487 seconds.
+
+Value in the initial state: 0.3911801394101103
+
+Time for model checking: 0.488 seconds.
+
+Result: 0.3911801394101103 (value in the initial state)
+0.3911801394101103
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1800.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@708f5957
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:06 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5564 states
+Reachable states exploration and model construction done in 0.086 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.09 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5564 (1 initial)
+Transitions: 13145
+Choices:     5564
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.006 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1290 iterations and 0.222 seconds.
+target=151, yes=335, no=322, maybe=4907
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 1899189 multiplications and 0.016 seconds.
+Probabilistic reachability took 0.244 seconds.
+
+Value in the initial state: 0.45370324629526293
+
+Time for model checking: 0.244 seconds.
+
+Result: 0.45370324629526293 (value in the initial state)
+0.45370324629526293
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1850.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@68999068
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:06 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4485 states
+Reachable states exploration and model construction done in 0.078 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.081 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4485 (1 initial)
+Transitions: 10507
+Choices:     4485
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 775 iterations and 0.125 seconds.
+target=66, yes=144, no=322, maybe=4019
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 135 iterations, 1348245 multiplications and 0.013 seconds.
+Probabilistic reachability took 0.146 seconds.
+
+Value in the initial state: 0.12461995564502604
+
+Time for model checking: 0.147 seconds.
+
+Result: 0.12461995564502604 (value in the initial state)
+0.12461995564502604
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1850.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@7722c3c3
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:06 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10287 states
+Reachable states exploration and model construction done in 0.206 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.213 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10287 (1 initial)
+Transitions: 24187
+Choices:     10287
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.016 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1011 iterations and 0.28 seconds.
+target=80, yes=184, no=690, maybe=9413
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3479850 multiplications and 0.025 seconds.
+Probabilistic reachability took 0.321 seconds.
+
+Value in the initial state: 0.19921059665641644
+
+Time for model checking: 0.322 seconds.
+
+Result: 0.19921059665641644 (value in the initial state)
+0.19921059665641644
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1850.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@2ef3eef9
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:07 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10821 states
+Reachable states exploration and model construction done in 0.175 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.182 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10821 (1 initial)
+Transitions: 26677
+Choices:     10821
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.017 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1284 iterations and 0.362 seconds.
+target=104, yes=250, no=690, maybe=9881
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 3994380 multiplications and 0.025 seconds.
+Probabilistic reachability took 0.404 seconds.
+
+Value in the initial state: 0.2634207305664012
+
+Time for model checking: 0.404 seconds.
+
+Result: 0.2634207305664012 (value in the initial state)
+0.2634207305664012
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1850.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@243c4f91
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:07 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11490 states
+Reachable states exploration and model construction done in 0.266 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.275 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11490 (1 initial)
+Transitions: 28147
+Choices:     11490
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 82 iterations and 0.02 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1404 iterations and 0.552 seconds.
+target=131, yes=307, no=690, maybe=10493
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 4295385 multiplications and 0.027 seconds.
+Probabilistic reachability took 0.599 seconds.
+
+Value in the initial state: 0.3626534718715198
+
+Time for model checking: 0.6 seconds.
+
+Result: 0.3626534718715198 (value in the initial state)
+0.3626534718715198
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1850.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@291ae
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:08 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5728 states
+Reachable states exploration and model construction done in 0.088 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.091 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5728 (1 initial)
+Transitions: 13681
+Choices:     5728
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.006 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1290 iterations and 0.176 seconds.
+target=152, yes=340, no=322, maybe=5066
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 1979973 multiplications and 0.015 seconds.
+Probabilistic reachability took 0.197 seconds.
+
+Value in the initial state: 0.44711501570954065
+
+Time for model checking: 0.197 seconds.
+
+Result: 0.44711501570954065 (value in the initial state)
+0.44711501570954065
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1900.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@61df66b6
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:08 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4614 states
+Reachable states exploration and model construction done in 0.061 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.064 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4614 (1 initial)
+Transitions: 10843
+Choices:     4614
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.007 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 860 iterations and 0.101 seconds.
+target=72, yes=156, no=322, maybe=4136
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 138 iterations, 1422918 multiplications and 0.009 seconds.
+Probabilistic reachability took 0.118 seconds.
+
+Value in the initial state: 0.1452219949463079
+
+Time for model checking: 0.118 seconds.
+
+Result: 0.1452219949463079 (value in the initial state)
+0.1452219949463079
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1900.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@50eac852
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:09 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10219 states
+Reachable states exploration and model construction done in 0.198 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.204 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10219 (1 initial)
+Transitions: 24596
+Choices:     10219
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.02 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1102 iterations and 0.388 seconds.
+target=88, yes=200, no=690, maybe=9329
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3538800 multiplications and 0.032 seconds.
+Probabilistic reachability took 0.44 seconds.
+
+Value in the initial state: 0.20515761602581514
+
+Time for model checking: 0.441 seconds.
+
+Result: 0.20515761602581514 (value in the initial state)
+0.20515761602581514
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1900.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@16ec5519
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:09 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 22282 states
+Reachable states exploration and model construction done in 0.398 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.415 seconds.
+
+Warning: Deadlocks detected and fixed in 248 states
+
+Type:        MDP
+States:      22282 (1 initial)
+Transitions: 55011
+Choices:     22282
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.033 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1284 iterations and 0.927 seconds.
+target=110, yes=256, no=1426, maybe=20600
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 8444013 multiplications and 0.055 seconds.
+Probabilistic reachability took 1.016 seconds.
+
+Value in the initial state: 0.29646789485473846
+
+Time for model checking: 1.017 seconds.
+
+Result: 0.29646789485473846 (value in the initial state)
+0.29646789485473846
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1900.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@2f7298b
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:11 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5701 states
+Reachable states exploration and model construction done in 0.128 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.132 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5701 (1 initial)
+Transitions: 13809
+Choices:     5701
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.01 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1353 iterations and 0.263 seconds.
+target=131, yes=304, no=322, maybe=5075
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 2043444 multiplications and 0.017 seconds.
+Probabilistic reachability took 0.29 seconds.
+
+Value in the initial state: 0.3498013014935659
+
+Time for model checking: 0.291 seconds.
+
+Result: 0.3498013014935659 (value in the initial state)
+0.3498013014935659
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1900.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@1ea9f6af
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:11 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5734 states
+Reachable states exploration and model construction done in 0.123 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.127 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5734 (1 initial)
+Transitions: 13577
+Choices:     5734
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1290 iterations and 0.239 seconds.
+target=152, yes=334, no=322, maybe=5078
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 153 iterations, 1965897 multiplications and 0.018 seconds.
+Probabilistic reachability took 0.265 seconds.
+
+Value in the initial state: 0.4605826567524203
+
+Time for model checking: 0.266 seconds.
+
+Result: 0.4605826567524203 (value in the initial state)
+0.4605826567524203
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1950.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@6a192cfe
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:12 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4614 states
+Reachable states exploration and model construction done in 0.078 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.082 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4614 (1 initial)
+Transitions: 10843
+Choices:     4614
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 85 iterations and 0.009 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 860 iterations and 0.141 seconds.
+target=72, yes=156, no=322, maybe=4136
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 138 iterations, 1422918 multiplications and 0.013 seconds.
+Probabilistic reachability took 0.164 seconds.
+
+Value in the initial state: 0.14292144744285581
+
+Time for model checking: 0.164 seconds.
+
+Result: 0.14292144744285581 (value in the initial state)
+0.14292144744285581
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1950.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@5119fb47
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:12 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10219 states
+Reachable states exploration and model construction done in 0.156 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.163 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10219 (1 initial)
+Transitions: 24616
+Choices:     10219
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.014 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1102 iterations and 0.288 seconds.
+target=88, yes=200, no=690, maybe=9329
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3541800 multiplications and 0.025 seconds.
+Probabilistic reachability took 0.327 seconds.
+
+Value in the initial state: 0.2234283519002617
+
+Time for model checking: 0.328 seconds.
+
+Result: 0.2234283519002617 (value in the initial state)
+0.2234283519002617
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1950.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@7193666c
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:12 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 11118 states
+Reachable states exploration and model construction done in 0.242 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.25 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      11118 (1 initial)
+Transitions: 27274
+Choices:     11118
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.022 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1242 iterations and 0.452 seconds.
+target=110, yes=256, no=690, maybe=10172
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 4087512 multiplications and 0.027 seconds.
+Probabilistic reachability took 0.501 seconds.
+
+Value in the initial state: 0.28565863410738324
+
+Time for model checking: 0.501 seconds.
+
+Result: 0.28565863410738324 (value in the initial state)
+0.28565863410738324
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1950.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@20deea7f
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:13 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5883 states
+Reachable states exploration and model construction done in 0.092 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.096 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5883 (1 initial)
+Transitions: 14103
+Choices:     5883
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.007 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1353 iterations and 0.198 seconds.
+target=129, yes=306, no=322, maybe=5255
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 2128215 multiplications and 0.015 seconds.
+Probabilistic reachability took 0.22 seconds.
+
+Value in the initial state: 0.36686460618122174
+
+Time for model checking: 0.22 seconds.
+
+Result: 0.36686460618122174 (value in the initial state)
+0.36686460618122174
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos1950.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@3835c46
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:14 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5845 states
+Reachable states exploration and model construction done in 0.154 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.158 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5845 (1 initial)
+Transitions: 13908
+Choices:     5845
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1354 iterations and 0.258 seconds.
+target=161, yes=358, no=322, maybe=5165
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 2048904 multiplications and 0.019 seconds.
+Probabilistic reachability took 0.285 seconds.
+
+Value in the initial state: 0.5034643228162503
+
+Time for model checking: 0.285 seconds.
+
+Result: 0.5034643228162503 (value in the initial state)
+0.5034643228162503
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos2000.0_v100.0.prism
+Got Prism settings
+prism.PrismSettings@1dde4cb2
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:14 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 4659 states
+Reachable states exploration and model construction done in 0.086 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.089 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      4659 (1 initial)
+Transitions: 10994
+Choices:     4659
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 890 iterations and 0.128 seconds.
+target=72, yes=156, no=322, maybe=4181
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 141 iterations, 1475142 multiplications and 0.009 seconds.
+Probabilistic reachability took 0.146 seconds.
+
+Value in the initial state: 0.1465457461180274
+
+Time for model checking: 0.146 seconds.
+
+Result: 0.1465457461180274 (value in the initial state)
+0.1465457461180274
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos2000.0_v140.0.prism
+Got Prism settings
+prism.PrismSettings@7714e963
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:14 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 10339 states
+Reachable states exploration and model construction done in 0.16 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.166 seconds.
+
+Warning: Deadlocks detected and fixed in 120 states
+
+Type:        MDP
+States:      10339 (1 initial)
+Transitions: 24999
+Choices:     10339
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 91 iterations and 0.016 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1102 iterations and 0.297 seconds.
+target=88, yes=200, no=690, maybe=9449
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 150 iterations, 3599250 multiplications and 0.026 seconds.
+Probabilistic reachability took 0.34 seconds.
+
+Value in the initial state: 0.2074245919236154
+
+Time for model checking: 0.341 seconds.
+
+Result: 0.2074245919236154 (value in the initial state)
+0.2074245919236154
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos2000.0_v180.0.prism
+Got Prism settings
+prism.PrismSettings@20ce78ec
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:15 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5473 states
+Reachable states exploration and model construction done in 0.086 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.09 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5473 (1 initial)
+Transitions: 13115
+Choices:     5473
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 88 iterations and 0.008 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1242 iterations and 0.178 seconds.
+target=110, yes=256, no=322, maybe=4895
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 1943604 multiplications and 0.019 seconds.
+Probabilistic reachability took 0.205 seconds.
+
+Value in the initial state: 0.28773055857746294
+
+Time for model checking: 0.205 seconds.
+
+Result: 0.28773055857746294 (value in the initial state)
+0.28773055857746294
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos2000.0_v220.0.prism
+Got Prism settings
+prism.PrismSettings@393671df
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:15 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5791 states
+Reachable states exploration and model construction done in 0.132 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.137 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5791 (1 initial)
+Transitions: 13867
+Choices:     5791
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 79 iterations and 0.01 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1432 iterations and 0.276 seconds.
+target=137, yes=313, no=322, maybe=5156
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 159 iterations, 2091009 multiplications and 0.018 seconds.
+Probabilistic reachability took 0.304 seconds.
+
+Value in the initial state: 0.3784375499516539
+
+Time for model checking: 0.304 seconds.
+
+Result: 0.3784375499516539 (value in the initial state)
+0.3784375499516539
+/data2/mcleav/latticeScalability/ramneetKandNModels/m3/pos2000.0_v260.0.prism
+Got Prism settings
+prism.PrismSettings@56620197
+Set Prism settings
+Initializing PRISM
+PRISM
+=====
+
+Version: 4.5
+Date: Sun Dec 13 09:28:16 EST 2020
+Hostname: ash01
+Memory limits: cudd=1g, java(heap)=29.0g
+Initialized
+ENGINE: 3
+ENGINE CHANGED TO: 4
+
+Type:        MDP
+Modules:     LECMarkovChain 
+Variables:   fail_1 fail_2 fail_3 fail_4 fail_5 fail_6 fail_7 fail pickKN inter s1 s2 s3 
+
+
+---------------------------------------------------------------------
+
+Model checking: Pmax=? [ F (fail=1) ]
+
+Building model...
+
+Computing reachable states... 5910 states
+Reachable states exploration and model construction done in 0.126 secs.
+Sorting reachable states list...
+
+Time for model construction: 0.13 seconds.
+
+Warning: Deadlocks detected and fixed in 56 states
+
+Type:        MDP
+States:      5910 (1 initial)
+Transitions: 14026
+Choices:     5910
+Max/avg:     1/1.00
+
+Starting probabilistic reachability (max)...
+Starting Prob0 (max)...
+Prob0 (max) took 64 iterations and 0.005 seconds.
+Starting Prob1 (max)...
+Prob1 (max) took 1354 iterations and 0.194 seconds.
+target=165, yes=372, no=322, maybe=5216
+Starting value iteration (max, with Power method)...
+Value iteration (max, with Power method) took 156 iterations, 2064192 multiplications and 0.014 seconds.
+Probabilistic reachability took 0.213 seconds.
+
+Value in the initial state: 0.4973432938178775
+
+Time for model checking: 0.214 seconds.
+
+Result: 0.4973432938178775 (value in the initial state)
+0.4973432938178775

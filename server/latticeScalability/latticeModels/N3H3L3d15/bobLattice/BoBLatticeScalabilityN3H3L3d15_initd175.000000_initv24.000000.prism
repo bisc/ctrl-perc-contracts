@@ -1,0 +1,2654 @@
+mdp
+
+ 
+const int didMax = 118;
+const int vidMax = 61;
+const int Nmax = 3;
+
+ 
+module PRISMLattice
+
+    did : [1..didMax] init didMax;
+    vid : [1..vidMax] init vidMax;
+
+    currN : [0..Nmax] init 0;
+    currK : [0..Nmax] init 0;
+    s : [0..1] init 0;
+    s2 : [0..1] init 0;
+    s3 : [0..1] init 0;
+
+    [] vid=2&did=4 -> (did'=1);
+
+    [] vid=3&did=4 -> (did'=1);
+
+    [] vid=4&did=4 -> (did'=1);
+
+    [] vid=5&did=4 -> (did'=1);
+
+    [] vid=6&did=4 -> (did'=1);
+
+    [] vid=8&did=4 -> (did'=1);
+
+    [] vid=9&did=4 -> (did'=1);
+
+    [] vid=10&did=4 -> (did'=1);
+    [] vid=11&did=4 -> (did'=1);
+    [] vid=12&did=4 -> (did'=1);
+    [] vid=14&did=4 -> (did'=1);
+    [] vid=15&did=4 -> (did'=1);
+    [] vid=16&did=4 -> (did'=1);
+    [] vid=17&did=4 -> (did'=1);
+    [] vid=18&did=4 -> (did'=1);
+    [] vid=19&did=4 -> (did'=1);
+    [] vid=20&did=4 -> (did'=1);
+
+    [] vid=2&did=5 -> (did'=1);
+    [] vid=2&did=5&currN=1&currK=2 -> (vid'=1)&(did'=4)&(currN'=0)&(currK'=0);
+
+    [] vid=3&did=5 -> (did'=1);
+    [] vid=3&did=5&currN=1&currK=2 -> (vid'=1)&(did'=4)&(currN'=0)&(currK'=0);
+
+    [] vid=4&did=5 -> (did'=1);
+
+    [] vid=5&did=5 -> (did'=1);
+    [] vid=5&did=5&currN=1&currK=2 -> (vid'=1)&(did'=4)&(currN'=0)&(currK'=0);
+
+    [] vid=6&did=5 -> (did'=1);
+
+    [] vid=8&did=5 -> (did'=1);
+
+    [] vid=9&did=5 -> (did'=1);
+
+    [] vid=10&did=5 -> (did'=1);
+
+    [] vid=11&did=5 -> (did'=1);
+
+    [] vid=12&did=5 -> (did'=1);
+
+    [] vid=14&did=5 -> (did'=1);
+
+    [] vid=15&did=5 -> (did'=1);
+    [] vid=17&did=5 -> (did'=1);
+    [] vid=18&did=5 -> (did'=1);
+    [] vid=19&did=5 -> (did'=1);
+    [] vid=20&did=5 -> (did'=1);
+    [] vid=21&did=5 -> (did'=1);
+    [] vid=22&did=5 -> (did'=1);
+    [] vid=23&did=5 -> (did'=1);
+    [] vid=24&did=5 -> (did'=1);
+    [] vid=27&did=5 -> (did'=1);
+
+    [] vid=3&did=6&currN=1&currK=0 -> (vid'=3)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=3&did=6&currN=1&currK=2 -> (vid'=1)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=4&did=6&currN=1&currK=0 -> (vid'=5)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=4&did=6&currN=1&currK=2 -> (vid'=2)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=5&did=6&currN=1&currK=0 -> (vid'=5)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=5&did=6&currN=1&currK=2 -> (vid'=2)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=6&did=6&currN=1&currK=0 -> (vid'=6)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=6&did=6&currN=1&currK=2 -> (vid'=2)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=8&did=6&currN=1&currK=0 -> (vid'=8)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=8&did=6&currN=1&currK=2 -> (vid'=4)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=9&did=6&currN=1&currK=0 -> (vid'=9)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=9&did=6&currN=1&currK=2 -> (vid'=6)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=10&did=6&currN=1&currK=0 -> (vid'=10)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=10&did=6&currN=1&currK=2 -> (vid'=6)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=6&currN=1&currK=0 -> (vid'=11)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=11&did=6&currN=1&currK=2 -> (vid'=8)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=6&currN=1&currK=0 -> (vid'=12)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=12&did=6&currN=1&currK=2 -> (vid'=9)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=6 -> (did'=1);
+    [] vid=14&did=6&currN=1&currK=2 -> (vid'=10)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=6 -> (did'=1);
+
+    [] vid=16&did=6 -> (did'=1);
+
+    [] vid=17&did=6 -> (did'=1);
+
+    [] vid=18&did=6 -> (did'=1);
+
+    [] vid=19&did=6 -> (did'=1);
+
+    [] vid=20&did=6 -> (did'=1);
+    [] vid=21&did=6 -> (did'=1);
+    [] vid=22&did=6 -> (did'=1);
+    [] vid=23&did=6 -> (did'=1);
+    [] vid=24&did=6 -> (did'=1);
+    [] vid=25&did=6 -> (did'=1);
+    [] vid=26&did=6 -> (did'=1);
+    [] vid=27&did=6 -> (did'=1);
+    [] vid=28&did=6 -> (did'=1);
+    [] vid=29&did=6 -> (did'=1);
+    [] vid=31&did=6 -> (did'=1);
+
+    [] vid=5&did=7&currN=1&currK=0 -> (vid'=5)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=5&did=7&currN=1&currK=2 -> (vid'=4)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=6&did=7&currN=1&currK=0 -> (vid'=6)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=6&did=7&currN=1&currK=2 -> (vid'=3)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=8&did=7&currN=1&currK=0 -> (vid'=8)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=8&did=7&currN=1&currK=2 -> (vid'=4)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=9&did=7&currN=1&currK=0 -> (vid'=9)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=9&did=7&currN=1&currK=2 -> (vid'=6)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=10&did=7&currN=1&currK=0 -> (vid'=10)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=10&did=7&currN=1&currK=2 -> (vid'=6)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=7&currN=1&currK=0 -> (vid'=11)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=11&did=7&currN=1&currK=2 -> (vid'=8)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=7&currN=1&currK=0 -> (vid'=12)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=12&did=7&currN=1&currK=2 -> (vid'=9)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=7&currN=1&currK=0 -> (vid'=14)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=14&did=7&currN=1&currK=2 -> (vid'=10)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=7&currN=1&currK=0 -> (vid'=15)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=15&did=7&currN=1&currK=2 -> (vid'=12)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=7&currN=1&currK=0 -> (vid'=17)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=17&did=7&currN=1&currK=2 -> (vid'=14)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=7&currN=1&currK=0 -> (vid'=18)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=18&did=7&currN=1&currK=2 -> (vid'=15)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=7&currN=1&currK=0 -> (vid'=19)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=19&did=7&currN=1&currK=2 -> (vid'=15)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=7&currN=1&currK=0 -> (vid'=20)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=20&did=7&currN=1&currK=2 -> (vid'=17)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=7&currN=1&currK=0 -> (vid'=21)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=21&did=7&currN=1&currK=2 -> (vid'=17)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=7&currN=1&currK=0 -> (vid'=22)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=22&did=7&currN=1&currK=2 -> (vid'=18)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=7&currN=1&currK=0 -> (vid'=23)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=23&did=7&currN=1&currK=2 -> (vid'=19)&(did'=5)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=7&currN=1&currK=0 -> (vid'=24)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=24&did=7&currN=1&currK=2 -> (vid'=20)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=25&did=7 -> (did'=1);
+    [] vid=26&did=7 -> (did'=1);
+    [] vid=27&did=7 -> (did'=1);
+    [] vid=28&did=7 -> (did'=1);
+    [] vid=29&did=7 -> (did'=1);
+    [] vid=31&did=7 -> (did'=1);
+    [] vid=32&did=7 -> (did'=1);
+
+    [] vid=6&did=8&currN=1&currK=0 -> (vid'=6)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=6&did=8&currN=1&currK=2 -> (vid'=5)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=7&did=8&currN=1&currK=0 -> (vid'=8)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=7&did=8&currN=1&currK=2 -> (vid'=6)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=8&did=8&currN=1&currK=0 -> (vid'=8)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=8&did=8&currN=1&currK=2 -> (vid'=5)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=9&did=8&currN=1&currK=0 -> (vid'=9)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=9&did=8&currN=1&currK=2 -> (vid'=6)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=10&did=8&currN=1&currK=0 -> (vid'=10)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=10&did=8&currN=1&currK=2 -> (vid'=6)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=8&currN=1&currK=0 -> (vid'=11)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=11&did=8&currN=1&currK=2 -> (vid'=8)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=8&currN=1&currK=0 -> (vid'=12)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=12&did=8&currN=1&currK=2 -> (vid'=9)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=8&currN=1&currK=0 -> (vid'=14)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=14&did=8&currN=1&currK=2 -> (vid'=10)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=8&currN=1&currK=0 -> (vid'=15)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=15&did=8&currN=1&currK=2 -> (vid'=12)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=16&did=8&currN=1&currK=0 -> (vid'=16)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=16&did=8&currN=1&currK=2 -> (vid'=12)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=8&currN=1&currK=0 -> (vid'=17)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=17&did=8&currN=1&currK=2 -> (vid'=14)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=8&currN=1&currK=0 -> (vid'=18)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=18&did=8&currN=1&currK=2 -> (vid'=15)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=8&currN=1&currK=0 -> (vid'=19)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=19&did=8&currN=1&currK=2 -> (vid'=15)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=8&currN=1&currK=0 -> (vid'=20)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=20&did=8&currN=1&currK=2 -> (vid'=17)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=8&currN=1&currK=0 -> (vid'=21)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=21&did=8&currN=1&currK=2 -> (vid'=17)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=8&currN=1&currK=0 -> (vid'=22)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=22&did=8&currN=1&currK=2 -> (vid'=18)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=8&currN=1&currK=0 -> (vid'=23)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=23&did=8&currN=1&currK=2 -> (vid'=19)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=8&currN=1&currK=0 -> (vid'=24)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=24&did=8&currN=1&currK=2 -> (vid'=20)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=8&currN=1&currK=0 -> (vid'=26)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=25&did=8&currN=1&currK=2 -> (vid'=21)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=8&currN=1&currK=0 -> (vid'=26)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=26&did=8&currN=1&currK=2 -> (vid'=22)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=8&currN=1&currK=0 -> (vid'=27)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=27&did=8&currN=1&currK=2 -> (vid'=23)&(did'=5)&(currN'=0)&(currK'=0);
+    [] vid=28&did=8 -> (did'=1);
+    [] vid=29&did=8 -> (did'=1);
+    [] vid=30&did=8 -> (did'=1);
+    [] vid=31&did=8 -> (did'=1);
+    [] vid=32&did=8 -> (did'=1);
+    [] vid=33&did=8 -> (did'=1);
+    [] vid=34&did=8 -> (did'=1);
+
+    [] vid=7&did=9&currN=1&currK=0 -> (vid'=8)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=7&did=9&currN=1&currK=2 -> (vid'=6)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=8&did=9&currN=1&currK=0 -> (vid'=8)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=8&did=9&currN=1&currK=2 -> (vid'=7)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=9&did=9&currN=1&currK=0 -> (vid'=9)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=9&did=9&currN=1&currK=2 -> (vid'=7)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=10&did=9&currN=1&currK=0 -> (vid'=10)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=10&did=9&currN=1&currK=2 -> (vid'=7)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=9&currN=1&currK=0 -> (vid'=11)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=11&did=9&currN=1&currK=2 -> (vid'=8)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=9&currN=1&currK=0 -> (vid'=12)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=12&did=9&currN=1&currK=2 -> (vid'=9)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=9&currN=1&currK=0 -> (vid'=14)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=14&did=9&currN=1&currK=2 -> (vid'=10)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=9&currN=1&currK=0 -> (vid'=15)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=15&did=9&currN=1&currK=2 -> (vid'=12)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=9&currN=1&currK=0 -> (vid'=17)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=17&did=9&currN=1&currK=2 -> (vid'=14)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=9&currN=1&currK=0 -> (vid'=18)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=18&did=9&currN=1&currK=2 -> (vid'=15)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=9&currN=1&currK=0 -> (vid'=19)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=19&did=9&currN=1&currK=2 -> (vid'=15)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=9&currN=1&currK=0 -> (vid'=20)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=20&did=9&currN=1&currK=2 -> (vid'=17)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=9&currN=1&currK=0 -> (vid'=21)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=21&did=9&currN=1&currK=2 -> (vid'=17)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=9&currN=1&currK=0 -> (vid'=22)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=22&did=9&currN=1&currK=2 -> (vid'=18)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=9&currN=1&currK=0 -> (vid'=23)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=23&did=9&currN=1&currK=2 -> (vid'=19)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=9&currN=1&currK=0 -> (vid'=24)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=24&did=9&currN=1&currK=2 -> (vid'=20)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=9&currN=1&currK=0 -> (vid'=26)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=25&did=9&currN=1&currK=2 -> (vid'=21)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=9&currN=1&currK=0 -> (vid'=26)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=26&did=9&currN=1&currK=2 -> (vid'=22)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=9&currN=1&currK=0 -> (vid'=27)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=27&did=9&currN=1&currK=2 -> (vid'=23)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=9&currN=1&currK=0 -> (vid'=28)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=28&did=9&currN=1&currK=2 -> (vid'=24)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=9&currN=1&currK=0 -> (vid'=29)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=29&did=9&currN=1&currK=2 -> (vid'=25)&(did'=6)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=9&currN=1&currK=0 -> (vid'=31)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=30&did=9&currN=1&currK=2 -> (vid'=26)&(did'=6)&(currN'=0)&(currK'=0);
+    [] vid=31&did=9 -> (did'=1);
+    [] vid=32&did=9 -> (did'=1);
+    [] vid=33&did=9 -> (did'=1);
+    [] vid=34&did=9 -> (did'=1);
+    [] vid=35&did=9 -> (did'=1);
+    [] vid=36&did=9 -> (did'=1);
+    [] vid=37&did=9 -> (did'=1);
+    [] vid=39&did=9 -> (did'=1);
+
+    [] vid=8&did=10&currN=1&currK=0 -> (vid'=8)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=8&did=10&currN=1&currK=2 -> (vid'=7)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=9&did=10&currN=1&currK=0 -> (vid'=9)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=9&did=10&currN=1&currK=2 -> (vid'=8)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=10&did=10&currN=1&currK=0 -> (vid'=10)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=10&did=10&currN=1&currK=2 -> (vid'=8)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=10&currN=1&currK=0 -> (vid'=11)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=11&did=10&currN=1&currK=2 -> (vid'=8)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=10&currN=1&currK=0 -> (vid'=12)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=12&did=10&currN=1&currK=2 -> (vid'=9)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=10&currN=1&currK=0 -> (vid'=14)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=14&did=10&currN=1&currK=2 -> (vid'=10)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=10&currN=1&currK=0 -> (vid'=15)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=15&did=10&currN=1&currK=2 -> (vid'=12)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=16&did=10&currN=1&currK=0 -> (vid'=16)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=16&did=10&currN=1&currK=2 -> (vid'=12)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=10&currN=1&currK=0 -> (vid'=17)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=17&did=10&currN=1&currK=2 -> (vid'=14)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=10&currN=1&currK=0 -> (vid'=18)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=18&did=10&currN=1&currK=2 -> (vid'=15)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=10&currN=1&currK=0 -> (vid'=19)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=19&did=10&currN=1&currK=2 -> (vid'=15)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=10&currN=1&currK=0 -> (vid'=20)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=20&did=10&currN=1&currK=2 -> (vid'=17)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=10&currN=1&currK=0 -> (vid'=21)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=21&did=10&currN=1&currK=2 -> (vid'=17)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=10&currN=1&currK=0 -> (vid'=22)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=22&did=10&currN=1&currK=2 -> (vid'=18)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=10&currN=1&currK=0 -> (vid'=23)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=23&did=10&currN=1&currK=2 -> (vid'=19)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=10&currN=1&currK=0 -> (vid'=24)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=24&did=10&currN=1&currK=2 -> (vid'=20)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=10&currN=1&currK=0 -> (vid'=26)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=25&did=10&currN=1&currK=2 -> (vid'=21)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=10&currN=1&currK=0 -> (vid'=26)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=26&did=10&currN=1&currK=2 -> (vid'=22)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=10&currN=1&currK=0 -> (vid'=27)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=27&did=10&currN=1&currK=2 -> (vid'=23)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=10&currN=1&currK=0 -> (vid'=28)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=28&did=10&currN=1&currK=2 -> (vid'=24)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=10&currN=1&currK=0 -> (vid'=29)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=29&did=10&currN=1&currK=2 -> (vid'=25)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=10&currN=1&currK=0 -> (vid'=31)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=30&did=10&currN=1&currK=2 -> (vid'=26)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=10&currN=1&currK=0 -> (vid'=31)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=31&did=10&currN=1&currK=2 -> (vid'=27)&(did'=7)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=10&currN=1&currK=0 -> (vid'=32)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=32&did=10&currN=1&currK=2 -> (vid'=28)&(did'=7)&(currN'=0)&(currK'=0);
+    [] vid=33&did=10 -> (did'=1);
+    [] vid=34&did=10 -> (did'=1);
+    [] vid=35&did=10 -> (did'=1);
+    [] vid=36&did=10 -> (did'=1);
+    [] vid=37&did=10 -> (did'=1);
+    [] vid=38&did=10 -> (did'=1);
+    [] vid=39&did=10 -> (did'=1);
+    [] vid=40&did=10 -> (did'=1);
+
+    [] vid=10&did=11&currN=1&currK=0 -> (vid'=10)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=10&did=11&currN=1&currK=2 -> (vid'=8)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=11&did=11&currN=1&currK=0 -> (vid'=11)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=11&did=11&currN=1&currK=2 -> (vid'=9)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=12&did=11&currN=1&currK=0 -> (vid'=12)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=12&did=11&currN=1&currK=2 -> (vid'=10)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=11&currN=1&currK=0 -> (vid'=14)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=14&did=11&currN=1&currK=2 -> (vid'=10)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=11&currN=1&currK=0 -> (vid'=15)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=15&did=11&currN=1&currK=2 -> (vid'=12)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=11&currN=1&currK=0 -> (vid'=17)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=17&did=11&currN=1&currK=2 -> (vid'=14)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=11&currN=1&currK=0 -> (vid'=18)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=18&did=11&currN=1&currK=2 -> (vid'=15)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=11&currN=1&currK=0 -> (vid'=19)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=19&did=11&currN=1&currK=2 -> (vid'=15)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=11&currN=1&currK=0 -> (vid'=20)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=20&did=11&currN=1&currK=2 -> (vid'=17)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=11&currN=1&currK=0 -> (vid'=21)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=21&did=11&currN=1&currK=2 -> (vid'=17)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=11&currN=1&currK=0 -> (vid'=22)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=22&did=11&currN=1&currK=2 -> (vid'=18)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=11&currN=1&currK=0 -> (vid'=23)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=23&did=11&currN=1&currK=2 -> (vid'=19)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=11&currN=1&currK=0 -> (vid'=24)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=24&did=11&currN=1&currK=2 -> (vid'=20)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=11&currN=1&currK=0 -> (vid'=26)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=25&did=11&currN=1&currK=2 -> (vid'=21)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=11&currN=1&currK=0 -> (vid'=26)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=26&did=11&currN=1&currK=2 -> (vid'=22)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=11&currN=1&currK=0 -> (vid'=27)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=27&did=11&currN=1&currK=2 -> (vid'=23)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=11&currN=1&currK=0 -> (vid'=28)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=28&did=11&currN=1&currK=2 -> (vid'=24)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=11&currN=1&currK=0 -> (vid'=29)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=29&did=11&currN=1&currK=2 -> (vid'=25)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=11&currN=1&currK=0 -> (vid'=31)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=30&did=11&currN=1&currK=2 -> (vid'=26)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=11&currN=1&currK=0 -> (vid'=31)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=31&did=11&currN=1&currK=2 -> (vid'=27)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=11&currN=1&currK=0 -> (vid'=32)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=32&did=11&currN=1&currK=2 -> (vid'=28)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=11&currN=1&currK=0 -> (vid'=33)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=33&did=11&currN=1&currK=2 -> (vid'=29)&(did'=8)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=11&currN=1&currK=0 -> (vid'=34)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=34&did=11&currN=1&currK=2 -> (vid'=30)&(did'=8)&(currN'=0)&(currK'=0);
+    [] vid=35&did=11 -> (did'=1);
+    [] vid=36&did=11 -> (did'=1);
+    [] vid=37&did=11 -> (did'=1);
+    [] vid=38&did=11 -> (did'=1);
+    [] vid=39&did=11 -> (did'=1);
+    [] vid=40&did=11 -> (did'=1);
+    [] vid=41&did=11 -> (did'=1);
+    [] vid=42&did=11 -> (did'=1);
+
+    [] vid=12&did=12&currN=1&currK=0 -> (vid'=12)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=12&did=12&currN=1&currK=2 -> (vid'=10)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=13&did=12&currN=1&currK=0 -> (vid'=14)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=13&did=12&currN=1&currK=2 -> (vid'=11)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=14&did=12&currN=1&currK=0 -> (vid'=14)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=14&did=12&currN=1&currK=2 -> (vid'=11)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=12&currN=1&currK=0 -> (vid'=15)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=15&did=12&currN=1&currK=2 -> (vid'=12)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=16&did=12&currN=1&currK=0 -> (vid'=16)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=16&did=12&currN=1&currK=2 -> (vid'=12)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=12&currN=1&currK=0 -> (vid'=17)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=17&did=12&currN=1&currK=2 -> (vid'=14)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=12&currN=1&currK=0 -> (vid'=18)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=18&did=12&currN=1&currK=2 -> (vid'=15)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=12&currN=1&currK=0 -> (vid'=19)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=19&did=12&currN=1&currK=2 -> (vid'=15)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=12&currN=1&currK=0 -> (vid'=20)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=20&did=12&currN=1&currK=2 -> (vid'=17)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=12&currN=1&currK=0 -> (vid'=21)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=21&did=12&currN=1&currK=2 -> (vid'=17)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=12&currN=1&currK=0 -> (vid'=22)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=22&did=12&currN=1&currK=2 -> (vid'=18)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=12&currN=1&currK=0 -> (vid'=23)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=23&did=12&currN=1&currK=2 -> (vid'=19)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=12&currN=1&currK=0 -> (vid'=24)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=24&did=12&currN=1&currK=2 -> (vid'=20)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=12&currN=1&currK=0 -> (vid'=26)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=25&did=12&currN=1&currK=2 -> (vid'=21)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=12&currN=1&currK=0 -> (vid'=26)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=26&did=12&currN=1&currK=2 -> (vid'=22)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=12&currN=1&currK=0 -> (vid'=27)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=27&did=12&currN=1&currK=2 -> (vid'=23)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=12&currN=1&currK=0 -> (vid'=28)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=28&did=12&currN=1&currK=2 -> (vid'=24)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=12&currN=1&currK=0 -> (vid'=29)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=29&did=12&currN=1&currK=2 -> (vid'=25)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=12&currN=1&currK=0 -> (vid'=31)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=30&did=12&currN=1&currK=2 -> (vid'=26)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=12&currN=1&currK=0 -> (vid'=31)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=31&did=12&currN=1&currK=2 -> (vid'=27)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=12&currN=1&currK=0 -> (vid'=32)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=32&did=12&currN=1&currK=2 -> (vid'=28)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=12&currN=1&currK=0 -> (vid'=33)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=33&did=12&currN=1&currK=2 -> (vid'=29)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=12&currN=1&currK=0 -> (vid'=34)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=34&did=12&currN=1&currK=2 -> (vid'=30)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=12&currN=1&currK=0 -> (vid'=35)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=35&did=12&currN=1&currK=2 -> (vid'=31)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=12&currN=1&currK=0 -> (vid'=36)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=36&did=12&currN=1&currK=2 -> (vid'=32)&(did'=9)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=12&currN=1&currK=0 -> (vid'=37)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=37&did=12&currN=1&currK=2 -> (vid'=33)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=38&did=12 -> (did'=1);
+    [] vid=39&did=12 -> (did'=1);
+    [] vid=40&did=12 -> (did'=1);
+    [] vid=41&did=12 -> (did'=1);
+    [] vid=42&did=12 -> (did'=1);
+    [] vid=43&did=12 -> (did'=1);
+    [] vid=44&did=12 -> (did'=1);
+
+    [] vid=14&did=13&currN=1&currK=0 -> (vid'=14)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=14&did=13&currN=1&currK=2 -> (vid'=12)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=15&did=13&currN=1&currK=0 -> (vid'=15)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=15&did=13&currN=1&currK=2 -> (vid'=12)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=13&currN=1&currK=0 -> (vid'=17)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=17&did=13&currN=1&currK=2 -> (vid'=14)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=13&currN=1&currK=0 -> (vid'=18)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=18&did=13&currN=1&currK=2 -> (vid'=15)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=13&currN=1&currK=0 -> (vid'=19)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=19&did=13&currN=1&currK=2 -> (vid'=15)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=13&currN=1&currK=0 -> (vid'=20)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=20&did=13&currN=1&currK=2 -> (vid'=17)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=13&currN=1&currK=0 -> (vid'=21)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=21&did=13&currN=1&currK=2 -> (vid'=17)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=13&currN=1&currK=0 -> (vid'=22)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=22&did=13&currN=1&currK=2 -> (vid'=18)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=13&currN=1&currK=0 -> (vid'=23)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=23&did=13&currN=1&currK=2 -> (vid'=19)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=13&currN=1&currK=0 -> (vid'=24)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=24&did=13&currN=1&currK=2 -> (vid'=20)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=13&currN=1&currK=0 -> (vid'=26)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=25&did=13&currN=1&currK=2 -> (vid'=21)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=13&currN=1&currK=0 -> (vid'=26)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=26&did=13&currN=1&currK=2 -> (vid'=22)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=13&currN=1&currK=0 -> (vid'=27)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=27&did=13&currN=1&currK=2 -> (vid'=23)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=13&currN=1&currK=0 -> (vid'=28)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=28&did=13&currN=1&currK=2 -> (vid'=24)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=13&currN=1&currK=0 -> (vid'=29)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=29&did=13&currN=1&currK=2 -> (vid'=25)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=13&currN=1&currK=0 -> (vid'=31)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=30&did=13&currN=1&currK=2 -> (vid'=26)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=13&currN=1&currK=0 -> (vid'=31)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=31&did=13&currN=1&currK=2 -> (vid'=27)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=13&currN=1&currK=0 -> (vid'=32)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=32&did=13&currN=1&currK=2 -> (vid'=28)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=13&currN=1&currK=0 -> (vid'=33)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=33&did=13&currN=1&currK=2 -> (vid'=29)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=13&currN=1&currK=0 -> (vid'=34)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=34&did=13&currN=1&currK=2 -> (vid'=30)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=13&currN=1&currK=0 -> (vid'=35)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=35&did=13&currN=1&currK=2 -> (vid'=31)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=13&currN=1&currK=0 -> (vid'=36)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=36&did=13&currN=1&currK=2 -> (vid'=32)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=13&currN=1&currK=0 -> (vid'=37)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=37&did=13&currN=1&currK=2 -> (vid'=33)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=13&currN=1&currK=0 -> (vid'=38)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=38&did=13&currN=1&currK=2 -> (vid'=34)&(did'=10)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=13&currN=1&currK=0 -> (vid'=39)&(did'=9)&(currN'=0)&(currK'=0);
+    [] vid=39&did=13&currN=1&currK=2 -> (vid'=35)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=40&did=13 -> (did'=1);
+    [] vid=41&did=13 -> (did'=1);
+    [] vid=42&did=13 -> (did'=1);
+    [] vid=43&did=13 -> (did'=1);
+    [] vid=44&did=13 -> (did'=1);
+    [] vid=45&did=13 -> (did'=1);
+    [] vid=46&did=13 -> (did'=1);
+
+    [] vid=16&did=14&currN=1&currK=0 -> (vid'=16)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=16&did=14&currN=1&currK=2 -> (vid'=13)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=17&did=14&currN=1&currK=0 -> (vid'=17)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=17&did=14&currN=1&currK=2 -> (vid'=14)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=14&currN=1&currK=0 -> (vid'=18)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=18&did=14&currN=1&currK=2 -> (vid'=15)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=14&currN=1&currK=0 -> (vid'=19)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=19&did=14&currN=1&currK=2 -> (vid'=15)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=14&currN=1&currK=0 -> (vid'=20)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=20&did=14&currN=1&currK=2 -> (vid'=17)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=14&currN=1&currK=0 -> (vid'=21)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=21&did=14&currN=1&currK=2 -> (vid'=17)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=14&currN=1&currK=0 -> (vid'=22)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=22&did=14&currN=1&currK=2 -> (vid'=18)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=14&currN=1&currK=0 -> (vid'=23)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=23&did=14&currN=1&currK=2 -> (vid'=19)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=14&currN=1&currK=0 -> (vid'=24)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=24&did=14&currN=1&currK=2 -> (vid'=20)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=14&currN=1&currK=0 -> (vid'=26)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=25&did=14&currN=1&currK=2 -> (vid'=21)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=14&currN=1&currK=0 -> (vid'=26)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=26&did=14&currN=1&currK=2 -> (vid'=22)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=14&currN=1&currK=0 -> (vid'=27)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=27&did=14&currN=1&currK=2 -> (vid'=23)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=14&currN=1&currK=0 -> (vid'=28)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=28&did=14&currN=1&currK=2 -> (vid'=24)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=14&currN=1&currK=0 -> (vid'=29)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=29&did=14&currN=1&currK=2 -> (vid'=25)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=14&currN=1&currK=0 -> (vid'=31)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=30&did=14&currN=1&currK=2 -> (vid'=26)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=14&currN=1&currK=0 -> (vid'=31)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=31&did=14&currN=1&currK=2 -> (vid'=27)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=14&currN=1&currK=0 -> (vid'=32)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=32&did=14&currN=1&currK=2 -> (vid'=28)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=14&currN=1&currK=0 -> (vid'=33)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=33&did=14&currN=1&currK=2 -> (vid'=29)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=14&currN=1&currK=0 -> (vid'=34)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=34&did=14&currN=1&currK=2 -> (vid'=30)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=14&currN=1&currK=0 -> (vid'=35)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=35&did=14&currN=1&currK=2 -> (vid'=31)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=14&currN=1&currK=0 -> (vid'=36)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=36&did=14&currN=1&currK=2 -> (vid'=32)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=14&currN=1&currK=0 -> (vid'=37)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=37&did=14&currN=1&currK=2 -> (vid'=33)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=14&currN=1&currK=0 -> (vid'=38)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=38&did=14&currN=1&currK=2 -> (vid'=34)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=14&currN=1&currK=0 -> (vid'=39)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=39&did=14&currN=1&currK=2 -> (vid'=35)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=14&currN=1&currK=0 -> (vid'=40)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=40&did=14&currN=1&currK=2 -> (vid'=36)&(did'=10)&(currN'=0)&(currK'=0);
+    [] vid=41&did=14 -> (did'=1);
+    [] vid=42&did=14 -> (did'=1);
+    [] vid=43&did=14 -> (did'=1);
+    [] vid=44&did=14 -> (did'=1);
+    [] vid=45&did=14 -> (did'=1);
+    [] vid=46&did=14 -> (did'=1);
+    [] vid=47&did=14 -> (did'=1);
+
+    [] vid=17&did=15&currN=1&currK=0 -> (vid'=17)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=17&did=15&currN=1&currK=2 -> (vid'=14)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=18&did=15&currN=1&currK=0 -> (vid'=18)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=18&did=15&currN=1&currK=2 -> (vid'=15)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=15&currN=1&currK=0 -> (vid'=19)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=19&did=15&currN=1&currK=2 -> (vid'=15)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=15&currN=1&currK=0 -> (vid'=20)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=20&did=15&currN=1&currK=2 -> (vid'=17)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=15&currN=1&currK=0 -> (vid'=21)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=21&did=15&currN=1&currK=2 -> (vid'=17)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=15&currN=1&currK=0 -> (vid'=22)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=22&did=15&currN=1&currK=2 -> (vid'=18)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=15&currN=1&currK=0 -> (vid'=23)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=23&did=15&currN=1&currK=2 -> (vid'=19)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=15&currN=1&currK=0 -> (vid'=24)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=24&did=15&currN=1&currK=2 -> (vid'=20)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=15&currN=1&currK=0 -> (vid'=26)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=25&did=15&currN=1&currK=2 -> (vid'=21)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=15&currN=1&currK=0 -> (vid'=26)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=26&did=15&currN=1&currK=2 -> (vid'=22)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=15&currN=1&currK=0 -> (vid'=27)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=27&did=15&currN=1&currK=2 -> (vid'=23)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=15&currN=1&currK=0 -> (vid'=28)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=28&did=15&currN=1&currK=2 -> (vid'=24)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=15&currN=1&currK=0 -> (vid'=29)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=29&did=15&currN=1&currK=2 -> (vid'=25)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=15&currN=1&currK=0 -> (vid'=31)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=30&did=15&currN=1&currK=2 -> (vid'=26)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=15&currN=1&currK=0 -> (vid'=31)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=31&did=15&currN=1&currK=2 -> (vid'=27)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=15&currN=1&currK=0 -> (vid'=32)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=32&did=15&currN=1&currK=2 -> (vid'=28)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=15&currN=1&currK=0 -> (vid'=33)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=33&did=15&currN=1&currK=2 -> (vid'=29)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=15&currN=1&currK=0 -> (vid'=34)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=34&did=15&currN=1&currK=2 -> (vid'=30)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=15&currN=1&currK=0 -> (vid'=35)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=35&did=15&currN=1&currK=2 -> (vid'=31)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=15&currN=1&currK=0 -> (vid'=36)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=36&did=15&currN=1&currK=2 -> (vid'=32)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=15&currN=1&currK=0 -> (vid'=37)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=37&did=15&currN=1&currK=2 -> (vid'=33)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=15&currN=1&currK=0 -> (vid'=38)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=38&did=15&currN=1&currK=2 -> (vid'=34)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=15&currN=1&currK=0 -> (vid'=39)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=39&did=15&currN=1&currK=2 -> (vid'=35)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=15&currN=1&currK=0 -> (vid'=40)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=40&did=15&currN=1&currK=2 -> (vid'=36)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=15&currN=1&currK=0 -> (vid'=41)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=41&did=15&currN=1&currK=2 -> (vid'=37)&(did'=11)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=15&currN=1&currK=0 -> (vid'=42)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=42&did=15&currN=1&currK=2 -> (vid'=38)&(did'=11)&(currN'=0)&(currK'=0);
+    [] vid=43&did=15 -> (did'=1);
+    [] vid=44&did=15 -> (did'=1);
+    [] vid=45&did=15 -> (did'=1);
+    [] vid=46&did=15 -> (did'=1);
+    [] vid=47&did=15 -> (did'=1);
+    [] vid=48&did=15 -> (did'=1);
+
+    [] vid=18&did=16&currN=1&currK=0 -> (vid'=18)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=18&did=16&currN=1&currK=2 -> (vid'=16)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=19&did=16&currN=1&currK=0 -> (vid'=19)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=19&did=16&currN=1&currK=2 -> (vid'=16)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=16&currN=1&currK=0 -> (vid'=20)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=20&did=16&currN=1&currK=2 -> (vid'=17)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=16&currN=1&currK=0 -> (vid'=21)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=21&did=16&currN=1&currK=2 -> (vid'=17)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=16&currN=1&currK=0 -> (vid'=22)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=22&did=16&currN=1&currK=2 -> (vid'=18)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=16&currN=1&currK=0 -> (vid'=23)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=23&did=16&currN=1&currK=2 -> (vid'=19)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=16&currN=1&currK=0 -> (vid'=24)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=24&did=16&currN=1&currK=2 -> (vid'=20)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=16&currN=1&currK=0 -> (vid'=26)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=25&did=16&currN=1&currK=2 -> (vid'=21)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=16&currN=1&currK=0 -> (vid'=26)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=26&did=16&currN=1&currK=2 -> (vid'=22)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=16&currN=1&currK=0 -> (vid'=27)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=27&did=16&currN=1&currK=2 -> (vid'=23)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=16&currN=1&currK=0 -> (vid'=28)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=28&did=16&currN=1&currK=2 -> (vid'=24)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=16&currN=1&currK=0 -> (vid'=29)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=29&did=16&currN=1&currK=2 -> (vid'=25)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=16&currN=1&currK=0 -> (vid'=31)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=30&did=16&currN=1&currK=2 -> (vid'=26)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=16&currN=1&currK=0 -> (vid'=31)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=31&did=16&currN=1&currK=2 -> (vid'=27)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=16&currN=1&currK=0 -> (vid'=32)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=32&did=16&currN=1&currK=2 -> (vid'=28)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=16&currN=1&currK=0 -> (vid'=33)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=33&did=16&currN=1&currK=2 -> (vid'=29)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=16&currN=1&currK=0 -> (vid'=34)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=34&did=16&currN=1&currK=2 -> (vid'=30)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=16&currN=1&currK=0 -> (vid'=35)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=35&did=16&currN=1&currK=2 -> (vid'=31)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=16&currN=1&currK=0 -> (vid'=36)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=36&did=16&currN=1&currK=2 -> (vid'=32)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=16&currN=1&currK=0 -> (vid'=37)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=37&did=16&currN=1&currK=2 -> (vid'=33)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=16&currN=1&currK=0 -> (vid'=38)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=38&did=16&currN=1&currK=2 -> (vid'=34)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=16&currN=1&currK=0 -> (vid'=39)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=39&did=16&currN=1&currK=2 -> (vid'=35)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=16&currN=1&currK=0 -> (vid'=40)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=40&did=16&currN=1&currK=2 -> (vid'=36)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=16&currN=1&currK=0 -> (vid'=41)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=41&did=16&currN=1&currK=2 -> (vid'=37)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=16&currN=1&currK=0 -> (vid'=42)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=42&did=16&currN=1&currK=2 -> (vid'=38)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=16&currN=1&currK=0 -> (vid'=43)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=43&did=16&currN=1&currK=2 -> (vid'=39)&(did'=12)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=16&currN=1&currK=0 -> (vid'=44)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=44&did=16&currN=1&currK=2 -> (vid'=40)&(did'=12)&(currN'=0)&(currK'=0);
+    [] vid=45&did=16 -> (did'=1);
+    [] vid=46&did=16 -> (did'=1);
+    [] vid=47&did=16 -> (did'=1);
+    [] vid=48&did=16 -> (did'=1);
+    [] vid=50&did=16 -> (did'=1);
+
+    [] vid=19&did=17&currN=1&currK=0 -> (vid'=19)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=19&did=17&currN=1&currK=2 -> (vid'=17)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=20&did=17&currN=1&currK=0 -> (vid'=20)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=20&did=17&currN=1&currK=2 -> (vid'=17)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=21&did=17&currN=1&currK=0 -> (vid'=21)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=21&did=17&currN=1&currK=2 -> (vid'=17)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=17&currN=1&currK=0 -> (vid'=22)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=22&did=17&currN=1&currK=2 -> (vid'=18)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=17&currN=1&currK=0 -> (vid'=23)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=23&did=17&currN=1&currK=2 -> (vid'=19)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=17&currN=1&currK=0 -> (vid'=24)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=24&did=17&currN=1&currK=2 -> (vid'=20)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=17&currN=1&currK=0 -> (vid'=26)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=25&did=17&currN=1&currK=2 -> (vid'=21)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=17&currN=1&currK=0 -> (vid'=26)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=26&did=17&currN=1&currK=2 -> (vid'=22)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=17&currN=1&currK=0 -> (vid'=27)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=27&did=17&currN=1&currK=2 -> (vid'=23)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=17&currN=1&currK=0 -> (vid'=28)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=28&did=17&currN=1&currK=2 -> (vid'=24)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=17&currN=1&currK=0 -> (vid'=29)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=29&did=17&currN=1&currK=2 -> (vid'=25)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=17&currN=1&currK=0 -> (vid'=31)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=30&did=17&currN=1&currK=2 -> (vid'=26)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=17&currN=1&currK=0 -> (vid'=31)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=31&did=17&currN=1&currK=2 -> (vid'=27)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=17&currN=1&currK=0 -> (vid'=32)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=32&did=17&currN=1&currK=2 -> (vid'=28)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=17&currN=1&currK=0 -> (vid'=33)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=33&did=17&currN=1&currK=2 -> (vid'=29)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=17&currN=1&currK=0 -> (vid'=34)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=34&did=17&currN=1&currK=2 -> (vid'=30)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=17&currN=1&currK=0 -> (vid'=35)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=35&did=17&currN=1&currK=2 -> (vid'=31)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=17&currN=1&currK=0 -> (vid'=36)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=36&did=17&currN=1&currK=2 -> (vid'=32)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=17&currN=1&currK=0 -> (vid'=37)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=37&did=17&currN=1&currK=2 -> (vid'=33)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=17&currN=1&currK=0 -> (vid'=38)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=38&did=17&currN=1&currK=2 -> (vid'=34)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=17&currN=1&currK=0 -> (vid'=39)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=39&did=17&currN=1&currK=2 -> (vid'=35)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=17&currN=1&currK=0 -> (vid'=40)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=40&did=17&currN=1&currK=2 -> (vid'=36)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=17&currN=1&currK=0 -> (vid'=41)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=41&did=17&currN=1&currK=2 -> (vid'=37)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=17&currN=1&currK=0 -> (vid'=42)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=42&did=17&currN=1&currK=2 -> (vid'=38)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=17&currN=1&currK=0 -> (vid'=43)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=43&did=17&currN=1&currK=2 -> (vid'=39)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=17&currN=1&currK=0 -> (vid'=44)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=44&did=17&currN=1&currK=2 -> (vid'=40)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=17&currN=1&currK=0 -> (vid'=45)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=45&did=17&currN=1&currK=2 -> (vid'=41)&(did'=13)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=17&currN=1&currK=0 -> (vid'=46)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=46&did=17&currN=1&currK=2 -> (vid'=42)&(did'=13)&(currN'=0)&(currK'=0);
+    [] vid=47&did=17 -> (did'=1);
+    [] vid=48&did=17 -> (did'=1);
+    [] vid=50&did=17 -> (did'=1);
+    [] vid=51&did=17 -> (did'=1);
+
+    [] vid=21&did=18&currN=1&currK=0 -> (vid'=21)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=21&did=18&currN=1&currK=2 -> (vid'=18)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=22&did=18&currN=1&currK=0 -> (vid'=22)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=22&did=18&currN=1&currK=2 -> (vid'=19)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=18&currN=1&currK=0 -> (vid'=23)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=23&did=18&currN=1&currK=2 -> (vid'=19)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=18&currN=1&currK=0 -> (vid'=24)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=24&did=18&currN=1&currK=2 -> (vid'=20)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=18&currN=1&currK=0 -> (vid'=26)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=25&did=18&currN=1&currK=2 -> (vid'=21)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=18&currN=1&currK=0 -> (vid'=26)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=26&did=18&currN=1&currK=2 -> (vid'=22)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=18&currN=1&currK=0 -> (vid'=27)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=27&did=18&currN=1&currK=2 -> (vid'=23)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=18&currN=1&currK=0 -> (vid'=28)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=28&did=18&currN=1&currK=2 -> (vid'=24)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=18&currN=1&currK=0 -> (vid'=29)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=29&did=18&currN=1&currK=2 -> (vid'=25)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=18&currN=1&currK=0 -> (vid'=31)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=30&did=18&currN=1&currK=2 -> (vid'=26)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=18&currN=1&currK=0 -> (vid'=31)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=31&did=18&currN=1&currK=2 -> (vid'=27)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=18&currN=1&currK=0 -> (vid'=32)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=32&did=18&currN=1&currK=2 -> (vid'=28)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=18&currN=1&currK=0 -> (vid'=33)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=33&did=18&currN=1&currK=2 -> (vid'=29)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=18&currN=1&currK=0 -> (vid'=34)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=34&did=18&currN=1&currK=2 -> (vid'=30)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=18&currN=1&currK=0 -> (vid'=35)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=35&did=18&currN=1&currK=2 -> (vid'=31)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=18&currN=1&currK=0 -> (vid'=36)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=36&did=18&currN=1&currK=2 -> (vid'=32)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=18&currN=1&currK=0 -> (vid'=37)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=37&did=18&currN=1&currK=2 -> (vid'=33)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=18&currN=1&currK=0 -> (vid'=38)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=38&did=18&currN=1&currK=2 -> (vid'=34)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=18&currN=1&currK=0 -> (vid'=39)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=39&did=18&currN=1&currK=2 -> (vid'=35)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=18&currN=1&currK=0 -> (vid'=40)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=40&did=18&currN=1&currK=2 -> (vid'=36)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=18&currN=1&currK=0 -> (vid'=41)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=41&did=18&currN=1&currK=2 -> (vid'=37)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=18&currN=1&currK=0 -> (vid'=42)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=42&did=18&currN=1&currK=2 -> (vid'=38)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=18&currN=1&currK=0 -> (vid'=43)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=43&did=18&currN=1&currK=2 -> (vid'=39)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=18&currN=1&currK=0 -> (vid'=44)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=44&did=18&currN=1&currK=2 -> (vid'=40)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=18&currN=1&currK=0 -> (vid'=45)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=45&did=18&currN=1&currK=2 -> (vid'=41)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=18&currN=1&currK=0 -> (vid'=46)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=46&did=18&currN=1&currK=2 -> (vid'=42)&(did'=14)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=18&currN=1&currK=0 -> (vid'=47)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=47&did=18&currN=1&currK=2 -> (vid'=43)&(did'=14)&(currN'=0)&(currK'=0);
+    [] vid=48&did=18 -> (did'=1);
+    [] vid=49&did=18 -> (did'=1);
+    [] vid=50&did=18 -> (did'=1);
+    [] vid=51&did=18 -> (did'=1);
+    [] vid=52&did=18 -> (did'=1);
+    [] vid=53&did=18 -> (did'=1);
+    [] vid=55&did=18 -> (did'=1);
+
+    [] vid=22&did=19&currN=1&currK=0 -> (vid'=22)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=22&did=19&currN=1&currK=2 -> (vid'=19)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=23&did=19&currN=1&currK=0 -> (vid'=23)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=23&did=19&currN=1&currK=2 -> (vid'=20)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=19&currN=1&currK=0 -> (vid'=24)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=24&did=19&currN=1&currK=2 -> (vid'=20)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=19&currN=1&currK=0 -> (vid'=26)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=25&did=19&currN=1&currK=2 -> (vid'=21)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=19&currN=1&currK=0 -> (vid'=26)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=26&did=19&currN=1&currK=2 -> (vid'=22)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=19&currN=1&currK=0 -> (vid'=27)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=27&did=19&currN=1&currK=2 -> (vid'=23)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=19&currN=1&currK=0 -> (vid'=28)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=28&did=19&currN=1&currK=2 -> (vid'=24)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=19&currN=1&currK=0 -> (vid'=29)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=29&did=19&currN=1&currK=2 -> (vid'=25)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=19&currN=1&currK=0 -> (vid'=31)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=30&did=19&currN=1&currK=2 -> (vid'=26)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=19&currN=1&currK=0 -> (vid'=31)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=31&did=19&currN=1&currK=2 -> (vid'=27)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=19&currN=1&currK=0 -> (vid'=32)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=32&did=19&currN=1&currK=2 -> (vid'=28)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=19&currN=1&currK=0 -> (vid'=33)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=33&did=19&currN=1&currK=2 -> (vid'=29)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=19&currN=1&currK=0 -> (vid'=34)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=34&did=19&currN=1&currK=2 -> (vid'=30)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=19&currN=1&currK=0 -> (vid'=35)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=35&did=19&currN=1&currK=2 -> (vid'=31)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=19&currN=1&currK=0 -> (vid'=36)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=36&did=19&currN=1&currK=2 -> (vid'=32)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=19&currN=1&currK=0 -> (vid'=37)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=37&did=19&currN=1&currK=2 -> (vid'=33)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=19&currN=1&currK=0 -> (vid'=38)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=38&did=19&currN=1&currK=2 -> (vid'=34)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=19&currN=1&currK=0 -> (vid'=39)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=39&did=19&currN=1&currK=2 -> (vid'=35)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=19&currN=1&currK=0 -> (vid'=40)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=40&did=19&currN=1&currK=2 -> (vid'=36)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=19&currN=1&currK=0 -> (vid'=41)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=41&did=19&currN=1&currK=2 -> (vid'=37)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=19&currN=1&currK=0 -> (vid'=42)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=42&did=19&currN=1&currK=2 -> (vid'=38)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=19&currN=1&currK=0 -> (vid'=43)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=43&did=19&currN=1&currK=2 -> (vid'=39)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=19&currN=1&currK=0 -> (vid'=44)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=44&did=19&currN=1&currK=2 -> (vid'=40)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=19&currN=1&currK=0 -> (vid'=45)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=45&did=19&currN=1&currK=2 -> (vid'=41)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=19&currN=1&currK=0 -> (vid'=46)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=46&did=19&currN=1&currK=2 -> (vid'=42)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=19&currN=1&currK=0 -> (vid'=47)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=47&did=19&currN=1&currK=2 -> (vid'=43)&(did'=15)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=19&currN=1&currK=0 -> (vid'=48)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=48&did=19&currN=1&currK=2 -> (vid'=44)&(did'=15)&(currN'=0)&(currK'=0);
+    [] vid=50&did=19 -> (did'=1);
+    [] vid=51&did=19 -> (did'=1);
+
+    [] vid=23&did=20&currN=1&currK=0 -> (vid'=23)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=23&did=20&currN=1&currK=2 -> (vid'=21)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=24&did=20&currN=1&currK=0 -> (vid'=24)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=24&did=20&currN=1&currK=2 -> (vid'=21)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=25&did=20&currN=1&currK=0 -> (vid'=26)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=25&did=20&currN=1&currK=2 -> (vid'=21)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=20&currN=1&currK=0 -> (vid'=26)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=26&did=20&currN=1&currK=2 -> (vid'=22)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=20&currN=1&currK=0 -> (vid'=27)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=27&did=20&currN=1&currK=2 -> (vid'=23)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=20&currN=1&currK=0 -> (vid'=28)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=28&did=20&currN=1&currK=2 -> (vid'=24)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=20&currN=1&currK=0 -> (vid'=29)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=29&did=20&currN=1&currK=2 -> (vid'=25)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=20&currN=1&currK=0 -> (vid'=31)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=30&did=20&currN=1&currK=2 -> (vid'=26)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=20&currN=1&currK=0 -> (vid'=31)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=31&did=20&currN=1&currK=2 -> (vid'=27)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=20&currN=1&currK=0 -> (vid'=32)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=32&did=20&currN=1&currK=2 -> (vid'=28)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=20&currN=1&currK=0 -> (vid'=33)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=33&did=20&currN=1&currK=2 -> (vid'=29)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=20&currN=1&currK=0 -> (vid'=34)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=34&did=20&currN=1&currK=2 -> (vid'=30)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=20&currN=1&currK=0 -> (vid'=35)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=35&did=20&currN=1&currK=2 -> (vid'=31)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=20&currN=1&currK=0 -> (vid'=36)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=36&did=20&currN=1&currK=2 -> (vid'=32)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=20&currN=1&currK=0 -> (vid'=37)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=37&did=20&currN=1&currK=2 -> (vid'=33)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=20&currN=1&currK=0 -> (vid'=38)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=38&did=20&currN=1&currK=2 -> (vid'=34)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=20&currN=1&currK=0 -> (vid'=39)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=39&did=20&currN=1&currK=2 -> (vid'=35)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=20&currN=1&currK=0 -> (vid'=40)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=40&did=20&currN=1&currK=2 -> (vid'=36)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=20&currN=1&currK=0 -> (vid'=41)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=41&did=20&currN=1&currK=2 -> (vid'=37)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=20&currN=1&currK=0 -> (vid'=42)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=42&did=20&currN=1&currK=2 -> (vid'=38)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=20&currN=1&currK=0 -> (vid'=43)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=43&did=20&currN=1&currK=2 -> (vid'=39)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=20&currN=1&currK=0 -> (vid'=44)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=44&did=20&currN=1&currK=2 -> (vid'=40)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=20&currN=1&currK=0 -> (vid'=45)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=45&did=20&currN=1&currK=2 -> (vid'=41)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=20&currN=1&currK=0 -> (vid'=46)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=46&did=20&currN=1&currK=2 -> (vid'=42)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=20&currN=1&currK=0 -> (vid'=47)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=47&did=20&currN=1&currK=2 -> (vid'=43)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=20&currN=1&currK=0 -> (vid'=48)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=48&did=20&currN=1&currK=2 -> (vid'=44)&(did'=16)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=20&currN=1&currK=0 -> (vid'=50)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=50&did=20&currN=1&currK=2 -> (vid'=46)&(did'=16)&(currN'=0)&(currK'=0);
+    [] vid=51&did=20 -> (did'=1);
+
+    [] vid=25&did=21&currN=1&currK=0 -> (vid'=26)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=25&did=21&currN=1&currK=2 -> (vid'=22)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=21&currN=1&currK=0 -> (vid'=26)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=26&did=21&currN=1&currK=2 -> (vid'=22)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=21&currN=1&currK=0 -> (vid'=27)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=27&did=21&currN=1&currK=2 -> (vid'=23)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=21&currN=1&currK=0 -> (vid'=28)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=28&did=21&currN=1&currK=2 -> (vid'=24)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=21&currN=1&currK=0 -> (vid'=29)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=29&did=21&currN=1&currK=2 -> (vid'=25)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=21&currN=1&currK=0 -> (vid'=31)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=30&did=21&currN=1&currK=2 -> (vid'=26)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=21&currN=1&currK=0 -> (vid'=31)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=31&did=21&currN=1&currK=2 -> (vid'=27)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=21&currN=1&currK=0 -> (vid'=32)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=32&did=21&currN=1&currK=2 -> (vid'=28)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=21&currN=1&currK=0 -> (vid'=33)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=33&did=21&currN=1&currK=2 -> (vid'=29)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=21&currN=1&currK=0 -> (vid'=34)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=34&did=21&currN=1&currK=2 -> (vid'=30)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=21&currN=1&currK=0 -> (vid'=35)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=35&did=21&currN=1&currK=2 -> (vid'=31)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=21&currN=1&currK=0 -> (vid'=36)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=36&did=21&currN=1&currK=2 -> (vid'=32)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=21&currN=1&currK=0 -> (vid'=37)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=37&did=21&currN=1&currK=2 -> (vid'=33)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=21&currN=1&currK=0 -> (vid'=38)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=38&did=21&currN=1&currK=2 -> (vid'=34)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=21&currN=1&currK=0 -> (vid'=39)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=39&did=21&currN=1&currK=2 -> (vid'=35)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=21&currN=1&currK=0 -> (vid'=40)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=40&did=21&currN=1&currK=2 -> (vid'=36)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=21&currN=1&currK=0 -> (vid'=41)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=41&did=21&currN=1&currK=2 -> (vid'=37)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=21&currN=1&currK=0 -> (vid'=42)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=42&did=21&currN=1&currK=2 -> (vid'=38)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=21&currN=1&currK=0 -> (vid'=43)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=43&did=21&currN=1&currK=2 -> (vid'=39)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=21&currN=1&currK=0 -> (vid'=44)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=44&did=21&currN=1&currK=2 -> (vid'=40)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=21&currN=1&currK=0 -> (vid'=45)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=45&did=21&currN=1&currK=2 -> (vid'=41)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=21&currN=1&currK=0 -> (vid'=46)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=46&did=21&currN=1&currK=2 -> (vid'=42)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=21&currN=1&currK=0 -> (vid'=47)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=47&did=21&currN=1&currK=2 -> (vid'=43)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=21&currN=1&currK=0 -> (vid'=48)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=48&did=21&currN=1&currK=2 -> (vid'=44)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=21&currN=1&currK=0 -> (vid'=50)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=50&did=21&currN=1&currK=2 -> (vid'=46)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=21&currN=1&currK=0 -> (vid'=51)&(did'=17)&(currN'=0)&(currK'=0);
+    [] vid=51&did=21&currN=1&currK=2 -> (vid'=47)&(did'=17)&(currN'=0)&(currK'=0);
+
+    [] vid=26&did=22&currN=1&currK=0 -> (vid'=26)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=26&did=22&currN=1&currK=2 -> (vid'=23)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=22&currN=1&currK=0 -> (vid'=27)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=27&did=22&currN=1&currK=2 -> (vid'=23)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=22&currN=1&currK=0 -> (vid'=28)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=28&did=22&currN=1&currK=2 -> (vid'=24)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=22&currN=1&currK=0 -> (vid'=29)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=29&did=22&currN=1&currK=2 -> (vid'=25)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=22&currN=1&currK=0 -> (vid'=31)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=30&did=22&currN=1&currK=2 -> (vid'=26)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=22&currN=1&currK=0 -> (vid'=31)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=31&did=22&currN=1&currK=2 -> (vid'=27)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=22&currN=1&currK=0 -> (vid'=32)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=32&did=22&currN=1&currK=2 -> (vid'=28)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=22&currN=1&currK=0 -> (vid'=33)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=33&did=22&currN=1&currK=2 -> (vid'=29)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=22&currN=1&currK=0 -> (vid'=34)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=34&did=22&currN=1&currK=2 -> (vid'=30)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=22&currN=1&currK=0 -> (vid'=35)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=35&did=22&currN=1&currK=2 -> (vid'=31)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=22&currN=1&currK=0 -> (vid'=36)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=36&did=22&currN=1&currK=2 -> (vid'=32)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=22&currN=1&currK=0 -> (vid'=37)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=37&did=22&currN=1&currK=2 -> (vid'=33)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=22&currN=1&currK=0 -> (vid'=38)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=38&did=22&currN=1&currK=2 -> (vid'=34)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=22&currN=1&currK=0 -> (vid'=39)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=39&did=22&currN=1&currK=2 -> (vid'=35)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=22&currN=1&currK=0 -> (vid'=40)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=40&did=22&currN=1&currK=2 -> (vid'=36)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=22&currN=1&currK=0 -> (vid'=41)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=41&did=22&currN=1&currK=2 -> (vid'=37)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=22&currN=1&currK=0 -> (vid'=42)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=42&did=22&currN=1&currK=2 -> (vid'=38)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=22&currN=1&currK=0 -> (vid'=43)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=43&did=22&currN=1&currK=2 -> (vid'=39)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=22&currN=1&currK=0 -> (vid'=44)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=44&did=22&currN=1&currK=2 -> (vid'=40)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=22&currN=1&currK=0 -> (vid'=45)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=45&did=22&currN=1&currK=2 -> (vid'=41)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=22&currN=1&currK=0 -> (vid'=46)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=46&did=22&currN=1&currK=2 -> (vid'=42)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=22&currN=1&currK=0 -> (vid'=47)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=47&did=22&currN=1&currK=2 -> (vid'=43)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=22&currN=1&currK=0 -> (vid'=48)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=48&did=22&currN=1&currK=2 -> (vid'=44)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=22&currN=1&currK=0 -> (vid'=50)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=50&did=22&currN=1&currK=2 -> (vid'=46)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=22&currN=1&currK=0 -> (vid'=51)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=51&did=22&currN=1&currK=2 -> (vid'=47)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=27&did=23&currN=1&currK=0 -> (vid'=27)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=27&did=23&currN=1&currK=2 -> (vid'=24)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=28&did=23&currN=1&currK=0 -> (vid'=28)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=28&did=23&currN=1&currK=2 -> (vid'=24)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=23&currN=1&currK=0 -> (vid'=29)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=29&did=23&currN=1&currK=2 -> (vid'=25)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=23&currN=1&currK=0 -> (vid'=31)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=30&did=23&currN=1&currK=2 -> (vid'=26)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=23&currN=1&currK=0 -> (vid'=31)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=31&did=23&currN=1&currK=2 -> (vid'=27)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=23&currN=1&currK=0 -> (vid'=32)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=32&did=23&currN=1&currK=2 -> (vid'=28)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=23&currN=1&currK=0 -> (vid'=33)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=33&did=23&currN=1&currK=2 -> (vid'=29)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=23&currN=1&currK=0 -> (vid'=34)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=34&did=23&currN=1&currK=2 -> (vid'=30)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=23&currN=1&currK=0 -> (vid'=35)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=35&did=23&currN=1&currK=2 -> (vid'=31)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=23&currN=1&currK=0 -> (vid'=36)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=36&did=23&currN=1&currK=2 -> (vid'=32)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=23&currN=1&currK=0 -> (vid'=37)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=37&did=23&currN=1&currK=2 -> (vid'=33)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=23&currN=1&currK=0 -> (vid'=38)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=38&did=23&currN=1&currK=2 -> (vid'=34)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=23&currN=1&currK=0 -> (vid'=39)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=39&did=23&currN=1&currK=2 -> (vid'=35)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=23&currN=1&currK=0 -> (vid'=40)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=40&did=23&currN=1&currK=2 -> (vid'=36)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=23&currN=1&currK=0 -> (vid'=41)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=41&did=23&currN=1&currK=2 -> (vid'=37)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=23&currN=1&currK=0 -> (vid'=42)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=42&did=23&currN=1&currK=2 -> (vid'=38)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=23&currN=1&currK=0 -> (vid'=43)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=43&did=23&currN=1&currK=2 -> (vid'=39)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=23&currN=1&currK=0 -> (vid'=44)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=44&did=23&currN=1&currK=2 -> (vid'=40)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=23&currN=1&currK=0 -> (vid'=45)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=45&did=23&currN=1&currK=2 -> (vid'=41)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=23&currN=1&currK=0 -> (vid'=46)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=46&did=23&currN=1&currK=2 -> (vid'=42)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=23&currN=1&currK=0 -> (vid'=47)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=47&did=23&currN=1&currK=2 -> (vid'=43)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=23&currN=1&currK=0 -> (vid'=48)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=48&did=23&currN=1&currK=2 -> (vid'=44)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=23&currN=1&currK=0 -> (vid'=50)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=49&did=23&currN=1&currK=2 -> (vid'=45)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=23&currN=1&currK=0 -> (vid'=50)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=50&did=23&currN=1&currK=2 -> (vid'=46)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=23&currN=1&currK=0 -> (vid'=51)&(did'=19)&(currN'=0)&(currK'=0);
+    [] vid=51&did=23&currN=1&currK=2 -> (vid'=47)&(did'=19)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=23&currN=1&currK=0 -> (vid'=52)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=52&did=23&currN=1&currK=2 -> (vid'=48)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=23&currN=1&currK=0 -> (vid'=53)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=53&did=23&currN=1&currK=2 -> (vid'=49)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=23&currN=1&currK=0 -> (vid'=55)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=54&did=23&currN=1&currK=2 -> (vid'=50)&(did'=18)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=23&currN=1&currK=0 -> (vid'=55)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=55&did=23&currN=1&currK=2 -> (vid'=51)&(did'=18)&(currN'=0)&(currK'=0);
+    [] vid=56&did=23 -> (did'=1);
+    [] vid=57&did=23 -> (did'=1);
+    [] vid=58&did=23 -> (did'=1);
+    [] vid=60&did=23 -> (did'=1);
+    [] vid=61&did=23 -> (did'=1);
+
+    [] vid=28&did=24&currN=1&currK=0 -> (vid'=28)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=28&did=24&currN=1&currK=2 -> (vid'=25)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=24&currN=1&currK=0 -> (vid'=31)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=30&did=24&currN=1&currK=2 -> (vid'=26)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=24&currN=1&currK=0 -> (vid'=31)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=31&did=24&currN=1&currK=2 -> (vid'=27)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=24&currN=1&currK=0 -> (vid'=32)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=32&did=24&currN=1&currK=2 -> (vid'=28)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=24&currN=1&currK=0 -> (vid'=33)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=33&did=24&currN=1&currK=2 -> (vid'=29)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=24&currN=1&currK=0 -> (vid'=34)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=34&did=24&currN=1&currK=2 -> (vid'=30)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=24&currN=1&currK=0 -> (vid'=35)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=35&did=24&currN=1&currK=2 -> (vid'=31)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=24&currN=1&currK=0 -> (vid'=36)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=36&did=24&currN=1&currK=2 -> (vid'=32)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=24&currN=1&currK=0 -> (vid'=37)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=37&did=24&currN=1&currK=2 -> (vid'=33)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=24&currN=1&currK=0 -> (vid'=38)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=38&did=24&currN=1&currK=2 -> (vid'=34)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=24&currN=1&currK=0 -> (vid'=39)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=39&did=24&currN=1&currK=2 -> (vid'=35)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=24&currN=1&currK=0 -> (vid'=40)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=40&did=24&currN=1&currK=2 -> (vid'=36)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=24&currN=1&currK=0 -> (vid'=41)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=41&did=24&currN=1&currK=2 -> (vid'=37)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=24&currN=1&currK=0 -> (vid'=43)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=43&did=24&currN=1&currK=2 -> (vid'=39)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=24&currN=1&currK=0 -> (vid'=44)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=44&did=24&currN=1&currK=2 -> (vid'=40)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=24&currN=1&currK=0 -> (vid'=45)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=45&did=24&currN=1&currK=2 -> (vid'=41)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=24&currN=1&currK=0 -> (vid'=46)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=46&did=24&currN=1&currK=2 -> (vid'=42)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=24&currN=1&currK=0 -> (vid'=47)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=47&did=24&currN=1&currK=2 -> (vid'=43)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=24&currN=1&currK=0 -> (vid'=48)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=48&did=24&currN=1&currK=2 -> (vid'=44)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=24&currN=1&currK=0 -> (vid'=50)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=50&did=24&currN=1&currK=2 -> (vid'=46)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=24&currN=1&currK=0 -> (vid'=51)&(did'=20)&(currN'=0)&(currK'=0);
+    [] vid=51&did=24&currN=1&currK=2 -> (vid'=47)&(did'=20)&(currN'=0)&(currK'=0);
+
+    [] vid=29&did=25&currN=1&currK=0 -> (vid'=29)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=29&did=25&currN=1&currK=2 -> (vid'=26)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=25&currN=1&currK=0 -> (vid'=31)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=30&did=25&currN=1&currK=2 -> (vid'=26)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=25&currN=1&currK=0 -> (vid'=31)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=31&did=25&currN=1&currK=2 -> (vid'=27)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=25&currN=1&currK=0 -> (vid'=32)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=32&did=25&currN=1&currK=2 -> (vid'=28)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=25&currN=1&currK=0 -> (vid'=33)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=33&did=25&currN=1&currK=2 -> (vid'=29)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=25&currN=1&currK=0 -> (vid'=34)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=34&did=25&currN=1&currK=2 -> (vid'=30)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=25&currN=1&currK=0 -> (vid'=35)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=35&did=25&currN=1&currK=2 -> (vid'=31)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=25&currN=1&currK=0 -> (vid'=36)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=36&did=25&currN=1&currK=2 -> (vid'=32)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=25&currN=1&currK=0 -> (vid'=37)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=37&did=25&currN=1&currK=2 -> (vid'=33)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=25&currN=1&currK=0 -> (vid'=38)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=38&did=25&currN=1&currK=2 -> (vid'=34)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=25&currN=1&currK=0 -> (vid'=39)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=39&did=25&currN=1&currK=2 -> (vid'=35)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=25&currN=1&currK=0 -> (vid'=40)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=40&did=25&currN=1&currK=2 -> (vid'=36)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=25&currN=1&currK=0 -> (vid'=41)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=41&did=25&currN=1&currK=2 -> (vid'=37)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=25&currN=1&currK=0 -> (vid'=42)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=42&did=25&currN=1&currK=2 -> (vid'=38)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=25&currN=1&currK=0 -> (vid'=43)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=43&did=25&currN=1&currK=2 -> (vid'=39)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=25&currN=1&currK=0 -> (vid'=44)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=44&did=25&currN=1&currK=2 -> (vid'=40)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=25&currN=1&currK=0 -> (vid'=45)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=45&did=25&currN=1&currK=2 -> (vid'=41)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=25&currN=1&currK=0 -> (vid'=46)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=46&did=25&currN=1&currK=2 -> (vid'=42)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=25&currN=1&currK=0 -> (vid'=47)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=47&did=25&currN=1&currK=2 -> (vid'=43)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=25&currN=1&currK=0 -> (vid'=48)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=48&did=25&currN=1&currK=2 -> (vid'=44)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=25&currN=1&currK=0 -> (vid'=50)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=50&did=25&currN=1&currK=2 -> (vid'=46)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=25&currN=1&currK=0 -> (vid'=51)&(did'=21)&(currN'=0)&(currK'=0);
+    [] vid=51&did=25&currN=1&currK=2 -> (vid'=47)&(did'=21)&(currN'=0)&(currK'=0);
+
+    [] vid=30&did=26&currN=1&currK=0 -> (vid'=31)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=30&did=26&currN=1&currK=2 -> (vid'=27)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=26&currN=1&currK=0 -> (vid'=31)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=31&did=26&currN=1&currK=2 -> (vid'=27)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=26&currN=1&currK=0 -> (vid'=32)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=32&did=26&currN=1&currK=2 -> (vid'=28)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=26&currN=1&currK=0 -> (vid'=33)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=33&did=26&currN=1&currK=2 -> (vid'=29)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=26&currN=1&currK=0 -> (vid'=34)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=34&did=26&currN=1&currK=2 -> (vid'=30)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=26&currN=1&currK=0 -> (vid'=35)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=35&did=26&currN=1&currK=2 -> (vid'=31)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=26&currN=1&currK=0 -> (vid'=36)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=36&did=26&currN=1&currK=2 -> (vid'=32)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=26&currN=1&currK=0 -> (vid'=37)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=37&did=26&currN=1&currK=2 -> (vid'=33)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=26&currN=1&currK=0 -> (vid'=38)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=38&did=26&currN=1&currK=2 -> (vid'=34)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=26&currN=1&currK=0 -> (vid'=39)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=39&did=26&currN=1&currK=2 -> (vid'=35)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=26&currN=1&currK=0 -> (vid'=40)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=40&did=26&currN=1&currK=2 -> (vid'=36)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=26&currN=1&currK=0 -> (vid'=41)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=41&did=26&currN=1&currK=2 -> (vid'=37)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=26&currN=1&currK=0 -> (vid'=42)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=42&did=26&currN=1&currK=2 -> (vid'=38)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=26&currN=1&currK=0 -> (vid'=43)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=43&did=26&currN=1&currK=2 -> (vid'=39)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=26&currN=1&currK=0 -> (vid'=44)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=44&did=26&currN=1&currK=2 -> (vid'=40)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=26&currN=1&currK=0 -> (vid'=45)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=45&did=26&currN=1&currK=2 -> (vid'=41)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=26&currN=1&currK=0 -> (vid'=46)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=46&did=26&currN=1&currK=2 -> (vid'=42)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=26&currN=1&currK=0 -> (vid'=47)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=47&did=26&currN=1&currK=2 -> (vid'=43)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=26&currN=1&currK=0 -> (vid'=48)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=48&did=26&currN=1&currK=2 -> (vid'=44)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=26&currN=1&currK=0 -> (vid'=50)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=50&did=26&currN=1&currK=2 -> (vid'=46)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=26&currN=1&currK=0 -> (vid'=51)&(did'=22)&(currN'=0)&(currK'=0);
+    [] vid=51&did=26&currN=1&currK=2 -> (vid'=47)&(did'=22)&(currN'=0)&(currK'=0);
+
+    [] vid=31&did=27&currN=1&currK=0 -> (vid'=31)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=31&did=27&currN=1&currK=2 -> (vid'=28)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=27&currN=1&currK=0 -> (vid'=32)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=32&did=27&currN=1&currK=2 -> (vid'=28)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=27&currN=1&currK=0 -> (vid'=34)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=34&did=27&currN=1&currK=2 -> (vid'=30)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=27&currN=1&currK=0 -> (vid'=35)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=35&did=27&currN=1&currK=2 -> (vid'=31)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=27&currN=1&currK=0 -> (vid'=36)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=36&did=27&currN=1&currK=2 -> (vid'=32)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=27&currN=1&currK=0 -> (vid'=37)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=37&did=27&currN=1&currK=2 -> (vid'=33)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=27&currN=1&currK=0 -> (vid'=38)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=38&did=27&currN=1&currK=2 -> (vid'=34)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=27&currN=1&currK=0 -> (vid'=39)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=39&did=27&currN=1&currK=2 -> (vid'=35)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=27&currN=1&currK=0 -> (vid'=40)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=40&did=27&currN=1&currK=2 -> (vid'=36)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=27&currN=1&currK=0 -> (vid'=41)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=41&did=27&currN=1&currK=2 -> (vid'=37)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=27&currN=1&currK=0 -> (vid'=42)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=42&did=27&currN=1&currK=2 -> (vid'=38)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=27&currN=1&currK=0 -> (vid'=43)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=43&did=27&currN=1&currK=2 -> (vid'=39)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=27&currN=1&currK=0 -> (vid'=44)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=44&did=27&currN=1&currK=2 -> (vid'=40)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=27&currN=1&currK=0 -> (vid'=45)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=45&did=27&currN=1&currK=2 -> (vid'=41)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=27&currN=1&currK=0 -> (vid'=46)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=46&did=27&currN=1&currK=2 -> (vid'=42)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=27&currN=1&currK=0 -> (vid'=47)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=47&did=27&currN=1&currK=2 -> (vid'=43)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=27&currN=1&currK=0 -> (vid'=48)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=48&did=27&currN=1&currK=2 -> (vid'=44)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=27&currN=1&currK=0 -> (vid'=50)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=50&did=27&currN=1&currK=2 -> (vid'=46)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=27&currN=1&currK=0 -> (vid'=51)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=51&did=27&currN=1&currK=2 -> (vid'=47)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=32&did=28&currN=1&currK=0 -> (vid'=32)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=32&did=28&currN=1&currK=2 -> (vid'=29)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=28&currN=1&currK=0 -> (vid'=33)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=33&did=28&currN=1&currK=2 -> (vid'=30)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=28&currN=1&currK=0 -> (vid'=34)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=34&did=28&currN=1&currK=2 -> (vid'=30)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=28&currN=1&currK=0 -> (vid'=35)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=35&did=28&currN=1&currK=2 -> (vid'=31)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=28&currN=1&currK=0 -> (vid'=36)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=36&did=28&currN=1&currK=2 -> (vid'=32)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=28&currN=1&currK=0 -> (vid'=37)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=37&did=28&currN=1&currK=2 -> (vid'=33)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=28&currN=1&currK=0 -> (vid'=38)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=38&did=28&currN=1&currK=2 -> (vid'=34)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=28&currN=1&currK=0 -> (vid'=39)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=39&did=28&currN=1&currK=2 -> (vid'=35)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=28&currN=1&currK=0 -> (vid'=40)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=40&did=28&currN=1&currK=2 -> (vid'=36)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=28&currN=1&currK=0 -> (vid'=41)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=41&did=28&currN=1&currK=2 -> (vid'=37)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=28&currN=1&currK=0 -> (vid'=43)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=43&did=28&currN=1&currK=2 -> (vid'=39)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=28&currN=1&currK=0 -> (vid'=44)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=44&did=28&currN=1&currK=2 -> (vid'=40)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=28&currN=1&currK=0 -> (vid'=47)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=47&did=28&currN=1&currK=2 -> (vid'=43)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=28&currN=1&currK=0 -> (vid'=48)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=48&did=28&currN=1&currK=2 -> (vid'=44)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=28&currN=1&currK=0 -> (vid'=50)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=49&did=28&currN=1&currK=2 -> (vid'=45)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=28&currN=1&currK=0 -> (vid'=50)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=50&did=28&currN=1&currK=2 -> (vid'=46)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=28&currN=1&currK=0 -> (vid'=51)&(did'=24)&(currN'=0)&(currK'=0);
+    [] vid=51&did=28&currN=1&currK=2 -> (vid'=47)&(did'=24)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=28&currN=1&currK=0 -> (vid'=52)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=52&did=28&currN=1&currK=2 -> (vid'=48)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=28&currN=1&currK=0 -> (vid'=53)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=53&did=28&currN=1&currK=2 -> (vid'=49)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=28&currN=1&currK=0 -> (vid'=55)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=54&did=28&currN=1&currK=2 -> (vid'=50)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=28&currN=1&currK=0 -> (vid'=55)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=55&did=28&currN=1&currK=2 -> (vid'=51)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=28&currN=1&currK=0 -> (vid'=56)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=56&did=28&currN=1&currK=2 -> (vid'=52)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=28&currN=1&currK=0 -> (vid'=57)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=57&did=28&currN=1&currK=2 -> (vid'=53)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=28&currN=1&currK=0 -> (vid'=58)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=58&did=28&currN=1&currK=2 -> (vid'=54)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=28&currN=1&currK=0 -> (vid'=60)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=60&did=28&currN=1&currK=2 -> (vid'=56)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=28&currN=1&currK=0 -> (vid'=61)&(did'=23)&(currN'=0)&(currK'=0);
+    [] vid=61&did=28&currN=1&currK=2 -> (vid'=57)&(did'=23)&(currN'=0)&(currK'=0);
+
+    [] vid=33&did=29&currN=1&currK=0 -> (vid'=33)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=33&did=29&currN=1&currK=2 -> (vid'=30)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=29&currN=1&currK=0 -> (vid'=35)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=35&did=29&currN=1&currK=2 -> (vid'=31)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=29&currN=1&currK=0 -> (vid'=36)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=36&did=29&currN=1&currK=2 -> (vid'=32)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=29&currN=1&currK=0 -> (vid'=37)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=37&did=29&currN=1&currK=2 -> (vid'=33)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=29&currN=1&currK=0 -> (vid'=38)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=38&did=29&currN=1&currK=2 -> (vid'=34)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=29&currN=1&currK=0 -> (vid'=39)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=39&did=29&currN=1&currK=2 -> (vid'=35)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=29&currN=1&currK=0 -> (vid'=40)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=40&did=29&currN=1&currK=2 -> (vid'=36)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=29&currN=1&currK=0 -> (vid'=41)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=41&did=29&currN=1&currK=2 -> (vid'=37)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=29&currN=1&currK=0 -> (vid'=42)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=42&did=29&currN=1&currK=2 -> (vid'=38)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=29&currN=1&currK=0 -> (vid'=43)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=43&did=29&currN=1&currK=2 -> (vid'=39)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=29&currN=1&currK=0 -> (vid'=44)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=44&did=29&currN=1&currK=2 -> (vid'=40)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=29&currN=1&currK=0 -> (vid'=45)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=45&did=29&currN=1&currK=2 -> (vid'=41)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=29&currN=1&currK=0 -> (vid'=46)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=46&did=29&currN=1&currK=2 -> (vid'=42)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=29&currN=1&currK=0 -> (vid'=47)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=47&did=29&currN=1&currK=2 -> (vid'=43)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=29&currN=1&currK=0 -> (vid'=48)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=48&did=29&currN=1&currK=2 -> (vid'=44)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=29&currN=1&currK=0 -> (vid'=50)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=50&did=29&currN=1&currK=2 -> (vid'=46)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=29&currN=1&currK=0 -> (vid'=51)&(did'=25)&(currN'=0)&(currK'=0);
+    [] vid=51&did=29&currN=1&currK=2 -> (vid'=47)&(did'=25)&(currN'=0)&(currK'=0);
+
+    [] vid=34&did=30&currN=1&currK=0 -> (vid'=34)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=34&did=30&currN=1&currK=2 -> (vid'=31)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=35&did=30&currN=1&currK=0 -> (vid'=35)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=35&did=30&currN=1&currK=2 -> (vid'=32)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=30&currN=1&currK=0 -> (vid'=38)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=38&did=30&currN=1&currK=2 -> (vid'=34)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=30&currN=1&currK=0 -> (vid'=40)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=40&did=30&currN=1&currK=2 -> (vid'=36)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=30&currN=1&currK=0 -> (vid'=41)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=41&did=30&currN=1&currK=2 -> (vid'=37)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=30&currN=1&currK=0 -> (vid'=42)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=42&did=30&currN=1&currK=2 -> (vid'=38)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=30&currN=1&currK=0 -> (vid'=43)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=43&did=30&currN=1&currK=2 -> (vid'=39)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=30&currN=1&currK=0 -> (vid'=44)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=44&did=30&currN=1&currK=2 -> (vid'=40)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=30&currN=1&currK=0 -> (vid'=45)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=45&did=30&currN=1&currK=2 -> (vid'=41)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=30&currN=1&currK=0 -> (vid'=46)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=46&did=30&currN=1&currK=2 -> (vid'=42)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=30&currN=1&currK=0 -> (vid'=47)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=47&did=30&currN=1&currK=2 -> (vid'=43)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=30&currN=1&currK=0 -> (vid'=48)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=48&did=30&currN=1&currK=2 -> (vid'=44)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=30&currN=1&currK=0 -> (vid'=50)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=50&did=30&currN=1&currK=2 -> (vid'=46)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=30&currN=1&currK=0 -> (vid'=51)&(did'=26)&(currN'=0)&(currK'=0);
+    [] vid=51&did=30&currN=1&currK=2 -> (vid'=47)&(did'=26)&(currN'=0)&(currK'=0);
+
+    [] vid=36&did=31&currN=1&currK=0 -> (vid'=36)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=36&did=31&currN=1&currK=2 -> (vid'=32)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=31&currN=1&currK=0 -> (vid'=37)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=37&did=31&currN=1&currK=2 -> (vid'=33)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=31&currN=1&currK=0 -> (vid'=38)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=38&did=31&currN=1&currK=2 -> (vid'=34)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=31&currN=1&currK=0 -> (vid'=39)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=39&did=31&currN=1&currK=2 -> (vid'=35)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=31&currN=1&currK=0 -> (vid'=40)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=40&did=31&currN=1&currK=2 -> (vid'=36)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=31&currN=1&currK=0 -> (vid'=41)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=41&did=31&currN=1&currK=2 -> (vid'=37)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=31&currN=1&currK=0 -> (vid'=42)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=42&did=31&currN=1&currK=2 -> (vid'=38)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=31&currN=1&currK=0 -> (vid'=43)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=43&did=31&currN=1&currK=2 -> (vid'=39)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=31&currN=1&currK=0 -> (vid'=44)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=44&did=31&currN=1&currK=2 -> (vid'=40)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=31&currN=1&currK=0 -> (vid'=45)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=45&did=31&currN=1&currK=2 -> (vid'=41)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=31&currN=1&currK=0 -> (vid'=46)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=46&did=31&currN=1&currK=2 -> (vid'=42)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=31&currN=1&currK=0 -> (vid'=47)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=47&did=31&currN=1&currK=2 -> (vid'=43)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=31&currN=1&currK=0 -> (vid'=48)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=48&did=31&currN=1&currK=2 -> (vid'=44)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=31&currN=1&currK=0 -> (vid'=50)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=50&did=31&currN=1&currK=2 -> (vid'=46)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=31&currN=1&currK=0 -> (vid'=51)&(did'=27)&(currN'=0)&(currK'=0);
+    [] vid=51&did=31&currN=1&currK=2 -> (vid'=47)&(did'=27)&(currN'=0)&(currK'=0);
+
+    [] vid=37&did=32&currN=1&currK=0 -> (vid'=37)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=37&did=32&currN=1&currK=2 -> (vid'=33)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=32&currN=1&currK=0 -> (vid'=39)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=39&did=32&currN=1&currK=2 -> (vid'=35)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=32&currN=1&currK=0 -> (vid'=40)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=40&did=32&currN=1&currK=2 -> (vid'=36)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=32&currN=1&currK=0 -> (vid'=41)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=41&did=32&currN=1&currK=2 -> (vid'=37)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=32&currN=1&currK=0 -> (vid'=43)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=43&did=32&currN=1&currK=2 -> (vid'=39)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=32&currN=1&currK=0 -> (vid'=44)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=44&did=32&currN=1&currK=2 -> (vid'=40)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=32&currN=1&currK=0 -> (vid'=47)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=47&did=32&currN=1&currK=2 -> (vid'=43)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=32&currN=1&currK=0 -> (vid'=48)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=48&did=32&currN=1&currK=2 -> (vid'=44)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=32&currN=1&currK=0 -> (vid'=51)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=51&did=32&currN=1&currK=2 -> (vid'=47)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=38&did=33&currN=1&currK=0 -> (vid'=38)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=38&did=33&currN=1&currK=2 -> (vid'=34)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=39&did=33&currN=1&currK=0 -> (vid'=39)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=39&did=33&currN=1&currK=2 -> (vid'=35)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=33&currN=1&currK=0 -> (vid'=40)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=40&did=33&currN=1&currK=2 -> (vid'=36)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=33&currN=1&currK=0 -> (vid'=41)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=41&did=33&currN=1&currK=2 -> (vid'=37)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=33&currN=1&currK=0 -> (vid'=42)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=42&did=33&currN=1&currK=2 -> (vid'=38)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=33&currN=1&currK=0 -> (vid'=43)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=43&did=33&currN=1&currK=2 -> (vid'=39)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=33&currN=1&currK=0 -> (vid'=44)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=44&did=33&currN=1&currK=2 -> (vid'=40)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=33&currN=1&currK=0 -> (vid'=45)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=45&did=33&currN=1&currK=2 -> (vid'=41)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=33&currN=1&currK=0 -> (vid'=46)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=46&did=33&currN=1&currK=2 -> (vid'=42)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=33&currN=1&currK=0 -> (vid'=47)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=47&did=33&currN=1&currK=2 -> (vid'=43)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=33&currN=1&currK=0 -> (vid'=48)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=48&did=33&currN=1&currK=2 -> (vid'=44)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=33&currN=1&currK=0 -> (vid'=50)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=49&did=33&currN=1&currK=2 -> (vid'=45)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=33&currN=1&currK=0 -> (vid'=50)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=50&did=33&currN=1&currK=2 -> (vid'=46)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=33&currN=1&currK=0 -> (vid'=51)&(did'=29)&(currN'=0)&(currK'=0);
+    [] vid=51&did=33&currN=1&currK=2 -> (vid'=47)&(did'=29)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=33&currN=1&currK=0 -> (vid'=52)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=52&did=33&currN=1&currK=2 -> (vid'=48)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=33&currN=1&currK=0 -> (vid'=53)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=53&did=33&currN=1&currK=2 -> (vid'=49)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=33&currN=1&currK=0 -> (vid'=55)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=54&did=33&currN=1&currK=2 -> (vid'=50)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=33&currN=1&currK=0 -> (vid'=55)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=55&did=33&currN=1&currK=2 -> (vid'=51)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=33&currN=1&currK=0 -> (vid'=56)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=56&did=33&currN=1&currK=2 -> (vid'=52)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=33&currN=1&currK=0 -> (vid'=57)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=57&did=33&currN=1&currK=2 -> (vid'=53)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=33&currN=1&currK=0 -> (vid'=58)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=58&did=33&currN=1&currK=2 -> (vid'=54)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=33&currN=1&currK=0 -> (vid'=60)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=60&did=33&currN=1&currK=2 -> (vid'=56)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=33&currN=1&currK=0 -> (vid'=61)&(did'=28)&(currN'=0)&(currK'=0);
+    [] vid=61&did=33&currN=1&currK=2 -> (vid'=57)&(did'=28)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=34&currN=1&currK=0 -> (vid'=44)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=44&did=34&currN=1&currK=2 -> (vid'=40)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=34&currN=1&currK=0 -> (vid'=45)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=45&did=34&currN=1&currK=2 -> (vid'=41)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=34&currN=1&currK=0 -> (vid'=46)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=46&did=34&currN=1&currK=2 -> (vid'=42)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=34&currN=1&currK=0 -> (vid'=47)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=47&did=34&currN=1&currK=2 -> (vid'=43)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=34&currN=1&currK=0 -> (vid'=48)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=48&did=34&currN=1&currK=2 -> (vid'=44)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=34&currN=1&currK=0 -> (vid'=50)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=50&did=34&currN=1&currK=2 -> (vid'=46)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=34&currN=1&currK=0 -> (vid'=51)&(did'=30)&(currN'=0)&(currK'=0);
+    [] vid=51&did=34&currN=1&currK=2 -> (vid'=47)&(did'=30)&(currN'=0)&(currK'=0);
+
+    [] vid=40&did=35&currN=1&currK=0 -> (vid'=40)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=40&did=35&currN=1&currK=2 -> (vid'=36)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=35&currN=1&currK=0 -> (vid'=41)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=41&did=35&currN=1&currK=2 -> (vid'=37)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=35&currN=1&currK=0 -> (vid'=42)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=42&did=35&currN=1&currK=2 -> (vid'=38)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=35&currN=1&currK=0 -> (vid'=43)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=43&did=35&currN=1&currK=2 -> (vid'=39)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=35&currN=1&currK=0 -> (vid'=44)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=44&did=35&currN=1&currK=2 -> (vid'=40)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=35&currN=1&currK=0 -> (vid'=45)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=45&did=35&currN=1&currK=2 -> (vid'=41)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=35&currN=1&currK=0 -> (vid'=46)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=46&did=35&currN=1&currK=2 -> (vid'=42)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=35&currN=1&currK=0 -> (vid'=47)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=47&did=35&currN=1&currK=2 -> (vid'=43)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=35&currN=1&currK=0 -> (vid'=48)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=48&did=35&currN=1&currK=2 -> (vid'=44)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=35&currN=1&currK=0 -> (vid'=50)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=50&did=35&currN=1&currK=2 -> (vid'=46)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=35&currN=1&currK=0 -> (vid'=51)&(did'=31)&(currN'=0)&(currK'=0);
+    [] vid=51&did=35&currN=1&currK=2 -> (vid'=47)&(did'=31)&(currN'=0)&(currK'=0);
+
+    [] vid=41&did=36&currN=1&currK=0 -> (vid'=41)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=41&did=36&currN=1&currK=2 -> (vid'=37)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=36&currN=1&currK=0 -> (vid'=43)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=43&did=36&currN=1&currK=2 -> (vid'=39)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=36&currN=1&currK=0 -> (vid'=44)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=44&did=36&currN=1&currK=2 -> (vid'=40)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=36&currN=1&currK=0 -> (vid'=47)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=47&did=36&currN=1&currK=2 -> (vid'=43)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=36&currN=1&currK=0 -> (vid'=48)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=48&did=36&currN=1&currK=2 -> (vid'=44)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=36&currN=1&currK=0 -> (vid'=51)&(did'=32)&(currN'=0)&(currK'=0);
+    [] vid=51&did=36&currN=1&currK=2 -> (vid'=47)&(did'=32)&(currN'=0)&(currK'=0);
+
+    [] vid=42&did=37&currN=1&currK=0 -> (vid'=42)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=42&did=37&currN=1&currK=2 -> (vid'=38)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=43&did=37&currN=1&currK=0 -> (vid'=43)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=43&did=37&currN=1&currK=2 -> (vid'=39)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=37&currN=1&currK=0 -> (vid'=44)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=44&did=37&currN=1&currK=2 -> (vid'=40)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=37&currN=1&currK=0 -> (vid'=45)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=45&did=37&currN=1&currK=2 -> (vid'=41)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=37&currN=1&currK=0 -> (vid'=46)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=46&did=37&currN=1&currK=2 -> (vid'=42)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=37&currN=1&currK=0 -> (vid'=47)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=47&did=37&currN=1&currK=2 -> (vid'=43)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=37&currN=1&currK=0 -> (vid'=48)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=48&did=37&currN=1&currK=2 -> (vid'=44)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=37&currN=1&currK=0 -> (vid'=50)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=50&did=37&currN=1&currK=2 -> (vid'=46)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=37&currN=1&currK=0 -> (vid'=51)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=51&did=37&currN=1&currK=2 -> (vid'=47)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=38&currN=1&currK=0 -> (vid'=48)&(did'=34)&(currN'=0)&(currK'=0);
+    [] vid=48&did=38&currN=1&currK=2 -> (vid'=44)&(did'=34)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=38&currN=1&currK=0 -> (vid'=50)&(did'=34)&(currN'=0)&(currK'=0);
+    [] vid=49&did=38&currN=1&currK=2 -> (vid'=45)&(did'=34)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=38&currN=1&currK=0 -> (vid'=50)&(did'=34)&(currN'=0)&(currK'=0);
+    [] vid=50&did=38&currN=1&currK=2 -> (vid'=46)&(did'=34)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=38&currN=1&currK=0 -> (vid'=51)&(did'=34)&(currN'=0)&(currK'=0);
+    [] vid=51&did=38&currN=1&currK=2 -> (vid'=47)&(did'=34)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=38&currN=1&currK=0 -> (vid'=52)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=52&did=38&currN=1&currK=2 -> (vid'=48)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=38&currN=1&currK=0 -> (vid'=53)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=53&did=38&currN=1&currK=2 -> (vid'=49)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=38&currN=1&currK=0 -> (vid'=55)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=54&did=38&currN=1&currK=2 -> (vid'=50)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=38&currN=1&currK=0 -> (vid'=55)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=55&did=38&currN=1&currK=2 -> (vid'=51)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=38&currN=1&currK=0 -> (vid'=56)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=56&did=38&currN=1&currK=2 -> (vid'=52)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=38&currN=1&currK=0 -> (vid'=57)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=57&did=38&currN=1&currK=2 -> (vid'=53)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=38&currN=1&currK=0 -> (vid'=58)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=58&did=38&currN=1&currK=2 -> (vid'=54)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=38&currN=1&currK=0 -> (vid'=60)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=60&did=38&currN=1&currK=2 -> (vid'=56)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=38&currN=1&currK=0 -> (vid'=61)&(did'=33)&(currN'=0)&(currK'=0);
+    [] vid=61&did=38&currN=1&currK=2 -> (vid'=57)&(did'=33)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=39&currN=1&currK=0 -> (vid'=44)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=44&did=39&currN=1&currK=2 -> (vid'=40)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=39&currN=1&currK=0 -> (vid'=45)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=45&did=39&currN=1&currK=2 -> (vid'=41)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=39&currN=1&currK=0 -> (vid'=46)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=46&did=39&currN=1&currK=2 -> (vid'=42)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=39&currN=1&currK=0 -> (vid'=47)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=47&did=39&currN=1&currK=2 -> (vid'=43)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=39&currN=1&currK=0 -> (vid'=48)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=48&did=39&currN=1&currK=2 -> (vid'=44)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=39&currN=1&currK=0 -> (vid'=50)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=50&did=39&currN=1&currK=2 -> (vid'=46)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=39&currN=1&currK=0 -> (vid'=51)&(did'=35)&(currN'=0)&(currK'=0);
+    [] vid=51&did=39&currN=1&currK=2 -> (vid'=47)&(did'=35)&(currN'=0)&(currK'=0);
+
+    [] vid=44&did=40&currN=1&currK=0 -> (vid'=44)&(did'=36)&(currN'=0)&(currK'=0);
+    [] vid=44&did=40&currN=1&currK=2 -> (vid'=41)&(did'=36)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=40&currN=1&currK=0 -> (vid'=47)&(did'=36)&(currN'=0)&(currK'=0);
+    [] vid=47&did=40&currN=1&currK=2 -> (vid'=43)&(did'=36)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=40&currN=1&currK=0 -> (vid'=48)&(did'=36)&(currN'=0)&(currK'=0);
+    [] vid=48&did=40&currN=1&currK=2 -> (vid'=44)&(did'=36)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=40&currN=1&currK=0 -> (vid'=51)&(did'=36)&(currN'=0)&(currK'=0);
+    [] vid=51&did=40&currN=1&currK=2 -> (vid'=47)&(did'=36)&(currN'=0)&(currK'=0);
+
+    [] vid=45&did=41&currN=1&currK=0 -> (vid'=45)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=45&did=41&currN=1&currK=2 -> (vid'=42)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=46&did=41&currN=1&currK=0 -> (vid'=46)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=46&did=41&currN=1&currK=2 -> (vid'=42)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=47&did=41&currN=1&currK=0 -> (vid'=47)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=47&did=41&currN=1&currK=2 -> (vid'=43)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=41&currN=1&currK=0 -> (vid'=48)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=48&did=41&currN=1&currK=2 -> (vid'=44)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=41&currN=1&currK=0 -> (vid'=50)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=50&did=41&currN=1&currK=2 -> (vid'=46)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=41&currN=1&currK=0 -> (vid'=51)&(did'=37)&(currN'=0)&(currK'=0);
+    [] vid=51&did=41&currN=1&currK=2 -> (vid'=47)&(did'=37)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=43&currN=1&currK=0 -> (vid'=48)&(did'=39)&(currN'=0)&(currK'=0);
+    [] vid=48&did=43&currN=1&currK=2 -> (vid'=44)&(did'=39)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=43&currN=1&currK=0 -> (vid'=50)&(did'=39)&(currN'=0)&(currK'=0);
+    [] vid=49&did=43&currN=1&currK=2 -> (vid'=45)&(did'=39)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=43&currN=1&currK=0 -> (vid'=50)&(did'=39)&(currN'=0)&(currK'=0);
+    [] vid=50&did=43&currN=1&currK=2 -> (vid'=46)&(did'=39)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=43&currN=1&currK=0 -> (vid'=51)&(did'=39)&(currN'=0)&(currK'=0);
+    [] vid=51&did=43&currN=1&currK=2 -> (vid'=47)&(did'=39)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=43&currN=1&currK=0 -> (vid'=52)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=52&did=43&currN=1&currK=2 -> (vid'=48)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=43&currN=1&currK=0 -> (vid'=53)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=53&did=43&currN=1&currK=2 -> (vid'=49)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=43&currN=1&currK=0 -> (vid'=55)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=54&did=43&currN=1&currK=2 -> (vid'=50)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=43&currN=1&currK=0 -> (vid'=55)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=55&did=43&currN=1&currK=2 -> (vid'=51)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=43&currN=1&currK=0 -> (vid'=56)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=56&did=43&currN=1&currK=2 -> (vid'=52)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=43&currN=1&currK=0 -> (vid'=57)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=57&did=43&currN=1&currK=2 -> (vid'=53)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=43&currN=1&currK=0 -> (vid'=58)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=58&did=43&currN=1&currK=2 -> (vid'=54)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=43&currN=1&currK=0 -> (vid'=60)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=60&did=43&currN=1&currK=2 -> (vid'=56)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=43&currN=1&currK=0 -> (vid'=61)&(did'=38)&(currN'=0)&(currK'=0);
+    [] vid=61&did=43&currN=1&currK=2 -> (vid'=57)&(did'=38)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=44&currN=1&currK=0 -> (vid'=48)&(did'=40)&(currN'=0)&(currK'=0);
+    [] vid=48&did=44&currN=1&currK=2 -> (vid'=44)&(did'=40)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=44&currN=1&currK=0 -> (vid'=51)&(did'=40)&(currN'=0)&(currK'=0);
+    [] vid=51&did=44&currN=1&currK=2 -> (vid'=47)&(did'=40)&(currN'=0)&(currK'=0);
+
+    [] vid=48&did=45&currN=1&currK=0 -> (vid'=48)&(did'=41)&(currN'=0)&(currK'=0);
+    [] vid=48&did=45&currN=1&currK=2 -> (vid'=45)&(did'=41)&(currN'=0)&(currK'=0);
+
+    [] vid=49&did=45&currN=1&currK=0 -> (vid'=50)&(did'=41)&(currN'=0)&(currK'=0);
+    [] vid=49&did=45&currN=1&currK=2 -> (vid'=45)&(did'=41)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=45&currN=1&currK=0 -> (vid'=50)&(did'=41)&(currN'=0)&(currK'=0);
+    [] vid=50&did=45&currN=1&currK=2 -> (vid'=46)&(did'=41)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=45&currN=1&currK=0 -> (vid'=51)&(did'=41)&(currN'=0)&(currK'=0);
+    [] vid=51&did=45&currN=1&currK=2 -> (vid'=47)&(did'=41)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=48&currN=1&currK=0 -> (vid'=51)&(did'=44)&(currN'=0)&(currK'=0);
+    [] vid=51&did=48&currN=1&currK=2 -> (vid'=48)&(did'=44)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=48&currN=1&currK=0 -> (vid'=52)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=52&did=48&currN=1&currK=2 -> (vid'=48)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=48&currN=1&currK=0 -> (vid'=53)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=53&did=48&currN=1&currK=2 -> (vid'=49)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=48&currN=1&currK=0 -> (vid'=55)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=54&did=48&currN=1&currK=2 -> (vid'=50)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=48&currN=1&currK=0 -> (vid'=55)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=55&did=48&currN=1&currK=2 -> (vid'=51)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=48&currN=1&currK=0 -> (vid'=56)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=56&did=48&currN=1&currK=2 -> (vid'=52)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=48&currN=1&currK=0 -> (vid'=57)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=57&did=48&currN=1&currK=2 -> (vid'=53)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=48&currN=1&currK=0 -> (vid'=58)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=58&did=48&currN=1&currK=2 -> (vid'=54)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=48&currN=1&currK=0 -> (vid'=60)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=60&did=48&currN=1&currK=2 -> (vid'=56)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=48&currN=1&currK=0 -> (vid'=61)&(did'=43)&(currN'=0)&(currK'=0);
+    [] vid=61&did=48&currN=1&currK=2 -> (vid'=57)&(did'=43)&(currN'=0)&(currK'=0);
+
+    [] vid=50&did=49&currN=1&currK=0 -> (vid'=50)&(did'=45)&(currN'=0)&(currK'=0);
+    [] vid=50&did=49&currN=1&currK=2 -> (vid'=49)&(did'=45)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=49&currN=1&currK=0 -> (vid'=51)&(did'=45)&(currN'=0)&(currK'=0);
+    [] vid=51&did=49&currN=1&currK=2 -> (vid'=48)&(did'=45)&(currN'=0)&(currK'=0);
+
+    [] vid=51&did=53&currN=1&currK=0 -> (vid'=51)&(did'=49)&(currN'=0)&(currK'=0);
+    [] vid=51&did=53&currN=1&currK=2 -> (vid'=50)&(did'=49)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=53&currN=1&currK=0 -> (vid'=52)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=52&did=53&currN=1&currK=2 -> (vid'=51)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=53&currN=1&currK=0 -> (vid'=53)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=53&did=53&currN=1&currK=2 -> (vid'=52)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=53&currN=1&currK=0 -> (vid'=55)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=54&did=53&currN=1&currK=2 -> (vid'=53)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=53&currN=1&currK=0 -> (vid'=55)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=55&did=53&currN=1&currK=2 -> (vid'=52)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=53&currN=1&currK=0 -> (vid'=56)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=56&did=53&currN=1&currK=2 -> (vid'=52)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=53&currN=1&currK=0 -> (vid'=57)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=57&did=53&currN=1&currK=2 -> (vid'=53)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=53&currN=1&currK=0 -> (vid'=58)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=58&did=53&currN=1&currK=2 -> (vid'=54)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=53&currN=1&currK=0 -> (vid'=60)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=60&did=53&currN=1&currK=2 -> (vid'=56)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=53&currN=1&currK=0 -> (vid'=61)&(did'=48)&(currN'=0)&(currK'=0);
+    [] vid=61&did=53&currN=1&currK=2 -> (vid'=57)&(did'=48)&(currN'=0)&(currK'=0);
+
+    [] vid=52&did=58&currN=1&currK=0 -> (vid'=52)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=52&did=58&currN=1&currK=2 -> (vid'=51)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=58&currN=1&currK=0 -> (vid'=53)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=53&did=58&currN=1&currK=2 -> (vid'=52)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=58&currN=1&currK=0 -> (vid'=55)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=54&did=58&currN=1&currK=2 -> (vid'=53)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=58&currN=1&currK=0 -> (vid'=55)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=55&did=58&currN=1&currK=2 -> (vid'=54)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=58&currN=1&currK=0 -> (vid'=56)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=56&did=58&currN=1&currK=2 -> (vid'=55)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=58&currN=1&currK=0 -> (vid'=57)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=57&did=58&currN=1&currK=2 -> (vid'=56)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=58&currN=1&currK=0 -> (vid'=58)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=58&did=58&currN=1&currK=2 -> (vid'=55)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=58&currN=1&currK=0 -> (vid'=60)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=59&did=58&currN=1&currK=2 -> (vid'=55)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=58&currN=1&currK=0 -> (vid'=60)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=60&did=58&currN=1&currK=2 -> (vid'=56)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=58&currN=1&currK=0 -> (vid'=61)&(did'=53)&(currN'=0)&(currK'=0);
+    [] vid=61&did=58&currN=1&currK=2 -> (vid'=57)&(did'=53)&(currN'=0)&(currK'=0);
+
+    [] vid=53&did=63&currN=1&currK=0 -> (vid'=53)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=53&did=63&currN=1&currK=2 -> (vid'=52)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=63&currN=1&currK=0 -> (vid'=55)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=54&did=63&currN=1&currK=2 -> (vid'=53)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=63&currN=1&currK=0 -> (vid'=55)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=55&did=63&currN=1&currK=2 -> (vid'=54)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=63&currN=1&currK=0 -> (vid'=56)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=56&did=63&currN=1&currK=2 -> (vid'=55)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=63&currN=1&currK=0 -> (vid'=57)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=57&did=63&currN=1&currK=2 -> (vid'=56)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=63&currN=1&currK=0 -> (vid'=58)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=58&did=63&currN=1&currK=2 -> (vid'=57)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=63&currN=1&currK=0 -> (vid'=60)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=59&did=63&currN=1&currK=2 -> (vid'=58)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=63&currN=1&currK=0 -> (vid'=60)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=60&did=63&currN=1&currK=2 -> (vid'=59)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=63&currN=1&currK=0 -> (vid'=61)&(did'=58)&(currN'=0)&(currK'=0);
+    [] vid=61&did=63&currN=1&currK=2 -> (vid'=60)&(did'=58)&(currN'=0)&(currK'=0);
+
+    [] vid=54&did=68&currN=1&currK=0 -> (vid'=55)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=54&did=68&currN=1&currK=2 -> (vid'=53)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=68&currN=1&currK=0 -> (vid'=55)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=55&did=68&currN=1&currK=2 -> (vid'=54)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=68&currN=1&currK=0 -> (vid'=56)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=56&did=68&currN=1&currK=2 -> (vid'=55)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=68&currN=1&currK=0 -> (vid'=57)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=57&did=68&currN=1&currK=2 -> (vid'=56)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=68&currN=1&currK=0 -> (vid'=58)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=58&did=68&currN=1&currK=2 -> (vid'=57)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=68&currN=1&currK=0 -> (vid'=60)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=59&did=68&currN=1&currK=2 -> (vid'=58)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=68&currN=1&currK=0 -> (vid'=60)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=60&did=68&currN=1&currK=2 -> (vid'=59)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=68&currN=1&currK=0 -> (vid'=61)&(did'=63)&(currN'=0)&(currK'=0);
+    [] vid=61&did=68&currN=1&currK=2 -> (vid'=60)&(did'=63)&(currN'=0)&(currK'=0);
+
+    [] vid=55&did=73&currN=1&currK=0 -> (vid'=55)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=55&did=73&currN=1&currK=2 -> (vid'=54)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=73&currN=1&currK=0 -> (vid'=56)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=56&did=73&currN=1&currK=2 -> (vid'=55)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=73&currN=1&currK=0 -> (vid'=57)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=57&did=73&currN=1&currK=2 -> (vid'=56)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=73&currN=1&currK=0 -> (vid'=58)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=58&did=73&currN=1&currK=2 -> (vid'=57)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=73&currN=1&currK=0 -> (vid'=60)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=59&did=73&currN=1&currK=2 -> (vid'=58)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=73&currN=1&currK=0 -> (vid'=60)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=60&did=73&currN=1&currK=2 -> (vid'=59)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=73&currN=1&currK=0 -> (vid'=61)&(did'=68)&(currN'=0)&(currK'=0);
+    [] vid=61&did=73&currN=1&currK=2 -> (vid'=60)&(did'=68)&(currN'=0)&(currK'=0);
+
+    [] vid=56&did=78&currN=1&currK=0 -> (vid'=56)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=56&did=78&currN=1&currK=2 -> (vid'=55)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=78&currN=1&currK=0 -> (vid'=57)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=57&did=78&currN=1&currK=2 -> (vid'=56)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=78&currN=1&currK=0 -> (vid'=58)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=58&did=78&currN=1&currK=2 -> (vid'=57)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=78&currN=1&currK=0 -> (vid'=60)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=59&did=78&currN=1&currK=2 -> (vid'=58)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=78&currN=1&currK=0 -> (vid'=60)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=60&did=78&currN=1&currK=2 -> (vid'=59)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=78&currN=1&currK=0 -> (vid'=61)&(did'=73)&(currN'=0)&(currK'=0);
+    [] vid=61&did=78&currN=1&currK=2 -> (vid'=60)&(did'=73)&(currN'=0)&(currK'=0);
+
+    [] vid=57&did=83&currN=1&currK=0 -> (vid'=57)&(did'=78)&(currN'=0)&(currK'=0);
+    [] vid=57&did=83&currN=1&currK=2 -> (vid'=56)&(did'=78)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=83&currN=1&currK=0 -> (vid'=58)&(did'=78)&(currN'=0)&(currK'=0);
+    [] vid=58&did=83&currN=1&currK=2 -> (vid'=57)&(did'=78)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=83&currN=1&currK=0 -> (vid'=60)&(did'=78)&(currN'=0)&(currK'=0);
+    [] vid=59&did=83&currN=1&currK=2 -> (vid'=58)&(did'=78)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=83&currN=1&currK=0 -> (vid'=60)&(did'=78)&(currN'=0)&(currK'=0);
+    [] vid=60&did=83&currN=1&currK=2 -> (vid'=59)&(did'=78)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=83&currN=1&currK=0 -> (vid'=61)&(did'=78)&(currN'=0)&(currK'=0);
+    [] vid=61&did=83&currN=1&currK=2 -> (vid'=60)&(did'=78)&(currN'=0)&(currK'=0);
+
+    [] vid=58&did=88&currN=1&currK=0 -> (vid'=58)&(did'=83)&(currN'=0)&(currK'=0);
+    [] vid=58&did=88&currN=1&currK=2 -> (vid'=57)&(did'=83)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=88&currN=1&currK=0 -> (vid'=60)&(did'=83)&(currN'=0)&(currK'=0);
+    [] vid=59&did=88&currN=1&currK=2 -> (vid'=58)&(did'=83)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=88&currN=1&currK=0 -> (vid'=60)&(did'=83)&(currN'=0)&(currK'=0);
+    [] vid=60&did=88&currN=1&currK=2 -> (vid'=59)&(did'=83)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=88&currN=1&currK=0 -> (vid'=61)&(did'=83)&(currN'=0)&(currK'=0);
+    [] vid=61&did=88&currN=1&currK=2 -> (vid'=60)&(did'=83)&(currN'=0)&(currK'=0);
+
+    [] vid=59&did=93&currN=1&currK=0 -> (vid'=60)&(did'=88)&(currN'=0)&(currK'=0);
+    [] vid=59&did=93&currN=1&currK=2 -> (vid'=58)&(did'=88)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=93&currN=1&currK=0 -> (vid'=60)&(did'=88)&(currN'=0)&(currK'=0);
+    [] vid=60&did=93&currN=1&currK=2 -> (vid'=59)&(did'=88)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=93&currN=1&currK=0 -> (vid'=61)&(did'=88)&(currN'=0)&(currK'=0);
+    [] vid=61&did=93&currN=1&currK=2 -> (vid'=60)&(did'=88)&(currN'=0)&(currK'=0);
+
+    [] vid=60&did=98&currN=1&currK=0 -> (vid'=60)&(did'=93)&(currN'=0)&(currK'=0);
+    [] vid=60&did=98&currN=1&currK=2 -> (vid'=59)&(did'=93)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=98&currN=1&currK=0 -> (vid'=61)&(did'=93)&(currN'=0)&(currK'=0);
+    [] vid=61&did=98&currN=1&currK=2 -> (vid'=60)&(did'=93)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=103&currN=1&currK=0 -> (vid'=61)&(did'=98)&(currN'=0)&(currK'=0);
+    [] vid=61&did=103&currN=1&currK=2 -> (vid'=60)&(did'=98)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=108&currN=1&currK=0 -> (vid'=61)&(did'=103)&(currN'=0)&(currK'=0);
+    [] vid=61&did=108&currN=1&currK=2 -> (vid'=61)&(did'=103)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=113&currN=1&currK=0 -> (vid'=61)&(did'=108)&(currN'=0)&(currK'=0);
+    [] vid=61&did=113&currN=1&currK=2 -> (vid'=61)&(did'=108)&(currN'=0)&(currK'=0);
+
+    [] vid=61&did=118&currN=1&currK=0 -> (vid'=61)&(did'=113)&(currN'=0)&(currK'=0);
+    [] vid=61&did=118&currN=1&currK=2 -> (vid'=61)&(did'=113)&(currN'=0)&(currK'=0);
+
+ 
+    [] currN=0&did>1&vid>1&did<7&did>=1&s=1&s2=1 -> 0.22741619992421136:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.14515927654736896:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.23003289436242985:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.004966748652510743:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.012330876119501961:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.36453152528277677:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<7&did>=1&s=0&s2=1 -> 0.012190608637106923:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0004171120886089458:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.012330876119501961:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.01931837258721974:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.012330876119501961:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.030613690466828963:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9050172244256314:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<7&did>=1&s=1&s2=0 -> 0.2274161999242114:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.14515927654736896:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.23003289436242988:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.004966748652510743:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.012330876119501961:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.36453152528277677:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<7&did>=1&s=0&s2=0 -> 0.012190608637106923:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.007781239555600164:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0004171120886089458:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.012330876119501961:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+0.01931837258721974:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.012330876119501961:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.030613690466828967:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9050172244256314:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<14&did>=7&s=1&s2=1 -> 1.800806024832114e-07:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.9831543112688784:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<14&did>=7&s=0&s2=1 -> 1.8008060248321143e-07:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9831543112688784:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<14&did>=7&s=1&s2=0 -> 1.8008060248321143e-07:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.9831543112688784:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<14&did>=7&s=0&s2=0 -> 1.8008060248321143e-07:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+3.17091927539186e-05:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.005583460357419129:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+3.17091927539186e-05:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.005583460357419129:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9831543112688784:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<21&did>=14&s=1&s2=1 -> 0.20144327360695402:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.14219525195784988:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.05572516630780602:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.18684320467911433:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.05566610412835949:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.03939447369083902:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.003187739248400961:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.3155447863806764:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<21&did>=14&s=0&s2=1 -> 0.07886031418184261:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.055666104128359484:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.02187103100178337:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.07333228041774426:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.0045111775399668255:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0031925256436688304:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.007626656145690476:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.7549399109409441:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<21&did>=14&s=1&s2=0 -> 0.20122976722263292:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.14204454156891733:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.055666104128359484:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.18664517266567593:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.055749686867290954:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.03945362455223667:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0031925256436688304:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.31601857735121797:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<21&did>=14&s=0&s2=0 -> 0.003433188956611172:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0024234274987843564:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0009521567709187739:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.0031925256436688304:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+0.005798042683858257:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.004103230207038151:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.009802247301521289:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9702951809375993:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<27&did>=21&s=1&s2=1 -> 0.7290000000000001:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.08100000000000002:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.02892857142857143:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.06107142857142858:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.012960829493087555:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.019182027649769583:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0007415554924780011:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.06711558736466486:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<27&did>=21&s=0&s2=1 -> 0.116647465437788:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.012960829493087557:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.061656517445687946:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.1301637590520079:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.002990143114830649:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.004425411809949361:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.007334516359749062:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.6638213572868996:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<27&did>=21&s=1&s2=0 -> 0.3266129032258065:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.036290322580645164:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.012960829493087557:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.027361751152073732:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.07734688568455478:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.11447339081314108:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.004425411809949361:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.4005285052407419:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<27&did>=21&s=0&s2=0 -> 0.0039658740259859125:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0004406526695539904:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.002096247699449697:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.004425411809949361:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+0.004358371351294008:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.006450389599915133:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.010690640798889657:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9675724120449621:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<34&did>=27&s=1&s2=1 -> 0.7452037003279575:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.07675500955138023:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.019005457757101468:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.06565521770635052:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.011719469716741336:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.009243525410387532:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0009789009616711596:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.07143871856841037:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<34&did>=27&s=0&s2=1 -> 0.11378269965494438:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.011719469716741336:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.022221712081908134:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.07676591446477354:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.005860526778006566:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.004622387317864333:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.010341211914051714:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.7546860780717101:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<34&did>=27&s=1&s2=0 -> 0.4595202236333305:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.047329983920512526:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.011719469716741336:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.04048544083965188:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.055339539250507074:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0436480872961746:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.004622387317864333:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.3373348680252177:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<34&did>=27&s=0&s2=0 -> 0.006851318212573745:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0007056768432768264:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.001338059486750202:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.004622387317864333:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+0.007454843814543289:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.005879876811470763:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.013154469315226363:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.9599933681982945:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=1&s2=1&s3=1 -> 0.7794975871817882:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.06748896858716781:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0278156504357621:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.045516518894883444:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.022555173028934183:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.007668758829837623:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.009991382432651836:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.03946596060897476:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=0&s2=1&s3=1 -> 0.202587468337824:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.08047995317529995:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.024060730828615543:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07218219248584663:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.06661442006269591:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.058777429467084634:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.005439986359045655:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.4898578192835876:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=1&s2=0&s3=1 -> 0.4915369251702583:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.042557309538550504:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.08047995317529995:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.13169446883230904:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.04733793717977278:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.016094898641122745:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.03844414292175486:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.1518543645409317:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=0&s2=0&s3=1 -> 0.0768097643097643:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.030513468013468006:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.02367424242424242:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07102272727272727:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.004656099435780396:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.004108323031570937:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.00866816050510532:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.7805472150073414:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=1&s2=1&s3=0 -> 0.6061766526581744:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05248282706997181:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.021630853193042567:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.035395941588615115:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08047995317529995:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.02736318407960199:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.035650623885918:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.14081996434937613:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=0&s2=1&s3=0 -> 0.13352355867720223:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05304360550190225:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.01585820895522388:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.04757462686567164:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08049242424242423:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.07102272727272727:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.0065733168505135:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.591911531634335:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=1&s2=0&s3=0 -> 0.3499128486055777:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.030295484727755645:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.057291666666666664:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09375:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08745335820895522:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.029734141791044777:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.07102272727272727:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.28053977272727276:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<41&did>=34&s=0&s2=0&s3=0 -> 0.004175928347280332:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.001658930439330543:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0012871012029288696:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.0038613036087866088:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.005770772994498518:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.005091858524557516:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.010743324373710752:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.9674107805089068:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=1&s2=1&s3=1 -> 0.6879690412088951:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.09134517173945854:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.05101820268678541:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.052455335156835696:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.03198206395259429:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.02581008669858487:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.014760406647878983:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.044659691908967195:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=0&s2=1&s3=1 -> 0.1984407178581936:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.07441526919682259:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.06531343133490575:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.15488613716563365:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.059747276333937706:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.06618159840066946:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.005752925124046499:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.37526264458579073:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=1&s2=0&s3=1 -> 0.3552967470089501:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.047174568083724236:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.07441526919682259:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07651147396293026:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07330680218746155:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.059159875449530386:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.0780336006389341:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.23610166347164682:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=0&s2=0&s3=1 -> 0.08571464799090442:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.032142992996589154:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0387224583166211:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09182754400798718:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.0053841994961579065:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.005964036364974913:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.011176889710504815:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.7290672311162606:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=1&s2=1&s3=0 -> 0.5667739730533481:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.07525348206808809:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.04203065501903939:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.04321461713225177:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07441526919682259:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.060054427772874376:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.034344238563983776:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.10391333719359197:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=0&s2=1&s3=0 -> 0.11937708498511526:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04476640686941822:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03929096370588744:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09317571393110449:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08289986611832176:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.09182754400798718:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.007982233698932407:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.5206801866832332:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=1&s2=0&s3=0 -> 0.30461156629849157:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04044483715207244:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0637994912629949:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.06559666003096659:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08626519279946285:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.0696175240136016:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.09182754400798718:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.2778371844344228:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<47&did>=41&s=0&s2=0&s3=0 -> 0.005209980406143552:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.001953742652303832:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0023536612916932736:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.0055815396345869055:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.007055558548540246:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.007815387930690735:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.014646411188760122:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.9553837183472813:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=1&s2=1&s3=1 -> 0.8296702663085819:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05328157673541351:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.028794659445600477:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.027908669924197386:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.020651295446026986:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.009992562312593704:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.006835937499999999:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.02286503232758621:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=0&s2=1&s3=1 -> 0.241356192791762:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.10086527459954232:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.05065137468030691:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.11493965792838874:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.05383663366336633:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.05944461633663366:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.005155667520969242:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.37375058247903076:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=1&s2=0&s3=1 -> 0.44660498698019413:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.028681054209737235:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.10086527459954232:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09776172768878719:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.06721894807072168:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.032525297453575006:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.05209475094385579:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.17424796005358667:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=0&s2=0&s3=1 -> 0.07714335343308765:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.0322390133750217:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03694335820136636:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.0838330051492544:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.004978221161218768:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.005496785865512391:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.010332476642210865:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.7490337861723279:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=1&s2=1&s3=0 -> 0.6227134050941862:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.03999076913448902:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.02161198389292196:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.020946999773139748:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.10086527459954232:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.04880577803203661:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.033388157894736835:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.11167763157894736:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=0&s2=1&s3=0 -> 0.14538161259927312:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.06075649481760667:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03051000451331428:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.0692342410109824:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07592423107857002:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.0838330051492544:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.007270887230319274:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.5270895236006797:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=1&s2=0&s3=0 -> 0.3149485184453109:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.02022605164327685:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.07113079729025533:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.06894215737363209:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.10817148210984784:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.05234103973057153:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.0838330051492544:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.280406948257851:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<54&did>=47&s=0&s2=0&s3=0 -> 0.0045606232276732325:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.0019059320951470224:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0021840473614819396:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.0049561074741320925:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.00637856677881916:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.007043000818279489:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.013238944216933094:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.959732778027534:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=1&s2=1&s3=1 -> 0.8192071692967792:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05630562344634203:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.01654829358984457:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.043627319464135686:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.012435249660326088:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.005250438745471014:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.008906071893828367:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.037719833903273076:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=0&s2=1&s3=1 -> 0.1381138392857143:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05524553571428572:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.016699218750000005:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.06494140625:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.06737017916793199:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.07111296689948375:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.01319177929462483:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.5733250746379595:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=1&s2=0&s3=1 -> 0.4699327930900621:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.032299349767080744:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.05524553571428572:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.14564732142857142:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.0426968661221591:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.01802756569602273:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.04510741189989786:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.1910431562819203:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=0&s2=0&s3=1 -> 0.06637456075658324:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.026549824302633293:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.020063219501421755:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07802363139441791:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.008851892909720297:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.00934366473803809:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.017786308060091054:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.7730068983370944:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=1&s2=1&s3=0 -> 0.6253662805308009:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04298258075284304:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.01263263457556936:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.03330421842650103:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.05524553571428572:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.023325892857142858:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.039566613162118784:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.16757624398073834:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=0&s2=1&s3=0 -> 0.10272930194805198:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04109172077922078:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.012420906508264468:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.04830352530991736:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07391712447892225:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.07802363139441791:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.014473739037989626:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.6290400505432157:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=1&s2=0&s3=0 -> 0.32514268927312406:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.022347658217223437:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03822393822393823:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.10077220077220077:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07385403869778871:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.031182816339066343:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.07802363139441791:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.33045302708224056:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<61&did>=54&s=0&s2=0&s3=0 -> 0.007815659414336373:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.0031262637657345493:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.0023624606866062222:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.00918734711457975:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.010695820387487188:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.011290032631236476:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.021491353127233076:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.9340310628727864:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=1&s2=1&s3=1 -> 0.8666638860564952:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.042342916418835856:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.01987484016226773:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.02453683970650337:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.014864013464831771:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.005981859077310347:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.006713646551414532:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.01902199856234117:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=0&s2=1&s3=1 -> 0.2494089971588791:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.06968780802968681:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03728235686113456:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09113465010499561:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08750557633574692:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.05662125527607153:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.018282952031661186:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.39007640420182427:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=1&s2=0&s3=1 -> 0.5313604655223102:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.02596087380802461:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.06968780802968681:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.08603433090084793:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.059403622172083656:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.02390633575218001:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.053125190560400035:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.15052137325446674:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=0&s2=0&s3=1 -> 0.12379524523452562:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.03458984793317628:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.02975355640152274:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07273091564816672:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.020091658357650526:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.01300048481965622:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.03161055090545089:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.674427740699851:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=1&s2=1&s3=0 -> 0.7104880754979599:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.03471257736869465:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.016293325665122572:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.020115216870521695:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.06968780802968681:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.028045093475361764:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.03147597471982242:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.08918192837283016:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=0&s2=1&s3=0 -> 0.1618029694830004:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04520965323789718:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.02418676197801203:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.059123195946251636:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.1124023241835304:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.07273091564816672:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.023484746770991886:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.5010594327521498:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=1&s2=0&s3=0 -> 0.45244325352618314:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.022105186539498306:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.059337833056636646:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07325658402053907:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08132638749749549:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.03272891204167501:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.07273091564816672:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.20607092766980567:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<67&did>=61&s=0&s2=0&s3=0 -> 0.0212463513667109:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.005936480528933929:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.005106452291591721:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.01248243893500199:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.025965809672334667:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.016801406258569487:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.04085245398053672:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.8716086069663206:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=1&s2=1&s3=1 -> 0.7702546296296295:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.07002314814814814:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.023044692737430168:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.05334419615145872:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.01613694700286879:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.009002717801600484:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.013156829406525787:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.04503683912233827:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=0&s2=1&s3=1 -> 0.14769409121269741:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.04594927282172809:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.02235157523155982:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.08568103838764599:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07429738958979269:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.08358456328851678:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.02741895679544229:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.513023112672617:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=1&s2=0&s3=1 -> 0.4487803481447549:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.040798213467704986:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.04594927282172809:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.10636405745770389:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.04755862572731165:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.026532706984710712:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.06421248835041939:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.21980428704566635:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=0&s2=0&s3=1 -> 0.0811478607655295:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.025246001127053625:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.024764088543963312:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.09492900608519271:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.018477151120505107:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.020786795010568248:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.037271916821352676:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.6973771805258348:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=1&s2=1&s3=0 -> 0.6408898305084745:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.05826271186440677:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.01917432061357826:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.044385001420320036:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.04594927282172809:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.02563485746896409:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.03746351424231072:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=0)+0.12824049106021745:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=0&s2=1&s3=0 -> 0.10129211619568133:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.0315131028164342:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.015329241250763244:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.05876209146125911:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.08438133874239352:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.09492900608519271:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.031140371069471973:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.5826527323788039:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=1&s2=0&s3=0 -> 0.32901296111665:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.02991026919242273:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.03368664954856102:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)&(s3'=1)+0.07797835543648383:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)&(s3'=1)+0.07030864535935528:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=0)+0.03922482320048242:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=0)+0.09492900608519271:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.32494929006085194:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<74&did>=67&s=0&s2=0&s3=0 -> 0.018209723300059783:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)&(s3'=1)+0.005665247248907489:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)&(s3'=1)+0.005557105213983762:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=1)+0.021302236653604423:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=1)+0.02266369033419991:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)&(s3'=0)+0.025496651625974896:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)&(s3'=0)+0.04571696012507915:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)&(s3'=0)+0.8553883854981906:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)&(s3'=0);
+    [] currN=0&did>1&vid>1&did<81&did>=74&s=1&s2=1 -> 0.9331346829625277:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.02177629858776155:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.007918345233637008:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.014366140638170004:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.004204456011154543:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0038986773921614853:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0015208343973711364:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.013180564777216517:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<81&did>=74&s=0&s2=1 -> 0.18016485727301362:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.004204456011154543:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.06074743409547579:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.11021320185893467:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.034603304611462105:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.03208670063971941:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.059791039190714455:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.5181890063195254:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<81&did>=74&s=1&s2=0 -> 0.4954726791062821:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.011562704933484769:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.004204456011154543:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.007628084477380386:(currN'=1)&(currK'=0)&(s'=0)&(s2'=0)+0.08870599035370355:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.08225464560070693:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.032086700639719405:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.27808473887756824:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<81&did>=74&s=0&s2=0 -> 0.05245193627997588:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1)+0.0012240559126070615:(currN'=1)&(currK'=0)&(s'=0)&(s2'=1)+0.0176855830297666:(currN'=1)&(currK'=0)&(s'=1)&(s2'=0)+0.03208670063971941:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0)+0.048123303345074364:(currN'=1)&(currK'=2)&(s'=1)&(s2'=1)+0.04462342673815987:(currN'=1)&(currK'=2)&(s'=0)&(s2'=1)+0.08315224076427898:(currN'=1)&(currK'=2)&(s'=1)&(s2'=0)+0.7206527532904179:(currN'=1)&(currK'=2)&(s'=0)&(s2'=0);
+    [] currN=0&did>1&vid>1&did<87&did>=81&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<87&did>=81&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<87&did>=81&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<87&did>=81&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<94&did>=87&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<94&did>=87&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<94&did>=87&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<94&did>=87&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<101&did>=94&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<101&did>=94&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<101&did>=94&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<101&did>=94&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<107&did>=101&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<107&did>=101&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<107&did>=101&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<107&did>=101&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<114&did>=107&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<114&did>=107&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<114&did>=107&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<114&did>=107&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<121&did>=114&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<121&did>=114&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<121&did>=114&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<121&did>=114&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<127&did>=121&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<127&did>=121&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<127&did>=121&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<127&did>=121&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<134&did>=127&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<134&did>=127&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<134&did>=127&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<134&did>=127&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<141&did>=134&s=1&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<141&did>=134&s=0&s2=1 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<141&did>=134&s=1&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+    [] currN=0&did>1&vid>1&did<141&did>=134&s=0&s2=0 -> 1.0:(currN'=1)&(currK'=0)&(s'=1)&(s2'=1);
+
+endmodule
