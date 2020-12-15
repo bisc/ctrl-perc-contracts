@@ -1,0 +1,248 @@
+mdp
+
+const int det_tth = 61;
+
+const int N1 = 61;
+const int N2 = 2;
+const int N3 = 2;
+const int N4 = 3;
+const int N5 = 2;
+const int N6 = 3;
+const int N7 = 4;
+const int N8 = 3;
+const int N9 = 4;
+const int N10 = 4;
+const int N11 = 5;
+const int N12 = 6;
+const int N13 = 7;
+const int N14 = 7;
+const int N15 = 8;
+const int N16 = 10;
+const int N17 = 12;
+const int N18 = 15;
+const int N19 = 19;
+const int N20 = 30;
+const int N21 = 1;
+//const int N22 = 2;
+//const int N23 = 3;
+//const int N24 = 2;
+//const int N25 = 2;
+//const int N26 = 3;
+//const int N27 = 3;
+//const int N28 = 3;
+//const int N29 = 4;
+//const int N30 = 4;
+//const int N31 = 4;
+//const int N32 = 5;
+//const int N33 = 6;
+//const int N34 = 6;
+//const int N35 = 8;
+//const int N36 = 8;
+//const int N37 = 10;
+//const int N38 = 11;
+//const int N39 = 15;
+//const int N40 = 19;
+//const int N41 = 30;
+//const int N42 = 1;
+
+// k should be min. number of detections here
+const int K1 = 19;
+const int K2 = 1;
+const int K3 = 1;
+const int K4 = 1;
+const int K5 = 1;
+const int K6 = 1;
+const int K7 = 1;
+const int K8 = 1;
+const int K9 = 1;
+const int K10 = 1;
+const int K11 = 1;
+const int K12 = 1;
+const int K13 = 1;
+const int K14 = 1;
+const int K15 = 1;
+const int K16 = 1;
+const int K17 = 1;
+const int K18 = 1;
+const int K19 = 1;
+const int K20 = 1;
+const int K21 = 1;
+//const int K22 = 1;
+//const int K23 = 1;
+//const int K24 = 1;
+//const int K25 = 1;
+//const int K26 = 1;
+//const int K27 = 1;
+//const int K28 = 1;
+//const int K29 = 1;
+//const int K30 = 1;
+//const int K31 = 1;
+//const int K32 = 1;
+//const int K33 = 1;
+//const int K34 = 1;
+//const int K35 = 1;
+//const int K36 = 1;
+//const int K37 = 1;
+//const int K38 = 1;
+//const int K39 = 1;
+//const int K40 = 1;
+//const int K41 = 1;
+//const int K42 = 1;
+
+
+const int d1 = 774;
+const int d2 = 532;
+const int d3 = 508;
+const int d4 = 486;
+const int d5 = 459;
+const int d6 = 439;
+const int d7 = 415;
+const int d8 = 386;
+const int d9 = 365;
+const int d10 = 341;
+const int d11 = 318;
+const int d12 = 294;
+const int d13 = 268;
+const int d14 = 242;
+const int d15 = 220;
+const int d16 = 195;
+const int d17 = 171;
+const int d18 = 146;
+const int d19 = 122;
+const int d20 = 98;
+const int d21 = 74;
+const int d22 = 74;
+//const int d23 = 538;
+//const int d24 = 507;
+//const int d25 = 485;
+//const int d26 = 464;
+//const int d27 = 438;
+//const int d28 = 414;
+//const int d29 = 391;
+//const int d30 = 364;
+//const int d31 = 340;
+//const int d32 = 318;
+//const int d33 = 293;
+//const int d34 = 268;
+//const int d35 = 245;
+//const int d36 = 219;
+//const int d37 = 195;
+//const int d38 = 170;
+//const int d39 = 148;
+//const int d40 = 122;
+//const int d41 = 98;
+//const int d42 = 74;
+//const int d43 = 74;
+
+
+
+module LECMarkovChain
+
+    detects : [0..det_tth] init 0;
+    trials : [0..det_tth] init 0;
+
+    fail : [0..1] init 0; // fail state
+    pickKN : [0..1] init 1; // flag for changing K and N values to next interval's
+
+    currN : [0..det_tth] init 0; // keeps track of num of readings in the current interval
+    currK : [0..det_tth] init 0; // keeps track of num of misdetects in the current interval
+    inter : [0..21] init 0; // keeps track of interval num
+
+    currPos : [0..774] init 774; // starting position of the sub-interval with initial starting pos = d1 
+    nextPos : [0..532] init 532; // ending position of the sub-interval with initial ending pos = d2
+
+    [] pickKN=1 & inter=0-> (currN'=N1)&(currK'=K1)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d1)&(nextPos'=d2);
+    [] pickKN=1 & inter=1-> (currN'=N2)&(currK'=K2)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d2)&(nextPos'=d3);
+    [] pickKN=1 & inter=2-> (currN'=N3)&(currK'=K3)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d3)&(nextPos'=d4);
+    [] pickKN=1 & inter=3-> (currN'=N4)&(currK'=K4)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d4)&(nextPos'=d5);
+    [] pickKN=1 & inter=4-> (currN'=N5)&(currK'=K5)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d5)&(nextPos'=d6);
+    [] pickKN=1 & inter=5-> (currN'=N6)&(currK'=K6)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d6)&(nextPos'=d7);
+    [] pickKN=1 & inter=6-> (currN'=N7)&(currK'=K7)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d7)&(nextPos'=d8);
+    [] pickKN=1 & inter=7-> (currN'=N8)&(currK'=K8)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d8)&(nextPos'=d9);
+    [] pickKN=1 & inter=8-> (currN'=N9)&(currK'=K9)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d9)&(nextPos'=d10);
+    [] pickKN=1 & inter=9-> (currN'=N10)&(currK'=K10)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d10)&(nextPos'=d11);
+    [] pickKN=1 & inter=10-> (currN'=N11)&(currK'=K11)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d11)&(nextPos'=d12);
+    [] pickKN=1 & inter=11-> (currN'=N12)&(currK'=K12)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d12)&(nextPos'=d13);
+    [] pickKN=1 & inter=12-> (currN'=N13)&(currK'=K13)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d13)&(nextPos'=d14);
+    [] pickKN=1 & inter=13-> (currN'=N14)&(currK'=K14)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d14)&(nextPos'=d15);
+    [] pickKN=1 & inter=14-> (currN'=N15)&(currK'=K15)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d15)&(nextPos'=d16);
+    [] pickKN=1 & inter=15-> (currN'=N16)&(currK'=K16)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d16)&(nextPos'=d17);
+    [] pickKN=1 & inter=16-> (currN'=N17)&(currK'=K17)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d17)&(nextPos'=d18);
+    [] pickKN=1 & inter=17-> (currN'=N18)&(currK'=K18)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d18)&(nextPos'=d19);
+    [] pickKN=1 & inter=18-> (currN'=N19)&(currK'=K19)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d19)&(nextPos'=d20);
+    [] pickKN=1 & inter=19-> (currN'=N20)&(currK'=K20)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d20)&(nextPos'=d21);
+    [] pickKN=1 & inter=20-> (currN'=N21)&(currK'=K21)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d21)&(nextPos'=d22);
+    //[] pickKN=1 & inter=21-> (currN'=N22)&(currK'=K22)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d22)&(nextPos'=d23);
+    //[] pickKN=1 & inter=22-> (currN'=N23)&(currK'=K23)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d23)&(nextPos'=d24);
+    //[] pickKN=1 & inter=23-> (currN'=N24)&(currK'=K24)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d24)&(nextPos'=d25);
+    //[] pickKN=1 & inter=24-> (currN'=N25)&(currK'=K25)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d25)&(nextPos'=d26);
+    //[] pickKN=1 & inter=25-> (currN'=N26)&(currK'=K26)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d26)&(nextPos'=d27);
+    //[] pickKN=1 & inter=26-> (currN'=N27)&(currK'=K27)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d27)&(nextPos'=d28);
+    //[] pickKN=1 & inter=27-> (currN'=N28)&(currK'=K28)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d28)&(nextPos'=d29);
+    //[] pickKN=1 & inter=28-> (currN'=N29)&(currK'=K29)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d29)&(nextPos'=d30);
+    //[] pickKN=1 & inter=29-> (currN'=N30)&(currK'=K30)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d30)&(nextPos'=d31);
+    //[] pickKN=1 & inter=30-> (currN'=N31)&(currK'=K31)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d31)&(nextPos'=d32);
+    //[] pickKN=1 & inter=31-> (currN'=N32)&(currK'=K32)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d32)&(nextPos'=d33);
+    //[] pickKN=1 & inter=32-> (currN'=N33)&(currK'=K33)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d33)&(nextPos'=d34);
+    //[] pickKN=1 & inter=33-> (currN'=N34)&(currK'=K34)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d34)&(nextPos'=d35);
+    //[] pickKN=1 & inter=34-> (currN'=N35)&(currK'=K35)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d35)&(nextPos'=d36);
+    //[] pickKN=1 & inter=35-> (currN'=N36)&(currK'=K36)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d36)&(nextPos'=d37);
+    //[] pickKN=1 & inter=36-> (currN'=N37)&(currK'=K37)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d37)&(nextPos'=d38);
+    //[] pickKN=1 & inter=37-> (currN'=N38)&(currK'=K38)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d38)&(nextPos'=d39);
+    //[] pickKN=1 & inter=38-> (currN'=N39)&(currK'=K39)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d39)&(nextPos'=d40);
+    //[] pickKN=1 & inter=39-> (currN'=N40)&(currK'=K40)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d40)&(nextPos'=d41);
+    //[] pickKN=1 & inter=40-> (currN'=N41)&(currK'=K41)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d41)&(nextPos'=d42);
+    //[] pickKN=1 & inter=41-> (currN'=N42)&(currK'=K42)&(pickKN'=0)&(detects'=0)&(trials'=0)&(inter'=inter+1)&(currPos'=d42)&(nextPos'=d43);
+
+               
+    [] pickKN = 0 & trials < currN & currPos=d1 & nextPos=d2 & detects < det_tth -> 0.19445218:(trials'=trials+1)&(detects'= detects+1) + 1-0.19445218:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d2 & nextPos=d3 & detects < det_tth  -> 0.89254386:(trials'=trials+1)&(detects'= detects+1) + 1-0.89254386:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d3 & nextPos=d4 & detects < det_tth  -> 0.89269747:(trials'=trials+1)&(detects'= detects+1) + 1-0.89269747:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d4 & nextPos=d5 & detects < det_tth  -> 0.85490877:(trials'=trials+1)&(detects'= detects+1) + 1-0.85490877:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d5 & nextPos=d6 & detects < det_tth  -> 0.85714286:(trials'=trials+1)&(detects'= detects+1) + 1-0.85714286:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d6 & nextPos=d7 & detects < det_tth  -> 0.84463895:(trials'=trials+1)&(detects'= detects+1) + 1-0.84463895:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d7 & nextPos=d8 & detects < det_tth -> 0.87652174:(trials'=trials+1)&(detects'= detects+1) + 1-0.87652174:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d8 & nextPos=d9 & detects < det_tth -> 0.91084695:(trials'=trials+1)&(detects'= detects+1) + 1-0.91084695:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d9 & nextPos=d10 & detects < det_tth -> 0.88345324:(trials'=trials+1)&(detects'= detects+1) + 1-0.88345324:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d10 & nextPos=d11 & detects < det_tth -> 0.90153173:(trials'=trials+1)&(detects'= detects+1) + 1-0.90153173:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d11 & nextPos=d12 & detects < det_tth -> 0.95175439:(trials'=trials+1)&(detects'= detects+1) + 1-0.95175439:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d12 & nextPos=d13 & detects < det_tth -> 0.94298246:(trials'=trials+1)&(detects'= detects+1) + 1-0.94298246:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d13 & nextPos=d14 & detects < det_tth -> 0.94771242:(trials'=trials+1)&(detects'= detects+1) + 1-0.94771242:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d14 & nextPos=d15 & detects < det_tth -> 0.91629956:(trials'=trials+1)&(detects'= detects+1) + 1-0.91629956:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d15 & nextPos=d16 & detects < det_tth -> 0.93452381:(trials'=trials+1)&(detects'= detects+1) + 1-0.93452381:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d16 & nextPos=d17 & detects < det_tth -> 0.98563218:(trials'=trials+1)&(detects'= detects+1) + 1-0.98563218:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d17 & nextPos=d18 & detects < det_tth -> 1:(trials'=trials+1)&(detects'= detects+1) + 0:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d18 & nextPos=d19 & detects < det_tth -> 1:(trials'=trials+1)&(detects'= detects+1) + 0:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d19 & nextPos=d20 & detects < det_tth -> 1:(trials'=trials+1)&(detects'= detects+1) + 0:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d20 & nextPos=d21 & detects < det_tth -> 0.94091766:(trials'=trials+1)&(detects'= detects+1) + 1-0.940917661:(trials'=trials+1);
+    [] pickKN = 0 & trials < currN & currPos=d21 & nextPos=d22 & detects < det_tth -> 0.94091766:(trials'=trials+1)&(detects'= detects+1) + 1-0.94091766:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d22 & nextPos=d23 & detects < 32 -> 7.72646536e-01:(trials'=trials+1)&(detects'= detects+1) + 1-7.72646536e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d23 & nextPos=d24 & detects < 32 -> 8.96969697e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.96969697e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d24 & nextPos=d25 & detects < 32 -> 8.79385965e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.79385965e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d25 & nextPos=d26 & detects < 32 -> 8.53115727e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.53115727e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d26 & nextPos=d27 & detects < 32 -> 8.58137511e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.58137511e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d27 & nextPos=d28 & detects < 32 -> 8.52908891e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.52908891e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d28 & nextPos=d29 & detects < 32 -> 8.66468843e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.66468843e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d29 & nextPos=d30 & detects < 32 -> 9.08891328e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.08891328e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d30 & nextPos=d31 & detects < 32 -> 8.83453237e-01:(trials'=trials+1)&(detects'= detects+1) + 1-8.83453237e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d31 & nextPos=d32 & detects < 32 -> 9.01531729e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.01531729e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d32 & nextPos=d33 & detects < 32 -> 9.51754386e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.51754386e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d33 & nextPos=d34 & detects < 32 -> 9.42982456e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.42982456e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d34 & nextPos=d35 & detects < 32 -> 9.47712418e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.47712418e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d35 & nextPos=d36 & detects < 32 -> 9.16299559e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.16299559e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d36 & nextPos=d37 & detects < 32 -> 9.34523810e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.34523810e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d37 & nextPos=d38 & detects < 32 -> 9.85632184e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.85632184e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d38 & nextPos=d39 & detects < 32 -> 1:(trials'=trials+1)&(detects'= detects+1);
+    //[] pickKN = 0 & trials < currN & currPos=d39 & nextPos=d40 & detects < 32 -> 1:(trials'=trials+1)&(detects'= detects+1);
+    //[] pickKN = 0 & trials < currN & currPos=d40 & nextPos=d41 & detects < 32 -> 1:(trials'=trials+1)&(detects'= detects+1);
+    //[] pickKN = 0 & trials < currN & currPos=d41 & nextPos=d42 & detects < 32 -> 9.40917662e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.40917662e-01:(trials'=trials+1);
+    //[] pickKN = 0 & trials < currN & currPos=d42 & nextPos=d43 & detects < 32 -> 9.40917662e-01:(trials'=trials+1)&(detects'= detects+1) + 1-9.40917662e-01:(trials'=trials+1);   
+
+    //[] pickKN = 0 & trials < currN & detects < 32 -> 0.5:(trials'=trials+1)&(detects'= detects+1) + 0.5:(trials'=trials+1);  
+
+    [] pickKN = 0 & trials = currN & detects < currK -> (fail'=1); // go to global fail state if K limit exceeded for this sub-interval	
+    [] pickKN = 0 & trials = currN & detects >= currK -> (pickKN'=1); // success for the current sub-interval
+
+    //[] pickKN=1&inter=5 -> (pickKN'=0);
+
+endmodule

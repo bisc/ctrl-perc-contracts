@@ -1,0 +1,10 @@
+Pmax=? [ F (did=1) ]
+
+Pmin=? [ F (did=1) ]
+
+Pmax=? [ F (did>1&vid=1) ]
+
+Pmin=? [ F (did>1&vid=1) ]
+
+Pmax =? [F(did=1 & vid>1)]
+

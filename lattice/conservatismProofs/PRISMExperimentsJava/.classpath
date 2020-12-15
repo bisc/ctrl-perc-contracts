@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/colt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/epsgraphics.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/jas.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/jcommon.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/jfreechart.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/jhoafparser.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/lpsolve55j.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/nailgun-server.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/prism-4.5/lib/prism.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

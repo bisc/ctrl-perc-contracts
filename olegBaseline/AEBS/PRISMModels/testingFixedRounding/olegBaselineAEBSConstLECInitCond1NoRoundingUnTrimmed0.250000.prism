@@ -1,0 +1,23 @@
+mdp
+
+ 
+const int didMax = 481;
+const int vidMax = 66;
+const int Nmax = 1;
+
+ 
+module PRISMLattice
+
+    did : [1..didMax] init didMax;
+    vid : [1..vidMax] init vidMax;
+
+    currN : [0..2] init 0;
+    currK : [0..Nmax] init 0;
+    s : [0..1] init 1;
+    s2 : [0..1] init 1;
+    s3 : [0..1] init 1;
+    s4 : [0..1] init 1;
+
+ 
+    [] currN=1&(s+s2+s3)<=1 -> (currN'=2)&(currK'=1);
+    [] currN=1&(s+s2+s3)>1 -> (currN'=2)&(currK'=0);

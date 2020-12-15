@@ -1,0 +1,36 @@
+mdp
+
+const int B2=2000;
+const int freq=10;
+const int LECDistThresh=2000;
+
+const int carPosMax = 10000;
+
+const int initPos;
+const int initSpeed;
+
+//const int initPos = 2198;
+//const int initSpeed = 2000;
+
+module LECMarkovChain
+
+    carSpeed : [-5 ..13400] init initSpeed;
+    carPos : [-5..100000] init initPos;
+    flag : [0..1] init 0;
+    LECOutput : [0..1] init 0;
+
+
+    // Discrete LEC Model
+    //[] flag=0&carPos>LECDistThresh -> 0:(LECOutput'=1)&(flag'=1) + 1:(LECOutput'=0)&(flag'=1);
+    //[] flag=0&carPos<=LECDistThresh -> 0.9:(LECOutput'=1)&(flag'=1) + 0.1:(LECOutput'=0)&(flag'=1);
+
+    // Continuous LEC Model
+    [] flag=0&carPos>=0 -> (1-carPos/carPosMax):(LECOutput'=1)&(flag'=1) + (carPos/carPosMax):(LECOutput'=0)&(flag'=1);
+
+    // Run plant controller
+    [] LECOutput=0&carSpeed>0&carPos>0&flag=1 -> (carPos'=floor(carPos-carSpeed/freq))&(flag'=0);
+    [] LECOutput=1&carSpeed>0&carPos>0&flag=1 -> (carSpeed'=ceil(carSpeed-B2/freq))&(carPos'=floor(carPos-carSpeed/freq))&(flag'=0);
+
+
+endmodule
+

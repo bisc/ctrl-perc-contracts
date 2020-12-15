@@ -1,0 +1,50 @@
+mdp
+
+// AEBS Parameters
+const int B1=5;
+const int B2=10;
+const int TTCThresh = 10;
+const int xwarning = 10;
+const int freq = 10;
+const int fmu=1;
+const int Thd=1;
+
+
+const int initPos;
+const int initSpeed;
+
+const int initBrakingFlag;
+const int initBraking;
+
+
+module LECMarkovChain
+
+    s : [0..1] init initBraking;  // 0 is detect, 1 is misdetect
+
+    carSpeed : [0 .. initSpeed] init initSpeed;
+    carPos : [0..initPos] init initPos;
+
+    seqflag : [0..2] init initBrakingFlag;         
+    contRegion : [0..2] init 0;
+
+    //TTC = carPos/carSpeed;
+    //xwarning = (carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)
+    // compute controller region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag'=1)&(contRegion'=0); // safe region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag'=1)&(contRegion'=2); // collision mitigation region
+
+    // compute LEC reading
+    //[] seqflag=1 -> 0.9:(s'=0)&(seqflag'=2)+ 0.1:(s'=1)&(seqflag'=2);  // transitions if previous reading a detect
+	[] seqflag=1 -> 0.5:(s'=0)&(seqflag'=2)+ 0.5:(s'=1)&(seqflag'=2);
+	
+    // compute carPos, carSpeed
+    [] seqflag=2&s=0&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+    [] seqflag=2&s=0&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B1/freq))&(seqflag'=0);
+    [] seqflag=2&s=0&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B2/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+
+endmodule

@@ -1,0 +1,68 @@
+mdp
+
+// AEBS Parameters
+const int B1=1000;
+const int B2=2000;
+const int TTCThresh = 10;
+const int xwarning = 2000;
+const int freq = 10;
+const int fmu=1;
+const int Thd=1;
+
+
+const int initPos;
+const int initSpeed;
+
+const int initBrakingFlag;
+const int initBraking;
+
+
+module LECMarkovChain
+
+    s : [0..1] init initBraking;  // 0 is detect, 1 is misdetect
+
+    carSpeed : [0 .. initSpeed] init initSpeed;
+    carPos : [0..initPos] init initPos;
+
+    seqflag : [0..2] init initBrakingFlag;         
+    contRegion : [0..2] init 0;
+
+    //TTC = carPos/carSpeed;
+    //xwarning = (carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)
+    // compute controller region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag'=1)&(contRegion'=0); // safe region
+    [] seqflag=0&(carPos/carSpeed)>TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&(carPos/carSpeed)<=TTCThresh&(carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag'=1)&(contRegion'=2); // collision mitigation region
+	
+    // compute LEC reading
+    [] seqflag=1&carPos<1000&carPos>=0 -> 0.9560546875:(s'=0)&(seqflag'=2)+ 0.0439453125:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1000 -> 0.9929873772791024:(s'=0)&(seqflag'=2)+ 0.007012622720897643:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<3000&carPos>=2000 -> 0.8700980392156863:(s'=0)&(seqflag'=2)+ 0.1299019607843137:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<4000&carPos>=3000 -> 0.802907915993538:(s'=0)&(seqflag'=2)+ 0.19709208400646205:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<5000&carPos>=4000 -> 0.7575057736720554:(s'=0)&(seqflag'=2)+ 0.2424942263279446:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<6000&carPos>=5000 -> 0.7372685185185185:(s'=0)&(seqflag'=2)+ 0.2627314814814815:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<7000&carPos>=6000 -> 0.6085450346420324:(s'=0)&(seqflag'=2)+ 0.39145496535796764:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<8000&carPos>=7000 -> 0.49195402298850577:(s'=0)&(seqflag'=2)+ 0.5080459770114942:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<9000&carPos>=8000 -> 0.11935110081112399:(s'=0)&(seqflag'=2)+ 0.880648899188876:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<10000&carPos>=9000 -> 0.006928406466512702:(s'=0)&(seqflag'=2)+ 0.9930715935334873:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<11000&carPos>=10000 -> 0.005733944954128441:(s'=0)&(seqflag'=2)+ 0.9942660550458715:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<12000&carPos>=11000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<13000&carPos>=12000 -> 0.004618937644341801:(s'=0)&(seqflag'=2)+ 0.9953810623556582:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<14000&carPos>=13000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<15000&carPos>=14000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<16000&carPos>=15000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<17000&carPos>=16000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<18000&carPos>=17000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<19000&carPos>=18000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<20000&carPos>=19000 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+	
+    // compute carPos, carSpeed
+    [] seqflag=2&s=0&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=3);
+    [] seqflag=2&s=0&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B1/freq))&(seqflag'=0);
+    [] seqflag=2&s=0&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(carSpeed'=carSpeed-floor(B2/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=carPos-ceil(carSpeed/freq))&(seqflag'=0);
+
+endmodule

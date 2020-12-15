@@ -1,0 +1,1 @@
+    [] currN=0&did>1&vid>1&did<7&did>=1&s=1 -> 

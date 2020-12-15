@@ -1,0 +1,98 @@
+mdp
+
+// AEBS Parameters
+//const int B1=1000;
+//const int B2=2000;
+//const int TTCThresh = 10;
+//const int xwarning = 2000;
+//const int freq = 10;
+//const int fmu=1;
+//const int Thd=1;
+
+const int B1=40; // approximates high end of comfortable human braking from doc from China (3.4 rounded to 4)
+const int B2=80; // Comes from michigan.gov braking test document (8.2 rounded to 8)
+const int TTCThresh = 6; // idk
+const int xwarning = 1; // point at which human cannot stop car manually, so our system must brake
+const int freq = 10; // We pick this, approximates running speed of yolonet
+const int fmu=1; // ignoring affects of road conditions on braking for the sake of the case study
+const int Thd=2; // In middle of range of driver reaction times (see research gate doc from Finland)
+
+const int initPos;
+const int initSpeed;
+
+const int initBrakingFlag;
+const int initBraking;
+
+
+module LECMarkovChain
+
+    s : [0..1] init 1;  // 0 is detect, 1 is misdetect
+
+    carSpeed : [0 .. initSpeed] init initSpeed;
+    carPos : [0..initPos] init initPos;
+
+    seqflag : [0..2] init initBrakingFlag;         
+    contRegion : [0..2] init 0;
+
+    //TTC = carPos/carSpeed;
+    //xwarning = (carPos-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)
+    // compute controller region
+    [] seqflag=0&((carPos-50)/carSpeed)>TTCThresh&((carPos-50)-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->   (seqflag'=1)&(contRegion'=0); // safe region
+    [] seqflag=0&((carPos-50)/carSpeed)>TTCThresh&((carPos-50)-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&((carPos-50)/carSpeed)<=TTCThresh&((carPos-50)-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)>xwarning ->  (seqflag'=1)&(contRegion'=1); // braking region
+    [] seqflag=0&((carPos-50)/carSpeed)<=TTCThresh&((carPos-50)-fmu*pow(carSpeed,2)/(2*B2))/(carSpeed*Thd)<=xwarning -> (seqflag'=1)&(contRegion'=2); // collision mitigation region
+
+    // compute LEC reading if previous detection
+    [] seqflag=1&s=0&carPos<100&carPos>=0 -> 0.983787:(s'=0)&(seqflag'=2)+ (1-0.983787):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<200&carPos>=100 -> 0.990166:(s'=0)&(seqflag'=2)+ (1-0.990166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<300&carPos>=200 -> 0.965617:(s'=0)&(seqflag'=2)+ (1-0.965617):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<400&carPos>=300 -> 0.971034:(s'=0)&(seqflag'=2)+ (1-0.971034):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<500&carPos>=400 -> 0.963752:(s'=0)&(seqflag'=2)+ (1-0.963752):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<600&carPos>=500 -> 0.917343:(s'=0)&(seqflag'=2)+ (1-0.917343):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<700&carPos>=600 -> 0.877598:(s'=0)&(seqflag'=2)+ (1-0.877598):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<800&carPos>=700 -> 0.900778:(s'=0)&(seqflag'=2)+ (1-0.900778):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<900&carPos>=800 -> 0.635004:(s'=0)&(seqflag'=2)+ (1-0.635004):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1000&carPos>=900 -> 0.190378:(s'=0)&(seqflag'=2)+ (1-0.190378):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1100&carPos>=1000 -> 0.00444358:(s'=0)&(seqflag'=2)+ (1-0.00444358):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1200&carPos>=1100 -> 0.0000304324:(s'=0)&(seqflag'=2)+ (1-0.0000304324):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=0&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+
+	
+    // compute LEC reading if previous misdetection
+    [] seqflag=1&s=1&carPos<100&carPos>=0 -> 0.317879:(s'=0)&(seqflag'=2)+ (1-0.317879):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<200&carPos>=100 -> 0.990166:(s'=0)&(seqflag'=2)+ (1-0.990166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<300&carPos>=200 -> 0.193826:(s'=0)&(seqflag'=2)+ (1-0.193826):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<400&carPos>=300 -> 0.177885:(s'=0)&(seqflag'=2)+ (1-0.177885):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<500&carPos>=400 -> 0.117157:(s'=0)&(seqflag'=2)+ (1-0.117157):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<600&carPos>=500 -> 0.294157:(s'=0)&(seqflag'=2)+ (1-0.294157):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<700&carPos>=600 -> 0.19692:(s'=0)&(seqflag'=2)+ (1-0.19692):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<800&carPos>=700 -> 0.115943:(s'=0)&(seqflag'=2)+ (1-0.115943):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<900&carPos>=800 -> 0.0770945:(s'=0)&(seqflag'=2)+ (1-0.0770945):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1000&carPos>=900 -> 0.00747959:(s'=0)&(seqflag'=2)+ (1-0.00747959):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1100&carPos>=1000 -> 0.00444358:(s'=0)&(seqflag'=2)+ (1-0.00444358):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1200&carPos>=1100 -> 0.0000304324:(s'=0)&(seqflag'=2)+ (1-0.0000304324):(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&s=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+	
+    // compute carPos, carSpeed
+    [] seqflag=2&s=0&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(seqflag'=0);
+    [] seqflag=2&s=0&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(carSpeed'=max(0,carSpeed-floor(B1/freq)))&(seqflag'=0);
+    [] seqflag=2&s=0&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(carSpeed'=max(0,carSpeed-floor(B2/freq)))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=0&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=1&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(seqflag'=0);
+    [] seqflag=2&s=1&contRegion=2&carSpeed>0&carPos>0 -> (carPos'=max(0,carPos-ceil(carSpeed/freq)))&(seqflag'=0);
+
+endmodule
