@@ -56,7 +56,7 @@ def getNewInt(int_pos, n_pos, out_n):
             num_elems = out_n[i]
             if (num_elems != len(n_pos[i])):
                 print(num_elems,len(n_pos[i]))
-                raise Exception("No. of N != sample position's len")
+                #raise Exception("No. of N != sample position's len")
             counter = 1
             while True:
                 idx = counter*max_n
