@@ -4,7 +4,7 @@ This directory contains the code for generating and running the models, along wi
 
 
 The subdirectories are as follows:
-- counter_examples: This directory contians wolfram alpha code to generate counter examples used in the paper.
+- counter_examples: This directory contians wolfram alpha code to generate counter examples used in the paper. It also contains the code to build and visualize exact state-spaces resulting from our dynamics models. 
 - model_calling: This directory contains java code to run the models through PRISM.
 - model_generation: This directory contains the code used to generate the models for the experiments.
 
