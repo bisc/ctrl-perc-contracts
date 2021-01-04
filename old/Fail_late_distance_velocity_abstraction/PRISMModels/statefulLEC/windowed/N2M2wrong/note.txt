@@ -1,0 +1,2 @@
+- There is no L=3 here because that would look back 2 steps, creating a mess. So this is not technically an exact conversion of the LEC model: we lose the information of the 3-step conditioning.
+- M=2 basically says "i need 2 detections in a window to declare a detection". So many probabilities look the same because there are not many outcomes.
