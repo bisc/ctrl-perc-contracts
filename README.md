@@ -7,3 +7,4 @@ The directory structure is as follows:
 - results: This directory contains the data and visuals for the NFM 2021 submission, along with the code to generate the visuals.
 - old: old stuff, miscellaneous stuff. This directory can be ignored.
 
+TODO: describe instructions for wolfrascript, wolframplayer, mathematica free trial
