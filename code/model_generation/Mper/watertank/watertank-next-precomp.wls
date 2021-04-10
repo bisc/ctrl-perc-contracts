@@ -1,10 +1,10 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-(*If[Length@$ScriptCommandLine < 2, 
+If[Length@$ScriptCommandLine < 2, 
 Print["Not enough command line params"];
 Quit[]
-];*)
+];
 
 
 ntanks = ToExpression@$ScriptCommandLine[[2]];
@@ -19,6 +19,7 @@ Quit[]
 trueWls = ToExpression/@ ($ScriptCommandLine[[3 ;; 2+ntanks]]);
 
 
+Clear[ts, is, os, ew]; 
 (* tank size *) 
 ts  = 101; 
 (* inflow speed *) 
@@ -59,10 +60,10 @@ Print[pNofill]*)
 - or when it is below/belowequal the level of the first (depending on lexicographic order)  *) 
 pPrior[t1num_, t2num_, t1Wl_]:= 
 If[t1Wl<lt+1, (* it will only get filled if this certain level is below the lower threshold *) 
-(*Plus@@(percWlDistrs[[t2num, lt + 1 ;;]]) +*) (* probability the other tank wont need filling *)
+Plus@@(percWlDistrs[[t2num, lt + 1 ;;]]) + (* probability the other tank wont need filling *)
 Plus@@If[t1num < t2num,  
-percWlDistrs[[t2num, t1Wl ;; ]] , (* fine to go all the way to that level *)
-percWlDistrs[[t2num, t1Wl + 1 ;; ]](* need to stop one level below *) 
+percWlDistrs[[t2num, 1;;t1Wl ]] , (* fine to go all the way to that level *)
+percWlDistrs[[t2num, 1;;t1Wl - 1]](* need to stop one level below *) 
 ],
 0];
 
@@ -94,8 +95,8 @@ Print[nextTankProb] *)
 Print[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] \[Equal] 1]]*)
 
 
-(*If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
-Print["Distribution test failed: not adding up to 1!"]]*)
+If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
+Print["Distribution test failed: not adding up to 1!"]]
 
 
 Print[pNofill]

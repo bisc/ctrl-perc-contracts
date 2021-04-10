@@ -83,7 +83,7 @@ pPrior[tankNum, #, curlvl] & /@ (DeleteCases[Range[1, ntanks], tankNum])
 
 
 (* simplify the expression a bit *) 
-nextTankProb = Simplify[#, Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] &/@ nextTankProb
+(*nextTankProb = Simplify[#, Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] &/@ nextTankProb*)
 
 
 (*Print["nextTankProb:"]

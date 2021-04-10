@@ -1,10 +1,10 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-(*If[Length@$ScriptCommandLine < 2, 
+If[Length@$ScriptCommandLine < 2, 
 Print["Not enough command line params"];
 Quit[]
-];*)
+];
 
 
 ntanks = ToExpression@$ScriptCommandLine[[2]];
@@ -19,6 +19,7 @@ Quit[]
 trueWls = ToExpression/@ ($ScriptCommandLine[[3 ;; 2+ntanks]]);
 
 
+Clear[ts, is, os, ew]; 
 (* tank size *) 
 ts  = 101; 
 (* inflow speed *) 
@@ -94,8 +95,8 @@ Print[nextTankProb] *)
 Print[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] \[Equal] 1]]*)
 
 
-(*If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
-Print["Distribution test failed: not adding up to 1!"]]*)
+If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
+Print["Distribution test failed: not adding up to 1!"]]
 
 
 Print[pNofill]

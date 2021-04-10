@@ -30,7 +30,7 @@ ut = 80;
 (* lower threshold *) 
 lt = 20; 
 (* error window width (applied to both ends); not counting the big false positive and big false negative *) 
-ew = 4;
+ew = 6;
 
 
 percWlDistrs = With[{truelvl = #}, 
@@ -94,8 +94,8 @@ Print[nextTankProb] *)
 Print[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] \[Equal] 1]]*)
 
 
-(*If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
-Print["Distribution test failed: not adding up to 1!"]]*)
+If[Simplify[pNofill + Plus@@nextTankProb , Plus@@(p/@Range[-ew, ew]) + p[max] + p[min] == 1] != 1,
+Print["Distribution test failed: not adding up to 1!"]]
 
 
 Print[pNofill]
