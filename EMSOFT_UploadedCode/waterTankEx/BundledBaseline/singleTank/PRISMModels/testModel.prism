@@ -1,0 +1,131 @@
+mdp
+
+ 
+const int wlidInit;
+const int wlidMax = 26;
+const int Nmax = 1;
+const int maxTime = 100;
+
+ 
+module PRISMLattice
+
+    wlid : [1..wlidMax] init wlidMax;
+    wlidPer : [1..wlidMax] init wlidMax;
+    currN : [0..2] init 0;
+    contAction : [0..1] init 0;
+    sink: [0..1] init 0;
+    timesteps: [0..maxTime] init 0;
+
+ 
+    [] currN=0&sink=0 ->  1.111111e-01: (wlidPer'=wlid+4)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+3)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+2)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+1)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+0)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+-1)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+-2)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+-3)&(currN'=1) + 1.111111e-01: (wlidPer'=wlid+-4)&(currN'=1);
+
+ 
+    [] currN=1&wlidPer<=6&sink=0 -> (currN'=2)&(contAction'=1);
+    [] currN=1&contAction=0&wlidPer>6&sink=0 -> (currN'=2)&(contAction'=0);
+    [] currN=1&contAction!=0&wlidPer<=21&sink=0 -> (currN'=2)&(contAction'=1);
+    [] currN=1&wlidPer>=21&sink=0 -> (currN'=2)&(contAction'=0);
+
+    [] wlid=1&currN=2&contAction=0&sink=0&timesteps<maxTime -> (sink'=1);
+    [] wlid=1&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=3)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=2&currN=2&contAction=0&sink=0&timesteps<maxTime -> (sink'=1);
+    [] wlid=2&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=4)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=3&currN=2&contAction=0&sink=0&timesteps<maxTime -> (sink'=1);
+    [] wlid=3&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=2)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=3&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=5)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=4&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=2)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=4&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=3)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=4&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=6)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=5&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=3)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=5&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=4)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=5&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=7)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=6&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=4)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=6&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=5)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=6&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=8)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=7&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=5)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=7&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=6)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=7&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=9)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=8&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=6)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=8&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=7)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=8&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=10)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=9&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=7)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=9&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=8)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=9&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=11)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=10&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=8)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=10&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=9)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=10&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=12)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=11&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=9)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=11&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=10)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=11&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=13)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=12&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=10)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=12&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=11)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=12&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=14)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=13&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=11)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=13&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=12)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=13&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=15)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=14&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=12)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=14&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=13)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=14&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=16)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=15&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=13)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=15&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=14)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=15&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=17)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=16&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=14)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=16&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=15)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=16&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=18)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=17&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=15)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=17&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=16)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=17&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=19)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=18&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=16)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=18&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=17)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=18&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=20)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=19&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=17)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=19&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=18)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=19&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=21)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=20&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=18)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=20&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=19)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=20&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=22)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=21&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=19)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=21&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=20)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=21&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=23)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=22&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=20)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=22&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=21)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=22&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=24)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=23&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=21)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=23&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=22)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=23&currN=2&contAction=1&sink=0&timesteps<maxTime -> (wlid'=25)&(currN'=0)&(timesteps'=timesteps+1);
+
+    [] wlid=24&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=22)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=24&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=23)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=24&currN=2&contAction=1&sink=0&timesteps<maxTime -> (sink'=1);
+
+    [] wlid=25&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=23)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=25&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=24)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=25&currN=2&contAction=1&sink=0&timesteps<maxTime -> (sink'=1);
+
+    [] wlid=26&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=24)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=26&currN=2&contAction=0&sink=0&timesteps<maxTime -> (wlid'=25)&(currN'=0)&(timesteps'=timesteps+1);
+    [] wlid=26&currN=2&contAction=1&sink=0&timesteps<maxTime -> (sink'=1);
+
+ 
+endmodule

@@ -1,0 +1,1 @@
+Run convertLECNumbersToPRISMModel.py to generate the LEC model for the AEBS experiments from the data in the .npy files

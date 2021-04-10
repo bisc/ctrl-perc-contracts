@@ -1,0 +1,1 @@
+The python scripts generate the LEC models for the prism models for the M_dbtt and M_sbtt models for the AEBS example

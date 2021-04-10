@@ -1,0 +1,15 @@
+
+Compile on ash
+javac <fileToRun.java> PrismConnectorAPI.java -cp ":lib/*:"
+ex:
+javac runScalabilityLattice.java PrismConnectorAPI.java -cp ":lib/*:"
+
+
+set prism library path
+export LD_LIBRARY_PATH=/home/iruchkin/matthew-test-code/lib:
+export LD_LIBRARY_PATH=/data2/mcleav/waterTankEx/lib:
+
+run java
+java -classpath lib/*:. -Djava.library.path=lib/: <fileToRun>
+java -classpath lib/*:. -Djava.library.path=lib/: runScalabilityLattice
+

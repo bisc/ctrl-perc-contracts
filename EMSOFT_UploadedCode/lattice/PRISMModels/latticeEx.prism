@@ -1,0 +1,55 @@
+mdp
+
+
+
+
+
+const int vidMax = 1;
+const int didMax = 2;
+const int Nmax = 3;
+
+
+
+module PRISMLattice
+
+    currN : [0..Nmax] init 0;
+    currK : [0..Nmax] init 0;
+
+    vid : [0..vidMax] init vidMax;
+    did : [0..didMax] init didMax;
+
+    [] currN<Nmax&currK<Nmax -> 0.9:(currN'=currN+1)&(currK'=currK+1) + 0.1:(currN'=currN+1);
+
+
+
+    [] vid=1&did=2&currN=3&currK=0 -> (vid'=1)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=2&currN=3&currK=1 -> (vid'=1)&(did'=1)&(currN'=0)&(currK'=0);
+    [] vid=1&did=2&currN=3&currK=2 -> (vid'=0)&(did'=1)&(currN'=0)&(currK'=0);
+    [] vid=1&did=2&currN=3&currK=3 -> (vid'=0)&(did'=1)&(currN'=0)&(currK'=0);
+
+
+
+    [] vid=1&did=1&currN=3&currK=0 -> (vid'=1)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=1&currN=3&currK=1 -> (vid'=1)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=1&currN=3&currK=2 -> (vid'=0)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=1&currN=3&currK=3 -> (vid'=0)&(did'=0)&(currN'=0)&(currK'=0);
+
+
+
+    [] vid=1&did=2&currN=1&currK=0 -> (vid'=1)&(did'=1)&(currN'=0)&(currK'=0);
+    [] vid=1&did=2&currN=1&currK=1 -> (vid'=1)&(did'=1)&(currN'=0)&(currK'=0);
+    [] vid=1&did=2&currN=1&currK=2 -> (vid'=0)&(did'=1)&(currN'=0)&(currK'=0);
+
+    [] vid=1&did=1&currN=1&currK=0 -> (vid'=1)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=1&currN=1&currK=1 -> (vid'=1)&(did'=0)&(currN'=0)&(currK'=0);
+    [] vid=1&did=1&currN=1&currK=2 -> (vid'=0)&(did'=0)&(currN'=0)&(currK'=0);
+
+endmodule
+
+
+
+
+
+
+
+

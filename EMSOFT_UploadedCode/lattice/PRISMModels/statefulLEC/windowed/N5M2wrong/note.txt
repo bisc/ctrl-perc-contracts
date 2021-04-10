@@ -1,0 +1,1 @@
+- M=2 basically says "i need 2 detections in a window to declare a detection". So many probabilities look the same because there are not many outcomes.

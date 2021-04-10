@@ -1,0 +1,1 @@
+To generate models, see genLatticeForPaper.m

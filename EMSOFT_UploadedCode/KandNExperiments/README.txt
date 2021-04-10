@@ -1,0 +1,1 @@
+This folder contains the code for generating the M_dr models. To generate the models, run genPRISMfile_precomputedLEC.py

@@ -1,0 +1,136 @@
+    [] seqflag=1&carPos<100&carPos>=0 -> 0.962979:(s'=0)&(seqflag'=2)+ (1-0.962979):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<200&carPos>=100 -> 0.990166:(s'=0)&(seqflag'=2)+ (1-0.990166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<300&carPos>=200 -> 0.914615:(s'=0)&(seqflag'=2)+ (1-0.914615):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<400&carPos>=300 -> 0.891092:(s'=0)&(seqflag'=2)+ (1-0.891092):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<500&carPos>=400 -> 0.844562:(s'=0)&(seqflag'=2)+ (1-0.844562):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<600&carPos>=500 -> 0.801321:(s'=0)&(seqflag'=2)+ (1-0.801321):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<700&carPos>=600 -> 0.642089:(s'=0)&(seqflag'=2)+ (1-0.642089):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<800&carPos>=700 -> 0.544463:(s'=0)&(seqflag'=2)+ (1-0.544463):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<900&carPos>=800 -> 0.161903:(s'=0)&(seqflag'=2)+ (1-0.161903):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1000&carPos>=900 -> 0.0109642:(s'=0)&(seqflag'=2)+ (1-0.0109642):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1100&carPos>=1000 -> 0.00444358:(s'=0)&(seqflag'=2)+ (1-0.00444358):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1200&carPos>=1100 -> 0.0000304324:(s'=0)&(seqflag'=2)+ (1-0.0000304324):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+
+ 
+ {0.962979,
+ 0.990166,
+ 0.914615,
+ 0.891092,
+ 0.844562,
+ 0.801321,
+ 0.642089,
+ 0.544463,
+ 0.161903,
+ 0.0109642,
+ 0.00444358,
+ 0.0000304324,
+ 1.08236*10^-19,
+ 1.08234*10^-19,
+ -2.22507*10^-308
+ ,-2.22507*10^-308
+ ,1.08236*10^-19,
+ 1.08223*10^-19,
+ -2.22507*10^-308}
+ 
+ 
+ 
+ 
+ // all det probs reduced by constant 10%
+    [] seqflag=1&carPos<100&carPos>=0 -> 0.862979:(s'=0)&(seqflag'=2)+ (1-0.862979):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<200&carPos>=100 -> 0.890166:(s'=0)&(seqflag'=2)+ (1-0.890166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<300&carPos>=200 -> 0.814615:(s'=0)&(seqflag'=2)+ (1-0.814615):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<400&carPos>=300 -> 0.791092:(s'=0)&(seqflag'=2)+ (1-0.791092):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<500&carPos>=400 -> 0.744562:(s'=0)&(seqflag'=2)+ (1-0.744562):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<600&carPos>=500 -> 0.701321:(s'=0)&(seqflag'=2)+ (1-0.701321):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<700&carPos>=600 -> 0.542089:(s'=0)&(seqflag'=2)+ (1-0.542089):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<800&carPos>=700 -> 0.444463:(s'=0)&(seqflag'=2)+ (1-0.444463):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<900&carPos>=800 -> 0.061903:(s'=0)&(seqflag'=2)+ (1-0.061903):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1000&carPos>=900 -> 0.0109642:(s'=0)&(seqflag'=2)+ (1-0.0109642):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1100&carPos>=1000 -> 0.00444358:(s'=0)&(seqflag'=2)+ (1-0.00444358):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1200&carPos>=1100 -> 0.0000304324:(s'=0)&(seqflag'=2)+ (1-0.0000304324):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+	
+
+ // all det probs reduced by constant 20%
+    [] seqflag=1&carPos<100&carPos>=0 -> 0.762979:(s'=0)&(seqflag'=2)+ (1-0.762979):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<200&carPos>=100 -> 0.790166:(s'=0)&(seqflag'=2)+ (1-0.790166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<300&carPos>=200 -> 0.714615:(s'=0)&(seqflag'=2)+ (1-0.714615):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<400&carPos>=300 -> 0.691092:(s'=0)&(seqflag'=2)+ (1-0.691092):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<500&carPos>=400 -> 0.644562:(s'=0)&(seqflag'=2)+ (1-0.644562):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<600&carPos>=500 -> 0.601321:(s'=0)&(seqflag'=2)+ (1-0.601321):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<700&carPos>=600 -> 0.442089:(s'=0)&(seqflag'=2)+ (1-0.442089):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<800&carPos>=700 -> 0.344463:(s'=0)&(seqflag'=2)+ (1-0.344463):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<900&carPos>=800 -> 0:(s'=0)&(seqflag'=2)+ (1-0):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1000&carPos>=900 -> 0:(s'=0)&(seqflag'=2)+ (1-0):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1100&carPos>=1000 -> 0:(s'=0)&(seqflag'=2)+ (1-0):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1200&carPos>=1100 -> 0:(s'=0)&(seqflag'=2)+ (1-0):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+
+	
+	
+	// no detections before 50m
+    [] seqflag=1&carPos<100&carPos>=0 -> 0.962979:(s'=0)&(seqflag'=2)+ (1-0.962979):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<200&carPos>=100 -> 0.990166:(s'=0)&(seqflag'=2)+ (1-0.990166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<300&carPos>=200 -> 0.914615:(s'=0)&(seqflag'=2)+ (1-0.914615):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<400&carPos>=300 -> 0.891092:(s'=0)&(seqflag'=2)+ (1-0.891092):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<500&carPos>=400 -> 0.844562:(s'=0)&(seqflag'=2)+ (1-0.844562):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<600&carPos>=500 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<700&carPos>=600 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<800&carPos>=700 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<900&carPos>=800 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1000&carPos>=900 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1100&carPos>=1000 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1200&carPos>=1100 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+	
+// no detections before 30m
+    [] seqflag=1&carPos<100&carPos>=0 -> 0.962979:(s'=0)&(seqflag'=2)+ (1-0.962979):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<200&carPos>=100 -> 0.990166:(s'=0)&(seqflag'=2)+ (1-0.990166):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<300&carPos>=200 -> 0.914615:(s'=0)&(seqflag'=2)+ (1-0.914615):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<400&carPos>=300 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<500&carPos>=400 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<600&carPos>=500 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<700&carPos>=600 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<800&carPos>=700 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<900&carPos>=800 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1000&carPos>=900 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1100&carPos>=1000 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1200&carPos>=1100 -> 0:(s'=0)&(seqflag'=2)+ (1):(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1300&carPos>=1200 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1400&carPos>=1300 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1500&carPos>=1400 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1600&carPos>=1500 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1700&carPos>=1600 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1800&carPos>=1700 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<1900&carPos>=1800 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+    [] seqflag=1&carPos<2000&carPos>=1900 -> 0.0:(s'=0)&(seqflag'=2)+ 1.0:(s'=1)&(seqflag'=2);
+ 

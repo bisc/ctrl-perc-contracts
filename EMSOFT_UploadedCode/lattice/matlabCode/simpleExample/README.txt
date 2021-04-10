@@ -1,0 +1,1 @@
+This folder generates prism models for the M_dbtt model using the various matlab scripts which begin with 'genLattice'

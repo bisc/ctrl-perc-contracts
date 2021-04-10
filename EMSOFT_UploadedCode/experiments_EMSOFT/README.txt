@@ -1,0 +1,1 @@
+This directory contains figures and code to generate the figures. See the code/ directory for the different python scripts to run
