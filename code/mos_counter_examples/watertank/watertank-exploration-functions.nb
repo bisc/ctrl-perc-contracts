@@ -1,0 +1,3248 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    139609,       3240]
+NotebookOptionsPosition[    138243,       3215]
+NotebookOutlinePosition[    138668,       3232]
+CellTagsIndexPosition[    138625,       3229]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "Hyperparameters", " ", "*)"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"tank", " ", "count"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ntanks", " ", "=", " ", "1"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"tank", " ", "size"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ts", "  ", "=", " ", "101"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"inflow", " ", "speed"}], " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"is", " ", "=", " ", "13"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"outflow", " ", "speed"}], " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"os", " ", "=", " ", "4"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"upper", " ", "threshold"}], " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"ut", " ", "=", " ", "80"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"lower", " ", "threshold"}], " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"lt", " ", "=", " ", "20"}], ";"}], " ", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"error", " ", "window", " ", "width", " ", 
+      RowBox[{"(", 
+       RowBox[{"applied", " ", "to", " ", "both", " ", "ends"}], ")"}]}], ";",
+      " ", 
+     RowBox[{
+     "not", " ", "counting", " ", "the", " ", "big", " ", "false", " ", 
+      "positive", " ", "and", " ", "big", " ", "false", " ", "negative"}]}], 
+    " ", "*)"}], " ", "\n", 
+   RowBox[{
+    RowBox[{"ew", " ", "=", " ", "4"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.826652192945931*^9, 3.826652199215803*^9}, {
+  3.826653612028723*^9, 3.8266536207905407`*^9}, {3.8268314978472147`*^9, 
+  3.826831497920767*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"9d4c3659-57a2-481a-b354-6032ad780700"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "pe", "]"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"VERSION", " ", "1"}], ":", " ", 
+    RowBox[{"probabilities", " ", "of", " ", 
+     RowBox[{"error", ":", " ", 
+      RowBox[{"4", "-", 
+       RowBox[{
+       "wide", " ", "symmetric", " ", "window", " ", "with", " ", "some", " ",
+         "false", " ", 
+        RowBox[{"positives", "/", "negatives"}]}]}]}]}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pe", "[", "min", "]"}], "=", "0.025"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "6"}], "]"}], "=", "0"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "5"}], "]"}], "=", "0"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "4"}], "]"}], "=", "0.05"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "3"}], "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "2"}], "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", 
+      RowBox[{"-", "1"}], "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "0", "]"}], "=", "0.25"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "1", "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "2", "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "3", "]"}], "=", "0.1"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "4", "]"}], "=", "0.05"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "5", "]"}], "=", "0"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "6", "]"}], "=", "0"}], ";", 
+    RowBox[{
+     RowBox[{"pe", "[", "max", "]"}], "=", "0.025"}], ";"}], 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"VERSION", " ", "2"}], ":", " ", 
+    RowBox[{"probabilities", " ", "of", " ", "error"}], ":", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"FP", "/", "FN"}], "/", "TRUE"}], " ", "perception", " ", 
+     "only"}]}], " ", "*)"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"pe", "[", "min", "]"}], "=", "0.1"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "6"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "5"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "4"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "3"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "2"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", 
+     RowBox[{"-", "1"}], "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "0", "]"}], "=", "0.8"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "1", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "2", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "3", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "4", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "5", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "6", "]"}], "=", "0"}], ";", 
+   RowBox[{
+    RowBox[{"pe", "[", "max", "]"}], "=", "0.1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.81401539102951*^9, 3.814015422845625*^9}, {
+   3.81401554563109*^9, 3.814015567788335*^9}, {3.8140162550845537`*^9, 
+   3.814016262243981*^9}, {3.814028198176523*^9, 3.814028249419154*^9}, {
+   3.814043790944413*^9, 3.814043796904958*^9}, {3.814045418592802*^9, 
+   3.814045433168844*^9}, {3.814117605800437*^9, 3.81411773390738*^9}, {
+   3.8141179830408697`*^9, 3.8141180112693367`*^9}, {3.814118059050349*^9, 
+   3.814118061196951*^9}, {3.814118443876802*^9, 3.814118468313889*^9}, {
+   3.8141193623146563`*^9, 3.8141193629535646`*^9}, {3.816435745205127*^9, 
+   3.8164357489645443`*^9}, {3.816436012121364*^9, 3.816436017713645*^9}, {
+   3.816436421766429*^9, 3.816436439104577*^9}, {3.816436485625105*^9, 
+   3.816436486007321*^9}, {3.8164368945276747`*^9, 3.816436927882188*^9}, {
+   3.816441245359562*^9, 3.81644124950045*^9}, {3.816456965522311*^9, 
+   3.8164570228098917`*^9}, {3.8164585576802473`*^9, 3.816458586733287*^9}, {
+   3.816458960366806*^9, 3.816458992435169*^9}, {3.816459108395238*^9, 
+   3.816459122981112*^9}, {3.8164591827573433`*^9, 3.816459257453657*^9}, {
+   3.816459322780233*^9, 3.816459365767061*^9}, {3.816459399388435*^9, 
+   3.8164594758878937`*^9}, {3.8164605538553457`*^9, 3.816460591227765*^9}, {
+   3.816460737454666*^9, 3.816460738031116*^9}, {3.8165254483581543`*^9, 
+   3.816525454506366*^9}, {3.81652686075298*^9, 3.816526877831884*^9}, 
+   3.8165270514767113`*^9, 3.816527098617352*^9, {3.816533428263891*^9, 
+   3.816533445189425*^9}, 3.8266523284451017`*^9, {3.82665237082642*^9, 
+   3.826652618683364*^9}, {3.826652700834167*^9, 3.8266527039880657`*^9}, {
+   3.826652783031055*^9, 3.826652811822006*^9}, {3.8266533085534353`*^9, 
+   3.826653331391226*^9}, {3.8266533683669558`*^9, 3.826653368525847*^9}, {
+   3.8266535023947697`*^9, 3.8266535076308413`*^9}, {3.8267264669907207`*^9, 
+   3.826726477002737*^9}, {3.826726642600759*^9, 3.826726642944878*^9}, {
+   3.8268227892251043`*^9, 3.8268228075342703`*^9}, {3.826830116793687*^9, 
+   3.826830129131547*^9}, {3.8268302755550003`*^9, 3.8268303478182*^9}, {
+   3.8268309191260033`*^9, 3.826830949035695*^9}, {3.826831804275199*^9, 
+   3.8268318130210447`*^9}, {3.8269031882482557`*^9, 3.82690319856917*^9}},
+ CellLabel->
+  "In[354]:=",ExpressionUUID->"49d61613-3c7c-4b97-903c-657a03ea275c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{
+    "probStepContChance", ",", " ", "probStepStopChance", ",", 
+     "removeMaxRule", ",", " ", "nextLevels", ",", " ", "nextLevelSeqs", ",", 
+     "distrOfStepCts"}], "]"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "stopping", " ", "if", " ", "perceived", " ", "above", " ", "upper", " ", 
+    "thres"}], " ", "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"probStepStopChance", "[", "lvl_", "]"}], "/;", 
+     RowBox[{"IntegerQ", "[", "lvl", "]"}]}], " ", ":=", " ", 
+    RowBox[{
+     RowBox[{"pe", "[", "max", "]"}], " ", "+", " ", 
+     RowBox[{"Plus", "@@", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"pe", "[", "#", "]"}], "&"}], "/@", " ", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{
+            RowBox[{"ut", "-", "lvl", " ", "+", " ", "1"}], ",", " ", 
+            RowBox[{"-", "ew"}]}], "]"}], ",", " ", "ew"}], 
+         RowBox[{"(*", 
+          RowBox[{"Min", "[", 
+           RowBox[{
+            RowBox[{"ts", "-", "lvl"}], ",", " ", "ew"}], "]"}], "*)"}], 
+         "]"}]}], ")"}]}]}]}], ";"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"continuing", " ", "otherwise"}], " ", "*)"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"probStepContChance", "[", "lvl_", "]"}], "/;", 
+     RowBox[{"IntegerQ", "[", "lvl", "]"}]}], ":=", " ", 
+    RowBox[{"1", " ", "-", " ", 
+     RowBox[{"probStepStopChance", "[", "lvl", "]"}]}]}], ";"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "rule", " ", "to", " ", "clean", " ", "up", " ", "the", " ", "max", " ", 
+    "step"}], " ", "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"removeMaxRule", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"probStepStopChance", "[", "max", "]"}], "\[Rule]", " ", "1"}],
+       ",", " ", 
+      RowBox[{
+       RowBox[{"probStepStopChance", "[", "min", "]"}], "\[Rule]", " ", 
+       "1"}]}], "}"}]}], ";"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"the", " ", "next", " ", "possible", " ", "levels"}], ",", " ", 
+    RowBox[{"inclusive", " ", "of", " ", "max", " ", "tank", " ", "size"}]}], 
+   " ", "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nextLevels", "[", "lvl_", "]"}], " ", ":=", " ", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"lvl", ",", " ", 
+       RowBox[{"ts", "-", "1"}], ",", " ", 
+       RowBox[{"is", "-", "os"}]}], "]"}], ",", 
+     RowBox[{"{", "max", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"nextLevelSeqs", "[", "lvl_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"nextLevels", "[", "lvl", "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{";;", "#"}], "]"}], "]"}], "&"}], " ", "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{"1", ",", 
+       RowBox[{"Length", "@", 
+        RowBox[{"nextLevels", "[", "lvl", "]"}]}]}], "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "distributions", " ", "of", " ", "the", " ", "number", " ", "of", " ", 
+     "steps", " ", "remaining"}], ",", " ", 
+    RowBox[{
+    "one", " ", "probability", " ", "per", " ", "step", " ", "count"}]}], " ",
+    "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"distrOfStepCts", "[", "lvl_", "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"With", "[", " ", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"levels", "=", "#"}], "}"}], " ", ",", " ", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+          "chance", " ", "of", " ", "stopping", " ", "at", " ", "the", " ", 
+           "last", " ", "one"}], " ", "*)"}], " ", 
+         RowBox[{
+          RowBox[{"probStepStopChance", "[", 
+           RowBox[{"levels", "[", 
+            RowBox[{"[", 
+             RowBox[{"-", "1"}], "]"}], "]"}], "]"}], " ", "*", " ", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "chance", " ", "of", " ", "continuing", " ", "in", " ", "the", " ",
+             "previous", " ", "ones"}], " ", "*)"}], " ", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"levels", "[", 
+              RowBox[{"[", 
+               RowBox[{";;", 
+                RowBox[{"-", "2"}]}], "]"}], "]"}], "==", 
+             RowBox[{"{", "}"}]}], ",", " ", "1", "  ", ",", "  ", 
+            RowBox[{"Times", "@@", " ", 
+             RowBox[{"(", 
+              RowBox[{"probStepContChance", "/@", 
+               RowBox[{"levels", "[", 
+                RowBox[{"[", 
+                 RowBox[{";;", 
+                  RowBox[{"-", "2"}]}], "]"}], "]"}]}], ")"}]}]}], " ", 
+           "]"}]}]}], " ", "\[IndentingNewLine]", "]"}], "&"}], " ", "/@", 
+      RowBox[{"nextLevelSeqs", "[", "lvl", "]"}]}], ")"}], "/.", 
+    "removeMaxRule"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.826726699322139*^9, 3.826726716427929*^9}, {
+  3.82682078711594*^9, 3.8268208044569693`*^9}, {3.8268209329483643`*^9, 
+  3.826820943332416*^9}, {3.82682554006881*^9, 3.826825542023497*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"d984e8d6-6f7b-4620-860f-0dd1e628cd6e"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{
+     "percDistrs", ",", "pNofill", ",", " ", "pPrior", ",", " ", 
+      "nextTankProb", ",", " ", "dynTank"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "distribution", " ", "over", " ", "the", " ", "perception", " ", 
+     "levels"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"percDistrs", "[", "wls_", "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"With", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"truelvl", " ", "=", " ", "#"}], "}"}], ",", " ", "\n", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"perclvl", " ", "=", " ", "#"}], "}"}], ",", " ", "\n", 
+             
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"perclvl", " ", "==", " ", "0"}], ",", " ", 
+                RowBox[{
+                 RowBox[{"pe", "[", "min", "]"}], " ", "+", " ", 
+                 RowBox[{"Plus", "@@", 
+                  RowBox[{"(", 
+                   RowBox[{"pe", "/@", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{
+                    RowBox[{"-", "ew"}], ",", " ", 
+                    RowBox[{"-", "truelvl"}]}], "]"}]}], ")"}]}]}], ",", " ", 
+                "0"}], "]"}], " ", "+", " ", 
+              RowBox[{"(*", " ", 
+               RowBox[{"for", " ", "min", " ", 
+                RowBox[{"level", ":", " ", 
+                 RowBox[{
+                 "adding", " ", "up", " ", "min", " ", "and", " ", "all", " ",
+                   "values", " ", "too", " ", "low"}]}]}], " ", "*)"}], " ", 
+              "\n", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"perclvl", " ", "==", " ", "ts"}], ",", " ", 
+                RowBox[{
+                 RowBox[{"pe", "[", "max", "]"}], " ", "+", " ", 
+                 RowBox[{"Plus", "@@", 
+                  RowBox[{"(", 
+                   RowBox[{"pe", "/@", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{
+                    RowBox[{"ts", "-", "truelvl"}], ",", " ", "ew"}], "]"}]}],
+                    ")"}]}]}], ",", " ", "0"}], "]"}], " ", "+", " ", 
+              RowBox[{"(*", " ", 
+               RowBox[{"for", " ", "max", " ", 
+                RowBox[{"level", ":", "  ", 
+                 RowBox[{
+                 "adding", " ", "up", " ", "max", " ", "and", " ", "all", " ",
+                   "values", " ", "too", " ", "high"}]}]}], " ", "*)"}], " ", 
+              "\n", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"0", " ", "<", " ", "perclvl", " ", "<", " ", "ts"}], 
+                ",", " ", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "ew"}], " ", "<=", " ", 
+                   RowBox[{"perclvl", "-", "truelvl"}], "<=", " ", "ew"}], 
+                  ",", " ", 
+                  RowBox[{"pe", "[", 
+                   RowBox[{"perclvl", "-", "truelvl"}], "]"}], ",", " ", 
+                  "0"}], "]"}], "  ", ",", " ", "0"}], "]"}]}]}], " ", "\n", 
+            "]"}], " ", "&"}], " ", "/@", " ", 
+          RowBox[{"Range", "[", 
+           RowBox[{"0", ",", " ", "ts"}], "]"}]}]}], " ", "\n", "]"}], " ", 
+       "&"}], "/@", " ", "wls"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "not", " ", "filling", " ", "if", " ", "the", " ", "perceived", " ", 
+     "water", " ", "level", " ", "is", " ", "too", " ", "high", " ", "in", 
+     " ", "all", " ", "tanks"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pNofill", "[", "wls_", "]"}], " ", ":=", " ", 
+    RowBox[{"Times", "@@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Plus", "@@", 
+         RowBox[{"(", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{"lt", "+", "1"}], " ", 
+             RowBox[{"(*", 
+              RowBox[{"adjustment", " ", "for", " ", "index"}], "*)"}], 
+             ";;"}], "]"}], "]"}], ")"}]}], " ", "&"}], " ", "/@", " ", 
+       RowBox[{"percDistrs", "[", "wls", "]"}]}], ")"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "probability", " ", "of", " ", "being", " ", "chosen", " ", "for", " ", 
+     "filling", " ", "of", " ", "one", " ", "tank", " ", "over", " ", 
+     "another", " ", "given", " ", "its", " ", "perceived", " ", "level", " ", 
+     RowBox[{"(", 
+      RowBox[{"from", " ", "0", " ", "to", " ", "ts"}], ")"}]}], " ", "*)"}], 
+   " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pPrior", "[", 
+      RowBox[{
+      "wls_", ",", "t1num_", ",", " ", "t2num_", ",", " ", "t1percWl_"}], 
+      "]"}], ":=", " ", "\n", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"t1percWl", "<", "lt"}], ",", " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "it", " ", "will", " ", "only", " ", "get", " ", "filled", " ", "if", 
+         " ", "this", " ", "perceived", " ", "level", " ", "is", " ", 
+         "stricly", " ", "below", " ", "the", " ", "lower", " ", 
+         "threshold"}], " ", "*)"}], " ", "\n", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"Plus", "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"percDistrs", "[", "wls", "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"t2num", ",", " ", 
+              RowBox[{
+               RowBox[{"lt", " ", "+", " ", "1"}], " ", ";;"}]}], "]"}], 
+            "]"}], ")"}]}], " ", "+"}], " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "probability", " ", "the", " ", "other", " ", "tank", " ", "wont", 
+          " ", "need", " ", "filling"}], " ", "*)"}], "*)"}], "\n", 
+       RowBox[{"Plus", "@@", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"t1num", " ", "<", " ", "t2num"}], ",", "  ", "\n", 
+          RowBox[{
+           RowBox[{"percDistrs", "[", "wls", "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"t2num", ",", " ", 
+             RowBox[{
+              RowBox[{"t1percWl", "+", "1"}], ";;"}]}], " ", "]"}], "]"}], 
+          " ", ",", " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{
+            "fine", " ", "to", " ", "go", " ", "start", " ", "from", " ", 
+             "the", " ", "same", " ", "level", " ", "because", " ", "lower", 
+             " ", "number", " ", "will", " ", "have", " ", "priority"}], ";", 
+            " ", 
+            RowBox[{"adjust", " ", "+", 
+             RowBox[{"1", " ", "for", " ", "indexing"}]}]}], " ", "*)"}], 
+          "\n", 
+          RowBox[{
+           RowBox[{"percDistrs", "[", "wls", "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"t2num", ",", " ", 
+             RowBox[{
+              RowBox[{"t1percWl", " ", "+", " ", "2"}], ";;"}]}], " ", "]"}], 
+           "]"}]}], 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{
+           "need", " ", "to", " ", "start", " ", "one", " ", "level", " ", 
+            "above"}], " ", ";", " ", 
+           RowBox[{"adjust", " ", "+", 
+            RowBox[{"1", " ", "for", " ", "indexing"}]}]}], "*)"}], " ", "\n",
+          "]"}]}], ",", "\n", "0"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "probabilities", " ", "of", " ", "the", " ", "next", " ", "tank", " ", 
+      "to", " ", "be", " ", "filled"}], ",", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"not", " ", "counting", " ", "0"}], " ", "-", " ", 
+       RowBox[{"no", " ", "filling"}]}], ")"}]}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nextTankProb", "[", "wls_", "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"tankNum", " ", "=", " ", "#"}], "}"}], ",", "\n", 
+        RowBox[{"Plus", "@@", 
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"With", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"curlvlIndex", " ", "=", " ", "#"}], "}"}], ",", " ", 
+              "\n", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"percDistrs", "[", "wls", "]"}], "[", 
+                RowBox[{"[", 
+                 RowBox[{"tankNum", ",", " ", "curlvlIndex"}], "]"}], "]"}], 
+               "*", " ", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                "chance", " ", "of", " ", "taking", " ", "this", " ", 
+                 "level"}], " ", "*)"}], " ", "\n", 
+               RowBox[{"Times", "@@", 
+                RowBox[{"(", " ", 
+                 RowBox[{"(*", " ", 
+                  RowBox[{
+                  "priority", " ", "over", " ", "all", " ", "the", " ", 
+                   "other", " ", "tanks", " ", "given", " ", "this", " ", 
+                   "level"}], " ", "*)"}], "  ", "\n", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"pPrior", "[", 
+                    RowBox[{"wls", ",", "tankNum", ",", " ", "#", ",", " ", 
+                    RowBox[{"curlvlIndex", "-", "1"}]}], "]"}], " ", "&"}], 
+                  " ", "/@", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"DeleteCases", "[", 
+                    RowBox[{
+                    RowBox[{"Range", "[", 
+                    RowBox[{"1", ",", " ", "ntanks"}], "]"}], ",", " ", 
+                    "tankNum"}], "]"}], ")"}]}], "\n", ")"}]}]}]}], " ", "\n",
+              "]"}], " ", "&"}], " ", "/@", " ", 
+           RowBox[{"Range", "[", 
+            RowBox[{"1", ",", " ", 
+             RowBox[{"lt", "+", "1"}]}], "]"}]}], ")"}]}]}], "  ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{
+         "going", " ", "through", " ", "all", " ", "fillable", " ", 
+          "levels"}], ",", " ", 
+         RowBox[{"by", " ", "index"}]}], " ", "*)"}], " ", "\n", "]"}], " ", 
+      "&"}], " ", "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{"1", ",", " ", "ntanks"}], "]"}]}]}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"going", " ", "through", " ", "all", " ", "tanks"}], " ", "*)"}], 
+   " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"the", " ", "dynamics"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"dynTank", "[", 
+      RowBox[{
+       RowBox[{"st", "[", "wls_", "]"}], ",", " ", "tanktofill_", ",", " ", 
+       "stepstogo_"}], "]"}], ":=", " ", 
+     RowBox[{"st", "[", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"tanktofill", " ", "\[Equal]", " ", "0"}], ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"not", " ", "filling", " ", "any", " ", "tank"}], " ", 
+         "*)"}], 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"Max", "[", 
+            RowBox[{
+             RowBox[{"#", " ", "-", " ", 
+              RowBox[{"os", "*", "stepstogo"}]}], ",", " ", "0"}], "]"}], 
+           ")"}], "&"}], " ", "/@", " ", "wls"}], " ", ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"filling", " ", "some", " ", "tank"}], " ", "*)"}], " ", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"Max", "[", 
+              RowBox[{
+               RowBox[{"#", " ", "-", " ", 
+                RowBox[{"os", "*", "stepstogo"}]}], ",", " ", "0"}], "]"}], 
+             ")"}], "&"}], " ", "/@", " ", 
+           RowBox[{"(", 
+            RowBox[{"wls", " ", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", " ", ";;", " ", 
+               RowBox[{"tanktofill", " ", "-", "1"}]}], "]"}], "]"}], ")"}]}],
+           ",", 
+          RowBox[{"{", 
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"wls", "[", 
+               RowBox[{"[", "tanktofill", "]"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"is", "-", "os"}], ")"}], "*", "stepstogo"}]}], ",", 
+             " ", "ts"}], "]"}], "}"}], ",", "  ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"Max", "[", 
+              RowBox[{
+               RowBox[{"#", " ", "-", " ", 
+                RowBox[{"os", "*", "stepstogo"}]}], ",", " ", "0"}], "]"}], 
+             ")"}], "&"}], " ", "/@", " ", 
+           RowBox[{"(", 
+            RowBox[{"wls", " ", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               RowBox[{"tanktofill", " ", "+", "1"}], " ", ";;", " ", 
+               RowBox[{"Length", "@", "wls"}]}], "]"}], "]"}], ")"}]}]}], 
+         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBWIQzcNwQvZw0xvHmmUbFEB0qNFxFRDdd3KJKojO+/pK
+8QOQzor0UwbRb16e8wLR6os5AkD0K9FPDhzNbxxvvWhwBNFB7hsmcAJpBaPv
+YNrqVuJ5ESDd1TLpKojeoe3+CEQXzXr5HkRP4GzkFQXSh8y+CIBohY4XyiB6
+onqVCoh+VN9dC6K1PAPqQLRDRkg7iK4JSO4G0THhG/tBdNWMPVPA/AknZoDo
+W62Ns0G001/LpSDa9yvzMhDt9sd0NYgOc5bcCKKnzl71AES/OrAFTHd29r0B
+0d8naL4F0fZXv30C0XrSCl9B9EJrPwUxIN13xlEJRD+7kGMLoh8JlYFpAF6g
+png=
+  "],
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"28666daa-c92b-4123-8272-d9b9847e16a5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "PERCEPTION"}], " ", "**)"}], " ", "\[IndentingNewLine]",
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "possibleTanksToFill2", "]"}], ";"}], " ", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"possiblePercWlPairs2", "[", "wls_", "]"}], " ", ":=", " ", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "lists", " ", "of", " ", "water", " ", "levels", " ", "possible", " ", 
+        "to", " ", "perceive"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"percLvlsWithProbs", " ", "=", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"With", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"percDistrForTank", " ", "=", " ", "#"}], "}"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"With", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"persBin", " ", "=", " ", 
+                  RowBox[{"Flatten", "[", 
+                   RowBox[{"Position", "[", 
+                    RowBox[{"percDistrForTank", ",", " ", 
+                    RowBox[{"_", "?", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"#", ">", "0"}], " ", "&"}], ")"}]}]}], " ", 
+                    "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"persBin", "-", "1"}], " ", 
+                  RowBox[{"(*", " ", 
+                   RowBox[{
+                   "adjust", " ", "to", " ", "be", " ", "water", " ", 
+                    "levels"}], "*)"}], ",", " ", 
+                  RowBox[{"percDistrForTank", "[", 
+                   RowBox[{"[", "persBin", "]"}], "]"}]}], " ", "}"}]}], 
+               "\[IndentingNewLine]", "]"}]}], "]"}], "&"}], " ", "/@", " ", 
+           RowBox[{"percDistrs", "[", "wls", "]"}]}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Transpose", "[", 
+           RowBox[{"percLvlsWithProbs", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "1"}], "]"}], "]"}], " ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "perc", " ", "lvls", " ", "for", " ", "one", " ", "tank"}], 
+            "*)"}], "]"}], ",", 
+          RowBox[{"Times", "@@", " ", 
+           RowBox[{"percLvlsWithProbs", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2"}], "]"}], "]"}]}]}], " ", 
+         RowBox[{"(*", 
+          RowBox[{"multiply", " ", "all", " ", "probabilities"}], "*)"}], " ",
+          "}"}]}], "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]",
+      "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "returns", " ", "tank", " ", "choices", " ", "to", " ", "fill"}], " ", 
+      "*)"}], " ", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"possibleTanksToFill", "[", 
+       RowBox[{"st", "[", "wls_", "]"}], "]"}], ":=", " ", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"{", "0", "}"}], ",", " ", 
+        RowBox[{"DeleteDuplicates", "@", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"With", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"perclvls", " ", "=", " ", "#"}], "}"}], ",", " ", 
+              RowBox[{"Position", "[", 
+               RowBox[{"perclvls", ",", " ", 
+                RowBox[{"_", "?", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"#", " ", "\[Equal]", " ", 
+                    RowBox[{"Min", "@", "perclvls"}]}], " ", "&"}], ")"}]}], 
+                ",", " ", 
+                RowBox[{"(*", 
+                 RowBox[{"at", " ", "level", " ", "1"}], "*)"}], " ", "1", 
+                ",", " ", 
+                RowBox[{"(*", " ", 
+                 RowBox[{"only", " ", "first", " ", "occurrence"}], "*)"}], 
+                "1"}], " ", "]"}]}], " ", "]"}], "&"}], "/@", " ", 
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"possiblePercWlPairs", "[", "wls", "]"}], ",", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Min", "@", "#"}], "<", "lt"}], "&"}], ")"}]}], 
+            "]"}]}], "]"}]}]}], " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "we", " ", "know", " ", "that", " ", "no", " ", "filling", " ", "is", 
+         " ", "always", " ", "possible"}], " ", "*)"}], " ", "]"}]}], ";"}], 
+    "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"returns", " ", "tank", " ", "choices", " ", "to", " ", "fill"}],
+      ",", " ", 
+     RowBox[{"with", " ", "respective", " ", "probabilities"}]}], " ", "*)"}],
+    " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"possibleTanksToFill2", "[", 
+      RowBox[{"st", "[", "wls_", "]"}], "]"}], ":=", " ", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", 
+          RowBox[{"pNofill", "[", "wls", "]"}]}], "}"}], "}"}], ",", " ", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Range", "[", 
+           RowBox[{"1", ",", "ntanks"}], "]"}], ",", 
+          RowBox[{"nextTankProb", "[", "wls", "]"}]}], "}"}], "]"}]}], 
+      "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8267961649990788`*^9, 3.826796171015378*^9}, {
+   3.826796616268057*^9, 3.826796673503108*^9}, {3.826797620516189*^9, 
+   3.8267976325483913`*^9}, {3.826797711239628*^9, 3.82679771467708*^9}, {
+   3.8267977811867456`*^9, 3.826797787893326*^9}, {3.8267985917658978`*^9, 
+   3.826798595692875*^9}, 3.826819705236395*^9, {3.826819736043805*^9, 
+   3.826820039904017*^9}, {3.8268201283264503`*^9, 3.8268201532902718`*^9}, {
+   3.826820257403366*^9, 3.8268203331854677`*^9}, {3.826820401078457*^9, 
+   3.826820413736232*^9}, {3.8268236911767797`*^9, 3.826823700200149*^9}, {
+   3.826823751783678*^9, 3.826823779033409*^9}, {3.826823824398696*^9, 
+   3.826823876135474*^9}, {3.826824006852385*^9, 3.8268240300141373`*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"ef1d3837-f8c6-4d42-9e8e-2a671ec15050"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Control"}], " ", "**)"}], " "}]], "Input",
+ CellChangeTimes->{{3.8267987723701353`*^9, 3.8267987774711246`*^9}},
+ CellLabel->
+  "In[113]:=",ExpressionUUID->"79d01265-d75d-40ab-b883-a188b1e23c8e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{
+    "possibleTankSteps2", ",", " ", "possibleTankSteps3", ",", " ", 
+     "possibleTankSteps4", ",", " ", "renormalizeTriples"}], "]"}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"returns", " ", "pairs", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+      RowBox[{"max", " ", "filling", " ", "steps", " ", "possible"}]}], 
+     ")"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"maxFillStepsPerTank", "[", 
+     RowBox[{"st", "[", "wls_", "]"}], "]"}], ":=", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"#", "\[Equal]", "0"}], ",", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{"no", " ", "filling"}], ",", " ", 
+          RowBox[{"1", " ", "step", " ", "at", " ", "a", " ", "time"}]}], " ",
+          "*)"}], " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}], " ", ",", 
+        RowBox[{"{", 
+         RowBox[{"#", ",", 
+          RowBox[{"Length", "@", 
+           RowBox[{"distrOfStepCts", "@", 
+            RowBox[{"(", " ", 
+             RowBox[{"wls", "[", 
+              RowBox[{"[", "#", "]"}], "]"}], ")"}]}]}]}], "}"}]}], 
+       "\[IndentingNewLine]", "]"}], "&"}], "/@", " ", 
+     RowBox[{"possibleTanksToFill", "[", 
+      RowBox[{"st", "[", "wls", "]"}], "]"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"returns", " ", "pairs", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+      RowBox[{"steps", "-", "to", "-", "try"}]}], ")"}]}], " ", "*)"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"possibleTankSteps", "[", 
+     RowBox[{"st", "[", "wls_", "]"}], "]"}], ":=", " ", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tank", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+            RowBox[{"maxstep", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"tank", ",", " ", "#"}], "}"}], "&"}], "/@", 
+           RowBox[{"Range", "[", 
+            RowBox[{"1", ",", " ", "maxstep"}], "]"}]}]}], " ", "]"}], "&"}], 
+       "/@", " ", 
+       RowBox[{"maxFillStepsPerTank", "[", 
+        RowBox[{"st", "[", "wls", "]"}], "]"}]}], ",", " ", 
+      RowBox[{"(*", 
+       RowBox[{"where", " ", "to", " ", "flatten"}], " ", "*)"}], "  ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"returns", " ", "triples", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+      RowBox[{"steps", " ", "to", " ", "try"}], ",", " ", 
+      RowBox[{"unnormalized", " ", "probability", " ", "of", " ", "that"}]}], 
+     ")"}]}], " ", "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"possibleTankSteps2", "[", 
+     RowBox[{"st", "[", "wls_", "]"}], "]"}], ":=", " ", 
+    RowBox[{"Join", "@@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tank", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+            RowBox[{"tankprob", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"tank", "\[Equal]", "0"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"tank", ",", " ", "1", ",", " ", "tankprob"}], "}"}], 
+             "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"With", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"stepctdist", " ", "=", 
+                RowBox[{"(", " ", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"distrOfStepCts", "[", " ", 
+                    RowBox[{"wls", "[", 
+                    RowBox[{"[", " ", "tank", " ", "]"}], "]"}], " ", "]"}], 
+                    "[", 
+                    RowBox[{"[", 
+                    RowBox[{"2", ";;"}], "]"}], "]"}], 
+                   RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"only", " ", "taking", " ", "1"}], "+", " ", 
+                    "steps"}], "*)"}], ")"}], "/", 
+                  RowBox[{"(", 
+                   RowBox[{"Plus", "@@", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"distrOfStepCts", "[", " ", 
+                    RowBox[{"wls", "[", 
+                    RowBox[{"[", "tank", "]"}], "]"}], " ", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"2", ";;"}], "]"}], "]"}], ")"}]}], ")"}]}], 
+                 ")"}]}], 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{
+                 "renormalizing", " ", "because", " ", "ditching", " ", "0", 
+                  " ", 
+                  RowBox[{"steps", " ", "--"}], " ", "WASTE", " ", "OF", " ", 
+                  "TIME", " ", "BECAUSE", " ", "0"}], "-", 
+                 RowBox[{
+                 "STEP", " ", "PROBABILITY", " ", "IS", " ", "THERE"}]}], 
+                "*)"}], "}"}], ",", " ", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"tank", ",", 
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+                  RowBox[{"tankprob", "*", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "&"}], "/@", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{"pairs", " ", "of", " ", "stepnum"}], ",", " ", 
+                 RowBox[{"its", " ", "prob"}]}], " ", "*)"}], " ", 
+               RowBox[{"Transpose", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Range", "[", 
+                   RowBox[{"1", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}], ",", " ", 
+                  "stepctdist"}], "}"}], "]"}]}]}], "]"}]}], 
+           "\[IndentingNewLine]", "]"}]}], " ", "]"}], "&"}], "/@", 
+       RowBox[{"possibleTanksToFill2", "[", 
+        RowBox[{"st", "[", "wls", "]"}], "]"}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"returns", " ", "triples", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+      RowBox[{"steps", " ", "to", " ", "try"}], ",", " ", 
+      RowBox[{"unnormalized", " ", "probability", " ", "of", " ", "that"}]}], 
+     ")"}], " ", "bounded", " ", "by", " ", "maximum", " ", "steps"}], " ", 
+   "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"possibleTankSteps3", "[", 
+     RowBox[{
+      RowBox[{"st", "[", "wls_", "]"}], ",", " ", "maxsteps_"}], "]"}], ":=", 
+    " ", 
+    RowBox[{"Join", "@@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tank", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+            RowBox[{"tankprob", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"tank", "\[Equal]", "0"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"tank", ",", " ", "1", ",", " ", "tankprob"}], "}"}], 
+             "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Module", "[", 
+             RowBox[{
+              RowBox[{"{", "stepctdist", " ", "}"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"stepctdist", "=", " ", 
+                RowBox[{
+                 RowBox[{"distrOfStepCts", "[", " ", 
+                  RowBox[{"wls", "[", 
+                   RowBox[{"[", " ", "tank", " ", "]"}], "]"}], " ", "]"}], 
+                 " ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"2", ";;"}], " ", "]"}], "]"}]}], ";", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{"chop", " ", "off", " ", "the", " ", "0"}], "-", 
+                 RowBox[{"step", " ", "probability"}]}], " ", "*)"}], " ", 
+               "\[IndentingNewLine]", 
+               RowBox[{"stepctdist", " ", "=", " ", 
+                RowBox[{"stepctdist", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"1", ";;", " ", 
+                   RowBox[{"Min", "[", 
+                    RowBox[{"maxsteps", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}]}], " ", 
+                  "]"}], "]"}]}], ";", "  ", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                "chop", " ", "off", " ", "the", " ", "overly", " ", "long", 
+                 " ", "probabilities"}], " ", "*)"}], " ", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{"stepctdist", "=", " ", 
+                  RowBox[{"stepctdist", "/", 
+                   RowBox[{"(", 
+                    RowBox[{"Plus", "@@", "stepctdist"}], ")"}]}]}], ";"}], 
+                "*)"}], " ", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{
+                 "renormalize", " ", "CANNOT", " ", "DO", " ", "THAT", " ", 
+                  "HERE"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{
+                  "NEED", " ", "TO", " ", "NORMALIZE", " ", "WITH", " ", 
+                   "THE", " ", "0"}], "-", 
+                  RowBox[{"STEP", " ", "PROBABILITY"}], " ", "-", " ", 
+                  "FIXED"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"tank", ",", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+                   RowBox[{"tankprob", "*", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "&"}], "/@", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", " ", 
+                 RowBox[{
+                  RowBox[{"pairs", " ", "of", " ", "stepnum"}], ",", " ", 
+                  RowBox[{"its", " ", "prob"}]}], " ", "*)"}], " ", 
+                RowBox[{"Transpose", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Range", "[", 
+                    RowBox[{"1", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}], ",", " ", 
+                   "stepctdist"}], "}"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+             "]"}]}], "\[IndentingNewLine]", "]"}]}], " ", "]"}], "&"}], "/@", 
+       RowBox[{"possibleTanksToFill2", "[", 
+        RowBox[{"st", "[", "wls", "]"}], "]"}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"returns", " ", "triples", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+      RowBox[{"steps", " ", "to", " ", "try"}], ",", " ", 
+      RowBox[{
+      "barely", " ", "unnormalized", " ", "probability", " ", "of", " ", 
+       "that"}]}], ")"}], " ", "bounded", " ", "by", " ", "maximum", " ", 
+    "steps", " ", "\[IndentingNewLine]", "heavy", " ", "tail", " ", "is", " ",
+     "added", " ", "to", " ", "the", " ", "last", " ", "bin"}], " ", "*)"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"possibleTankSteps4", "[", 
+     RowBox[{
+      RowBox[{"st", "[", "wls_", "]"}], ",", " ", "maxsteps_"}], "]"}], ":=", 
+    " ", 
+    RowBox[{"Join", "@@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tank", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+            RowBox[{"tankprob", "=", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"tank", "\[Equal]", "0"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"tank", ",", " ", "1", ",", " ", "tankprob"}], " ", 
+              "}"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Module", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"stepctdist", ",", " ", "tail"}], " ", "}"}], ",", " ",
+               "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"stepctdist", "=", " ", 
+                RowBox[{
+                 RowBox[{"distrOfStepCts", "[", " ", 
+                  RowBox[{"wls", "[", 
+                   RowBox[{"[", " ", "tank", " ", "]"}], "]"}], " ", "]"}], 
+                 " ", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"2", ";;"}], " ", "]"}], "]"}]}], ";", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{"chop", " ", "off", " ", "the", " ", "0"}], "-", 
+                 RowBox[{"step", " ", "probability"}]}], " ", "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{"tail", "=", " ", 
+                RowBox[{"Plus", "@@", 
+                 RowBox[{"stepctdist", "[", 
+                  RowBox[{"[", " ", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Min", "[", 
+                    RowBox[{"maxsteps", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}], " ", "+", 
+                    " ", "1"}], " ", ";;"}], "]"}], "]"}]}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"stepctdist", " ", "=", " ", 
+                RowBox[{"stepctdist", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"1", ";;", " ", 
+                   RowBox[{"Min", "[", 
+                    RowBox[{"maxsteps", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}]}], " ", 
+                  "]"}], "]"}]}], ";", "  ", "\[IndentingNewLine]", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{"Print", "[", 
+                  RowBox[{"stepctdist", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"-", "1"}], "]"}], "]"}], "]"}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Print", "[", "tail", "]"}], ";"}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"stepctdist", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"-", "1"}], "]"}], "]"}], " ", "+=", " ", "tail"}], 
+               ";", " ", "\[IndentingNewLine]", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                "chop", " ", "off", " ", "the", " ", "overly", " ", "long", 
+                 " ", "probabilities"}], " ", "*)"}], " ", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{"stepctdist", "=", " ", 
+                  RowBox[{"stepctdist", "/", 
+                   RowBox[{"(", 
+                    RowBox[{"Plus", "@@", "stepctdist"}], ")"}]}]}], ";"}], 
+                "*)"}], " ", 
+               RowBox[{"(*", " ", 
+                RowBox[{
+                 RowBox[{
+                 "renormalize", " ", "CANNOT", " ", "DO", " ", "THAT", " ", 
+                  "HERE"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{
+                  "NEED", " ", "TO", " ", "NORMALIZE", " ", "WITH", " ", 
+                   "THE", " ", "0"}], "-", 
+                  RowBox[{"STEP", " ", "PROBABILITY"}], " ", "-", " ", 
+                  "FIXED"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"tank", ",", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+                   RowBox[{"tankprob", "*", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "&"}], "/@", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", " ", 
+                 RowBox[{
+                  RowBox[{"pairs", " ", "of", " ", "stepnum"}], ",", " ", 
+                  RowBox[{"its", " ", "prob"}]}], " ", "*)"}], " ", 
+                RowBox[{"Transpose", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Range", "[", 
+                    RowBox[{"1", ",", " ", 
+                    RowBox[{"Length", "@", "stepctdist"}]}], "]"}], ",", " ", 
+                   "stepctdist"}], "}"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+             "]"}]}], "\[IndentingNewLine]", "]"}]}], " ", "]"}], "&"}], "/@", 
+       RowBox[{"possibleTanksToFill2", "[", 
+        RowBox[{"st", "[", "wls", "]"}], "]"}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"takes", " ", "in", " ", "triples", " ", "from", " ", 
+      RowBox[{"possibleTankSteps", ":", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"tank", "-", "to", "-", "fill"}], ",", " ", 
+          RowBox[{"steps", " ", "to", " ", "try"}], ",", " ", 
+          RowBox[{
+          "unnormalized", " ", "probability", " ", "of", " ", "that"}]}], 
+         ")"}], " ", "\[IndentingNewLine]", "ISSUE", " ", "HERE"}], ":", " ", 
+       
+       RowBox[{"should", " ", "not", " ", "renormalize", " ", "blindly"}]}]}],
+      ";", " ", "instead"}], ",", " ", 
+    RowBox[{
+    "all", " ", "the", " ", "missing", " ", "probability", " ", "should", " ",
+      "go", " ", "to", " ", "the", " ", "highest", " ", "label"}]}], " ", 
+   "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"renormalizeTriples", "[", "steptriples_", "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"Plus", "@@", 
+         RowBox[{"(", 
+          RowBox[{"steptriples", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "3"}], "]"}], "]"}], ")"}]}], " ", ")"}]}]}], 
+     "}"}], "  ", "&"}], "/@", " ", "steptriples", " "}]}]}], "Input",
+ CellChangeTimes->{{3.826798784810379*^9, 3.826798847328919*^9}, {
+   3.826798906097581*^9, 3.826798910361861*^9}, {3.826799029714635*^9, 
+   3.826799101586339*^9}, {3.826799148078218*^9, 3.8267992077144117`*^9}, {
+   3.82679944079156*^9, 3.8267994718546762`*^9}, 3.8268195737983932`*^9, {
+   3.82681962046201*^9, 3.8268196325572*^9}, {3.826824518980138*^9, 
+   3.826824537477951*^9}, {3.826824821185586*^9, 3.8268248987763987`*^9}, {
+   3.8268249296617193`*^9, 3.826824965267088*^9}, {3.8268250159118*^9, 
+   3.826825029765646*^9}, {3.826825089254105*^9, 3.826825265147567*^9}, {
+   3.8268253078253517`*^9, 3.8268253190042553`*^9}, {3.826825413311103*^9, 
+   3.826825431795723*^9}, {3.8268254690663958`*^9, 3.826825493189793*^9}, {
+   3.826825571948677*^9, 3.8268257264794273`*^9}, {3.826825930973489*^9, 
+   3.8268259633212023`*^9}, {3.8268267770663424`*^9, 3.82682681155856*^9}, {
+   3.826827178691826*^9, 3.826827210740141*^9}, {3.826827246843707*^9, 
+   3.826827247951519*^9}, {3.826833450303475*^9, 3.826833466698922*^9}, {
+   3.826834941188946*^9, 3.826834959533071*^9}, {3.8268349946624413`*^9, 
+   3.826835038582327*^9}, {3.826835083947019*^9, 3.8268353300255747`*^9}, {
+   3.82683667808956*^9, 3.826836682513089*^9}, {3.826839433967062*^9, 
+   3.8268394443056993`*^9}, {3.826892956568787*^9, 3.826893025425906*^9}, {
+   3.826893066963315*^9, 3.826893085278886*^9}, {3.826893126294896*^9, 
+   3.826893153141597*^9}, {3.82689332958073*^9, 3.826893335314247*^9}, {
+   3.826893564214226*^9, 3.8268936577948914`*^9}, {3.826901875836727*^9, 
+   3.826901923208469*^9}, {3.82690206837679*^9, 3.826902069425404*^9}, {
+   3.826902163912448*^9, 3.826902212963883*^9}, {3.8269023133213243`*^9, 
+   3.82690238565623*^9}, {3.826902585776514*^9, 3.826902588265164*^9}, {
+   3.826902659739352*^9, 3.82690273874405*^9}, {3.8269028546785183`*^9, 
+   3.82690289117216*^9}, {3.8269029481849117`*^9, 3.826902949701297*^9}},
+ CellLabel->
+  "In[316]:=",ExpressionUUID->"03aec99f-a474-4d64-acbf-61d5b9587319"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Graph", " ", "building"}], " ", "**)"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{
+     "initTankGraph", ",", " ", "graphStepTankSafeOnly", ",", " ", 
+      "graphStepTankFull", ",", " ", "graphStepTankFullOneStep", ",", " ", 
+      "graphStepTankFullProb", ",", " ", "graphStepTankFullProbBounded"}], 
+     "]"}], ";"}], " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"initTankGraph", "[", "st_", "]"}], ":=", " ", 
+     RowBox[{"Annotate", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"TreeGraph", "[", 
+          RowBox[{
+           RowBox[{"{", "st", "}"}], ",", " ", 
+           RowBox[{"{", "st", "}"}]}], " ", "]"}], ",", "st"}], "}"}], ",", 
+       "  ", 
+       RowBox[{"VertexLabels", "\[Rule]", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"st", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{"NOT", " ", "VALID", " ", "FOR", " ", 
+     RowBox[{"ANALYSIS", ":", " ", 
+      RowBox[{
+      "ignores", " ", "unsafe", " ", "states", "\[IndentingNewLine]", "draw", 
+       " ", "only", " ", "safe", " ", "nodes"}]}]}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphStepTankSafeOnly", "[", 
+      RowBox[{"st_", ",", " ", "g_", ",", " ", "stepsleft_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", " ", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"exit", " ", "from", " ", "recursion"}], " ", "*)"}], " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"stepsleft", "\[LessEqual]", " ", "0"}], ",", " ", 
+          RowBox[{"Return", "@", "g"}]}], "]"}], ";", "  ", 
+        "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "each", " ", "possible", " ", "step", " ", "from", " ", 
+           "here"}], "..."}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ttf", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"steps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nextSt", " ", "=", 
+              RowBox[{"dynTank", "[", " ", 
+               RowBox[{"st", ",", " ", "ttf", ",", " ", "steps"}], "]"}]}], 
+             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "draw", " ", "all", " ", "next", " ", "states", " ", "and", " ",
+                "edges", " ", "to", " ", "them"}], " ", "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "@", 
+                  RowBox[{"VertexList", "[", 
+                   RowBox[{"gr", ",", " ", "nextSt"}], "]"}]}], "\[Equal]", 
+                 "0"}], " ", "\[And]", " ", 
+                RowBox[{
+                 RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                " ", 
+                RowBox[{
+                 RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", " ", 
+               ",", 
+               RowBox[{"gr", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], " ", "]"}], ",", 
+                    "nextSt"}], " ", "}"}], ",", " ", 
+                  RowBox[{"VertexLabels", "\[Rule]", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"nextSt", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "@", 
+                  RowBox[{"EdgeList", "[", 
+                   RowBox[{"gr", ",", " ", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}]}], 
+                 "\[Equal]", "0"}], " ", "\[And]", " ", 
+                RowBox[{
+                 RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                " ", 
+                RowBox[{
+                 RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"gr", " ", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gr", ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}], ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "}"}], ",", 
+                  "   ", 
+                  RowBox[{"EdgeLabels", "\[Rule]", 
+                   RowBox[{"(", " ", "\"\<\>\"", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"ToString", "@", "ttf"}], " ", "<>", " ", 
+                    "\"\<, \>\"", "<>", 
+                    RowBox[{"ToString", "@", "steps"}]}], "*)"}], ")"}]}]}], 
+                 "]"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", "color", " ", "*)"}], " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], "==", "0"}], " ", "\[Or]", 
+                 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "==", "ts"}]}], " ", ",", 
+                " ", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+                   RowBox[{"VertexStyle", "\[Rule]", "Red"}]}], "]"}]}]}], 
+               "]"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "determine", " ", "states", " ", "worth", " ", "exploring", " ",
+                "further"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                " ", 
+                RowBox[{
+                 RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", ",", 
+               " ", "\[IndentingNewLine]", 
+               RowBox[{"gr", " ", "=", " ", 
+                RowBox[{"graphStepTankSafeOnly", "[", 
+                 RowBox[{"nextSt", ",", " ", "gr", ",", " ", 
+                  RowBox[{"stepsleft", "-", "steps"}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+          " ", "&"}], "/@", " ", 
+         RowBox[{"renormalizeTriples", "@", 
+          RowBox[{"possibleTankSteps", "[", "st", "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", "gr"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"draw", " ", "all", " ", "nodes"}], ",", " ", 
+     RowBox[{
+     "including", " ", "failures", "\[IndentingNewLine]", " ", "side", " ", 
+      RowBox[{"effect", ":", " ", 
+       RowBox[{
+       "filling", " ", "out", " ", "the", " ", "list", " ", "of", " ", "edge",
+         " ", "labels", " ", "list", " ", "\[IndentingNewLine]", "no", " ", 
+        "probabilities", " ", "here"}]}]}]}], "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphStepTankFull", "[", 
+      RowBox[{"st_", ",", " ", "g_", ",", " ", "stepsleft_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", " ", "\[IndentingNewLine]", 
+        " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"exit", " ", "from", " ", "recursion"}], " ", "*)"}], " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"stepsleft", "\[LessEqual]", " ", "0"}], ",", " ", 
+          RowBox[{"Return", "@", "g"}]}], "]"}], ";", "  ", 
+        "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "each", " ", "possible", " ", "step", " ", "from", " ", 
+           "here"}], "..."}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ttf", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"steps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nextSt", " ", "=", 
+              RowBox[{"dynTank", "[", " ", 
+               RowBox[{"st", ",", " ", "ttf", ",", " ", "steps"}], "]"}]}], 
+             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "draw", " ", "all", " ", "next", " ", "states", " ", "and", " ",
+                "edges", " ", "to", " ", "them"}], " ", "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"VertexList", "[", 
+                  RowBox[{"gr", ",", " ", "nextSt"}], "]"}]}], "\[Equal]", 
+                "0"}], " ", ",", 
+               RowBox[{"gr", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], " ", "]"}], ",", 
+                    "nextSt"}], " ", "}"}], ",", " ", 
+                  RowBox[{"VertexLabels", "\[Rule]", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"nextSt", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"EdgeList", "[", 
+                  RowBox[{"gr", ",", " ", 
+                   RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}]}], 
+                "\[Equal]", "0"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gr", ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}], ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "}"}], ",", 
+                   "   ", 
+                   RowBox[{"EdgeLabels", "\[Rule]", 
+                    RowBox[{"(", " ", "\"\<\>\"", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"ToString", "@", "ttf"}], " ", "<>", " ", 
+                    "\"\<, \>\"", "<>", 
+                    RowBox[{"ToString", "@", "steps"}]}], "*)"}], ")"}]}]}], 
+                  "]"}]}], ";", " ", "\[IndentingNewLine]", 
+                RowBox[{"recentEdgeLabels", " ", "=", " ", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"recentEdgeLabels", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}], "\[Rule]", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"ttf", ",", " ", "steps"}], "}"}]}], "}"}]}], 
+                  "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", "color", " ", "*)"}], " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], "==", "0"}], " ", "\[Or]", 
+                 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "==", "ts"}]}], " ", ",", 
+                " ", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+                   RowBox[{"VertexStyle", "\[Rule]", "Red"}]}], "]"}]}]}], 
+               "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "determine", " ", "states", " ", "worth", " ", "exploring", 
+                " ", "further"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", ",", 
+                " ", "\[IndentingNewLine]", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"graphStepTankFull", "[", 
+                  RowBox[{"nextSt", ",", " ", "gr", ",", " ", 
+                   RowBox[{"stepsleft", "-", "steps"}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "]"}]}]}]}], "\[IndentingNewLine]", 
+           "]"}], " ", "&"}], "/@", " ", 
+         RowBox[{"renormalizeTriples", "@", 
+          RowBox[{"possibleTankSteps", "[", "st", "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", "gr"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"draw", " ", "all", " ", "nodes"}], ",", " ", 
+     RowBox[{
+     "including", " ", "failures", "\[IndentingNewLine]", " ", "side", " ", 
+      RowBox[{"effect", ":", " ", 
+       RowBox[{
+       "filling", " ", "out", " ", "recentEdgeLabels", " ", "with", " ", 
+        "labels", " ", "and", " ", "probabilities", " ", "of", " ", 
+        "transitions"}]}]}]}], "  ", "\[IndentingNewLine]", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphStepTankFullProb", "[", 
+      RowBox[{"st_", ",", " ", "g_", ",", " ", "stepsleft_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", "\[IndentingNewLine]", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"exit", " ", "from", " ", "recursion"}], " ", "*)"}], " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"stepsleft", "\[LessEqual]", " ", "0"}], ",", " ", 
+          RowBox[{"Return", "@", "g"}]}], "]"}], ";", "  ", 
+        "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "each", " ", "possible", " ", "step", " ", "from", " ", 
+           "here"}], "..."}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ttf", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"steps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"probSteps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "3", "]"}], "]"}]}]}], "}"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nextSt", " ", "=", 
+              RowBox[{"dynTank", "[", " ", 
+               RowBox[{"st", ",", " ", "ttf", ",", " ", "steps"}], "]"}]}], 
+             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "draw", " ", "all", " ", "next", " ", "states", " ", "and", " ",
+                "edges", " ", "to", " ", "them"}], " ", "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"VertexList", "[", 
+                  RowBox[{"gr", ",", " ", "nextSt"}], "]"}]}], "\[Equal]", 
+                "0"}], " ", ",", 
+               RowBox[{"gr", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], " ", "]"}], ",", 
+                    "nextSt"}], " ", "}"}], ",", " ", 
+                  RowBox[{"VertexLabels", "\[Rule]", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"nextSt", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"EdgeList", "[", 
+                  RowBox[{"gr", ",", " ", 
+                   RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}]}], 
+                "\[Equal]", "0"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gr", ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}], ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "}"}], ",", 
+                   "   ", 
+                   RowBox[{"EdgeLabels", "\[Rule]", 
+                    RowBox[{"(", " ", "\"\<\>\"", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"ToString", "@", "ttf"}], " ", "<>", " ", 
+                    "\"\<, \>\"", "<>", 
+                    RowBox[{"ToString", "@", "steps"}]}], "*)"}], ")"}]}]}], 
+                  "]"}]}], ";", " ", "\[IndentingNewLine]", 
+                RowBox[{"recentEdgeLabels", " ", "=", " ", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"recentEdgeLabels", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}], "\[Rule]", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"ttf", ",", " ", "steps", ",", "probSteps"}], 
+                    "}"}]}], "}"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]",
+               "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", "color", " ", "*)"}], " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], "==", "0"}], " ", "\[Or]", 
+                 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "==", "ts"}]}], " ", ",", 
+                " ", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+                   RowBox[{"VertexStyle", "\[Rule]", "Red"}]}], "]"}]}]}], 
+               "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "determine", " ", "states", " ", "worth", " ", "exploring", 
+                " ", "further"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", ",", 
+                " ", "\[IndentingNewLine]", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"graphStepTankFullProb", "[", 
+                  RowBox[{"nextSt", ",", " ", "gr", ",", " ", 
+                   RowBox[{"stepsleft", "-", "steps"}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "]"}]}]}]}], "\[IndentingNewLine]", 
+           "]"}], " ", "&"}], "/@", " ", 
+         RowBox[{"renormalizeTriples", "@", 
+          RowBox[{"possibleTankSteps2", "[", "st", "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", "gr"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"like", " ", "the", " ", "above"}], ",", " ", 
+     RowBox[{
+     "but", " ", "limits", " ", "the", " ", "maximum", " ", "transition", " ",
+       "steps", " ", "by", " ", "passing", " ", "it", " ", "into", " ", "the",
+       " ", "function"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphStepTankFullProbBounded", "[", 
+      RowBox[{"st_", ",", " ", "g_", ",", " ", "stepsleft_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", "\[IndentingNewLine]", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"exit", " ", "from", " ", "recursion"}], " ", "*)"}], " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"stepsleft", "\[LessEqual]", " ", "0"}], ",", " ", 
+          RowBox[{"Return", "@", "g"}]}], "]"}], ";", "  ", 
+        "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "each", " ", "possible", " ", "step", " ", "from", " ", 
+           "here"}], "..."}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ttf", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"steps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"probSteps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "3", "]"}], "]"}]}]}], "}"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nextSt", " ", "=", 
+              RowBox[{"dynTank", "[", " ", 
+               RowBox[{"st", ",", " ", "ttf", ",", " ", "steps"}], "]"}]}], 
+             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "draw", " ", "all", " ", "next", " ", "states", " ", "and", " ",
+                "edges", " ", "to", " ", "them"}], " ", "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"VertexList", "[", 
+                  RowBox[{"gr", ",", " ", "nextSt"}], "]"}]}], "\[Equal]", 
+                "0"}], " ", ",", 
+               RowBox[{"gr", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], " ", "]"}], ",", 
+                    "nextSt"}], " ", "}"}], ",", " ", 
+                  RowBox[{"VertexLabels", "\[Rule]", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"nextSt", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"EdgeList", "[", 
+                  RowBox[{"gr", ",", " ", 
+                   RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}]}], 
+                "\[Equal]", "0"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gr", ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}], ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "}"}], ",", 
+                   "   ", 
+                   RowBox[{"EdgeLabels", "\[Rule]", 
+                    RowBox[{"(", " ", 
+                    RowBox[{"(*", "\"\<\>\"", "*)"}], 
+                    RowBox[{
+                    RowBox[{"ToString", "@", "ttf"}], " ", "<>", " ", 
+                    "\"\<, \>\"", "<>", 
+                    RowBox[{"ToString", "@", "steps"}]}], ")"}]}]}], "]"}]}], 
+                ";", " ", "\[IndentingNewLine]", 
+                RowBox[{"recentEdgeLabels", " ", "=", " ", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"recentEdgeLabels", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}], "\[Rule]", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"ttf", ",", " ", "steps", ",", "probSteps"}], 
+                    "}"}]}], "}"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]",
+               "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", "color", " ", "*)"}], " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], "==", "0"}], " ", "\[Or]", 
+                 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "==", "ts"}]}], " ", ",", 
+                " ", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+                   RowBox[{"VertexStyle", "\[Rule]", "Red"}]}], "]"}]}]}], 
+               "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "determine", " ", "states", " ", "worth", " ", "exploring", 
+                " ", "further"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", ",", 
+                " ", "\[IndentingNewLine]", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"graphStepTankFullProbBounded", "[", 
+                  RowBox[{"nextSt", ",", " ", "gr", ",", " ", 
+                   RowBox[{"stepsleft", "-", "steps"}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "]"}]}]}]}], "\[IndentingNewLine]", 
+           "]"}], " ", "&"}], "/@", " ", 
+         RowBox[{"renormalizeTriples", "@", 
+          RowBox[{"possibleTankSteps4", "[", 
+           RowBox[{"st", ",", " ", "stepsleft"}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", "gr"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "NOT", " ", "VALID", " ", "FOR", " ", "ANALYSIS", "\[IndentingNewLine]", 
+      " ", "draw", " ", "all", " ", "nodes"}], ",", " ", 
+     RowBox[{
+     "including", " ", "failures", "\[IndentingNewLine]", " ", "side", " ", 
+      RowBox[{"effect", ":", " ", 
+       RowBox[{
+       "filling", " ", "out", " ", "recentEdgeLabels", " ", "with", " ", 
+        "edge", " ", "labeling", " ", 
+        RowBox[{"rules", "\[IndentingNewLine]", "!"}], "goes", " ", "only", 
+        " ", "one", " ", "step", " ", "at", " ", "a", " ", "time"}]}]}], ",", 
+     " ", 
+     RowBox[{"which", " ", 
+      RowBox[{"isn", "'"}], "t", " ", "how", " ", "the", " ", "stateful", " ",
+       "ctrl", " ", "works"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphStepTankFullOneStep", "[", 
+      RowBox[{"st_", ",", " ", "g_", ",", " ", "stepsleft_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", " ", "\[IndentingNewLine]", 
+        " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"exit", " ", "from", " ", "recursion"}], " ", "*)"}], " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"stepsleft", "\[LessEqual]", " ", "0"}], ",", " ", 
+          RowBox[{"Return", "@", "g"}]}], "]"}], ";", "  ", 
+        "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "each", " ", "possible", " ", "step", " ", "from", " ", 
+           "here"}], "..."}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ttf", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"steps", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", " ", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"nextSt", " ", "=", 
+              RowBox[{"dynTank", "[", " ", 
+               RowBox[{"st", ",", " ", "ttf", ",", " ", "steps"}], "]"}]}], 
+             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{
+              "draw", " ", "all", " ", "next", " ", "states", " ", "and", " ",
+                "edges", " ", "to", " ", "them"}], " ", "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"VertexList", "[", 
+                  RowBox[{"gr", ",", " ", "nextSt"}], "]"}]}], "\[Equal]", 
+                "0"}], " ", ",", 
+               RowBox[{"gr", "=", " ", 
+                RowBox[{"Annotate", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], " ", "]"}], ",", 
+                    "nextSt"}], " ", "}"}], ",", " ", 
+                  RowBox[{"VertexLabels", "\[Rule]", 
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"nextSt", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "]"}], " ", ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", 
+                 RowBox[{"EdgeList", "[", 
+                  RowBox[{"gr", ",", " ", 
+                   RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}]}], 
+                "\[Equal]", "0"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gr", ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "]"}], ",", 
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}]}], "}"}], ",", 
+                   "   ", 
+                   RowBox[{"EdgeLabels", "\[Rule]", 
+                    RowBox[{"(", " ", "\"\<\>\"", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"ToString", "@", "ttf"}], " ", "<>", " ", 
+                    "\"\<, \>\"", "<>", 
+                    RowBox[{"ToString", "@", "steps"}]}], "*)"}], ")"}]}]}], 
+                  "]"}]}], ";", " ", "\[IndentingNewLine]", 
+                RowBox[{"recentEdgeLabels", " ", "=", " ", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{"recentEdgeLabels", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"DirectedEdge", "[", " ", 
+                    RowBox[{"st", ",", "nextSt"}], " ", "]"}], "\[Rule]", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"ttf", ",", " ", "steps"}], "}"}]}], "}"}]}], 
+                  "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", "color", " ", "*)"}], " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], "==", "0"}], " ", "\[Or]", 
+                 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "==", "ts"}]}], " ", ",", 
+                " ", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"Annotate", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"gr", ",", " ", "nextSt"}], "}"}], ",", " ", 
+                   RowBox[{"VertexStyle", "\[Rule]", "Red"}]}], "]"}]}]}], 
+               "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "determine", " ", "states", " ", "worth", " ", "exploring", 
+                " ", "further"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Min", "@@", "nextSt"}], ">", "0"}], " ", "\[And]", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"Max", "@@", "nextSt"}], "<", "ts"}]}], " ", ",", 
+                " ", "\[IndentingNewLine]", 
+                RowBox[{"gr", " ", "=", " ", 
+                 RowBox[{"graphStepTankFullOneStep", "[", 
+                  RowBox[{"nextSt", ",", " ", "gr", ",", " ", 
+                   RowBox[{"stepsleft", "-", "steps"}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "]"}]}]}]}], "\[IndentingNewLine]", 
+           "]"}], " ", "&"}], "/@", " ", 
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"possibleTanksToFill", "[", "st", "]"}], ",", " ", 
+            RowBox[{"Table", "[", 
+             RowBox[{"1", ",", " ", 
+              RowBox[{"ntanks", "+", "1"}]}], 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"all", " ", "tanks"}], " ", "+", " ", "none"}], "*)"}],
+              "]"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "gr"}]}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.826801073555436*^9, 3.826801086853194*^9}, {
+   3.8268011183696136`*^9, 3.826801150412333*^9}, {3.826801225781455*^9, 
+   3.826801309679243*^9}, {3.826801556874393*^9, 3.826801774758944*^9}, {
+   3.8268018981398*^9, 3.826801947379039*^9}, {3.8268019827949057`*^9, 
+   3.8268019837881393`*^9}, {3.826802063490117*^9, 3.8268021549334517`*^9}, {
+   3.8268021981201477`*^9, 3.826802265112022*^9}, {3.8268023391913557`*^9, 
+   3.826802444955378*^9}, 3.826802684820073*^9, {3.8268027950844927`*^9, 
+   3.8268028373042173`*^9}, {3.826803064426598*^9, 3.8268030766780853`*^9}, {
+   3.826803246028373*^9, 3.826803257989972*^9}, {3.8268033030048532`*^9, 
+   3.8268033574493647`*^9}, {3.8268033891980658`*^9, 3.826803422561886*^9}, {
+   3.826806400885466*^9, 3.826806491008129*^9}, {3.826806572082809*^9, 
+   3.826806603762245*^9}, {3.826806660598693*^9, 3.826806672517741*^9}, {
+   3.8268070095923347`*^9, 3.826807035084964*^9}, {3.8268070807403793`*^9, 
+   3.826807113238752*^9}, {3.826807151161624*^9, 3.826807186692214*^9}, 
+   3.826807592918913*^9, {3.826819481572589*^9, 3.8268195099077597`*^9}, {
+   3.826826141185205*^9, 3.826826244781733*^9}, {3.826826554167173*^9, 
+   3.826826569414833*^9}, {3.8268266577300653`*^9, 3.826826664812251*^9}, 
+   3.8268268183007603`*^9, 3.826827208213376*^9, {3.826827265719363*^9, 
+   3.826827288701461*^9}, 3.826827797525837*^9, {3.8268348558478813`*^9, 
+   3.8268348560349493`*^9}, {3.826835579553554*^9, 3.8268356563149242`*^9}, {
+   3.826837244910472*^9, 3.826837250589477*^9}, {3.8268937410166893`*^9, 
+   3.826893764309094*^9}, 3.826902980546537*^9},
+ CellLabel->
+  "In[322]:=",ExpressionUUID->"7eb31429-090f-4b8a-87f0-a9e86bf6f563"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"utility", " ", "functions"}], " ", "*)"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{
+    "vertexTankCoord1d", ",", "vertexTankCoord2d", ",", "  ", 
+     "listifyVertices", ",", " ", "plotTankLat", ",", "  ", "plotTankLatTiny",
+      ",", "plotTankLatBig", ",", " ", "deleteIsolatedVert", ",", " ", 
+     "graphDiff", ",", " ", "annotateWithLabels", ",", " ", 
+     "intersectTrSetsTank", ",", " ", "complementTrSetsTank"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"vertexTankCoord1d", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], " ", "\[Rule]", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "&"}], "/@", " ", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"VertexList", "@", "g"}], ",", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{
+            RowBox[{"VertexList", "@", "g"}], " ", "/.", " ", 
+            RowBox[{
+             RowBox[{"st", "[", 
+              RowBox[{"{", "a_", "}"}], "]"}], "\[RuleDelayed]", " ", 
+             RowBox[{"{", 
+              RowBox[{"a", ",", "a"}], "}"}]}]}], ")"}]}], "}"}], "]"}]}], 
+      ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"vertexTankCoord2d", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], " ", "\[Rule]", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "&"}], "/@", " ", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"VertexList", "@", "g"}], ",", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{
+            RowBox[{"VertexList", "@", "g"}], " ", "/.", " ", 
+            RowBox[{
+             RowBox[{"st", "[", 
+              RowBox[{"{", 
+               RowBox[{"a_", ",", " ", "b_"}], "}"}], "]"}], "\[RuleDelayed]",
+              " ", 
+             RowBox[{"{", 
+              RowBox[{"a", ",", "b"}], "}"}]}]}], ")"}]}], "}"}], "]"}]}], 
+      ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"listifyVertices", "[", "g_", "]"}], " ", ":=", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"VertexList", "@", "g"}], "/.", 
+       RowBox[{
+        RowBox[{"st", "[", 
+         RowBox[{"a_", ",", " ", "b_"}], "]"}], "\[RuleDelayed]", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", " ", "b"}], "}"}]}]}], ")"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"plotTankLat", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"GraphPlot", "[", 
+      RowBox[{"g", ",", 
+       RowBox[{"VertexCoordinates", "\[Rule]", 
+        RowBox[{"vertexTankCoord2d", "[", "g", "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"plotTankLat1D", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"GraphPlot", "[", "g", 
+      RowBox[{"(*", 
+       RowBox[{",", 
+        RowBox[{"VertexCoordinates", "\[Rule]", 
+         RowBox[{"vertexTankCoord1d", "[", "g", "]"}]}]}], "*)"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"plotTankLatBig", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"GraphPlot", "[", 
+      RowBox[{"g", ",", 
+       RowBox[{"VertexSize", "\[Rule]", "0.5"}], ",", 
+       RowBox[{"VertexCoordinates", "\[Rule]", 
+        RowBox[{"vertexTankCoord2d", "[", "g", "]"}]}]}], " ", "]"}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"plotTankLatTiny", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"GraphPlot", "[", 
+      RowBox[{"g", ",", 
+       RowBox[{"VertexCoordinates", "\[Rule]", 
+        RowBox[{"vertexTankCoord2d", "[", "g", "]"}]}], ",", 
+       RowBox[{"VertexSize", "\[Rule]", "Tiny"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"deleteIsolatedVert", "[", "g_", "]"}], " ", ":=", " ", 
+     RowBox[{"VertexDelete", "[", 
+      RowBox[{"g", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"VertexList", "@", "g"}], ")"}], "[", 
+          RowBox[{"[", "#", "]"}], "]"}], "&"}], "/@", " ", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{
+          RowBox[{"Position", "[", 
+           RowBox[{
+            RowBox[{"VertexDegree", "@", "g"}], ",", " ", 
+            RowBox[{"_", "?", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"#", "\[Equal]", "0"}], "&"}], ")"}]}]}], "]"}], ",", 
+          "1"}], "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"graphDiff", "[", 
+      RowBox[{"g1_", ",", " ", "g2_"}], "]"}], " ", ":=", "  ", 
+     RowBox[{"HighlightGraph", "[", 
+      RowBox[{
+       RowBox[{"annotateWithLabels", "@", 
+        RowBox[{"GraphDifference", "[", " ", 
+         RowBox[{"g1", ",", "g2"}], "]"}]}], ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"#", ",", "Yellow"}], "]"}], "&"}], "/@", 
+        RowBox[{"Complement", "[", 
+         RowBox[{
+          RowBox[{"VertexList", "@", "g1"}], ",", " ", 
+          RowBox[{"VertexList", "@", "g2"}]}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"intersectTrSetsD", "[", " ", 
+       RowBox[{"s1_", ",", " ", "s2_"}], " ", "]"}], " ", ":=", " ", 
+      RowBox[{"Intersection", "[", 
+       RowBox[{
+        RowBox[{"s1", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "All", ",", "1"}], "]"}], "]"}], ",", " ", 
+        RowBox[{"s2", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "All", ",", "1"}], "]"}], "]"}]}], "]"}]}], ";",
+      " ", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"complementTrSetsD", "[", " ", 
+       RowBox[{"s1_", ",", " ", "s2_"}], " ", "]"}], " ", ":=", " ", 
+      RowBox[{"Complement", "[", 
+       RowBox[{
+        RowBox[{"s1", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "All", ",", "1"}], "]"}], "]"}], ",", " ", 
+        RowBox[{"s2", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "All", ",", "1"}], "]"}], "]"}]}], "]"}]}], 
+     ";"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"intersectTrSetsTank", "[", " ", 
+      RowBox[{"s1_", ",", " ", "s2_"}], " ", "]"}], " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{"s1", ",", " ", 
+       RowBox[{
+        RowBox[{"ContainsAll", "[", 
+         RowBox[{
+          RowBox[{"s2", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "All", ",", 
+             RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", 
+              RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], "}"}]}], "]"}], 
+        "&"}]}], " ", "]"}]}], ";"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"complementTrSetsTank", "[", " ", 
+      RowBox[{"s1_", ",", " ", "s2_"}], " ", "]"}], " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{"s1", ",", " ", 
+       RowBox[{
+        RowBox[{"\[Not]", 
+         RowBox[{"ContainsAll", "[", 
+          RowBox[{
+           RowBox[{"s2", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "All", ",", 
+              RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", 
+               RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], "}"}]}], "]"}]}], 
+        "&"}]}], " ", "]"}]}], ";"}], " ", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"annotating", " ", "existing", " ", "graph"}], " ", "-", " ", 
+     RowBox[{"does", " ", "work"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"annotateWithLabels", "[", "g_", "]"}], ":=", " ", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "gr", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"gr", " ", "=", " ", "g"}], ";", " ", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", " ", 
+           RowBox[{"gr", " ", "=", " ", 
+            RowBox[{"Annotate", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"gr", ",", "#"}], "}"}], ",", " ", 
+              RowBox[{"VertexLabels", "\[Rule]", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], " ", "]"}]}], 
+           ")"}], "&"}], "   ", "/@", " ", 
+         RowBox[{"VertexList", "@", "gr"}]}], ";", "\[IndentingNewLine]", 
+        "gr"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8140137036509943`*^9, 3.814013713806752*^9}, {
+   3.81401375944576*^9, 3.8140137780005283`*^9}, {3.814014194554112*^9, 
+   3.8140141959341516`*^9}, {3.814015323023754*^9, 3.814015355798355*^9}, {
+   3.8140154700191593`*^9, 3.814015529218565*^9}, {3.814015600033152*^9, 
+   3.81401568212425*^9}, {3.8140284483502827`*^9, 3.8140284875057707`*^9}, {
+   3.814028724948357*^9, 3.814028733088628*^9}, {3.814028767214198*^9, 
+   3.8140287675244093`*^9}, {3.814029078562052*^9, 3.814029082062563*^9}, {
+   3.81402911448247*^9, 3.81402912676956*^9}, {3.814029164235753*^9, 
+   3.814029187580337*^9}, {3.8140294122415047`*^9, 3.814029414269848*^9}, {
+   3.814029455338853*^9, 3.814029480551243*^9}, {3.814029523524612*^9, 
+   3.814029570063279*^9}, {3.814029629420323*^9, 3.8140296673207493`*^9}, {
+   3.814029703769869*^9, 3.814029706876305*^9}, {3.814029810122624*^9, 
+   3.814029856060861*^9}, {3.814029940843628*^9, 3.8140299725152597`*^9}, {
+   3.814030085422306*^9, 3.814030157540449*^9}, {3.8140303623245296`*^9, 
+   3.814030382146834*^9}, {3.814030533729545*^9, 3.814030560822703*^9}, {
+   3.814030618349924*^9, 3.8140306671664248`*^9}, {3.81403075454428*^9, 
+   3.814030828921591*^9}, {3.814037692003797*^9, 3.814037744823838*^9}, {
+   3.814037781389832*^9, 3.8140378468013697`*^9}, {3.814037889949232*^9, 
+   3.8140379255133657`*^9}, {3.8140380229049587`*^9, 
+   3.8140380625782137`*^9}, {3.814038332968316*^9, 3.814038399160021*^9}, {
+   3.814042545704878*^9, 3.814042573747161*^9}, {3.814042725571664*^9, 
+   3.814042812022089*^9}, {3.8140440842014503`*^9, 3.8140442262479553`*^9}, {
+   3.8140443047614603`*^9, 3.814044306308487*^9}, {3.814044429734543*^9, 
+   3.814044465865193*^9}, {3.814045863807571*^9, 3.81404587119263*^9}, {
+   3.8140461289283533`*^9, 3.814046191133321*^9}, {3.814046253716194*^9, 
+   3.8140462794056053`*^9}, {3.814046421662526*^9, 3.814046447320209*^9}, {
+   3.8140470443377*^9, 3.814047079700365*^9}, {3.8140481170868683`*^9, 
+   3.814048263411736*^9}, {3.814048296284164*^9, 3.814048315944353*^9}, {
+   3.814048494016861*^9, 3.814048496351204*^9}, {3.814048567433112*^9, 
+   3.8140486550632143`*^9}, {3.8141180844606457`*^9, 
+   3.8141180871332073`*^9}, {3.814118126871316*^9, 3.8141182365024443`*^9}, {
+   3.814118476462628*^9, 3.8141184870624037`*^9}, {3.8141186238293037`*^9, 
+   3.8141187096951714`*^9}, {3.814118843655855*^9, 3.8141188523661623`*^9}, {
+   3.814275182229823*^9, 3.814275237770574*^9}, {3.814275308286254*^9, 
+   3.8142753933507442`*^9}, {3.814275430646029*^9, 3.8142754659965076`*^9}, {
+   3.814275589925375*^9, 3.814275592012306*^9}, {3.816440904878703*^9, 
+   3.816440980345983*^9}, {3.816456368906101*^9, 3.8164564099085093`*^9}, {
+   3.816456462108712*^9, 3.816456503913327*^9}, 3.816459613364347*^9, {
+   3.816535240797379*^9, 3.816535314747344*^9}, {3.816539393193634*^9, 
+   3.816539411476137*^9}, {3.8165394527313633`*^9, 3.816539582977178*^9}, {
+   3.8165396433494873`*^9, 3.816539667099791*^9}, {3.826794841120018*^9, 
+   3.8267948421961823`*^9}, 3.8268010663318577`*^9, 3.826801895741922*^9, {
+   3.826802873290421*^9, 3.826802875682638*^9}, {3.826802908159223*^9, 
+   3.826802932157731*^9}, {3.82680296275314*^9, 3.826802964834075*^9}, {
+   3.826803013143722*^9, 3.8268030142288427`*^9}, {3.8268037545016193`*^9, 
+   3.82680377038272*^9}, {3.826803801180728*^9, 3.8268038508230953`*^9}, {
+   3.826804817071068*^9, 3.8268048186700077`*^9}, {3.826812851359133*^9, 
+   3.826812867108201*^9}, {3.826827937855009*^9, 3.826827944980734*^9}, {
+   3.826828013032093*^9, 3.8268280133725*^9}, {3.826833022946245*^9, 
+   3.826833024653214*^9}, {3.8268330763551083`*^9, 3.826833096599017*^9}, {
+   3.826833150548279*^9, 3.8268332172185097`*^9}, {3.826833482121868*^9, 
+   3.8268335248871737`*^9}},
+ CellLabel->
+  "In[125]:=",ExpressionUUID->"d6923755-eade-4e8f-b18e-b14036c92a53"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Finding", " ", "traces", " ", "in", " ", "graphs"}], 
+   " ", "**)"}], " ", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{
+     "outcomesBetween", ",", " ", "successTankStates", ",", "failTankStates", 
+      ",", "allFailTankPaths", ",", "allSuccessTankPaths"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"find", " ", "all", " ", "ttf"}], "-", 
+     RowBox[{"steps", " ", "sequences"}]}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"outcomesBetween", "[", 
+      RowBox[{"g_", ",", " ", "glabs_", ",", " ", "st1_", ",", " ", "st2_"}], 
+      "]"}], ":=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Apply", "[", 
+         RowBox[{"DirectedEdge", ",", 
+          RowBox[{"Partition", "[", 
+           RowBox[{"#", ",", "2", ",", "1"}], "]"}], ",", "1"}], "]"}], "&"}],
+        " ", "/@", " ", 
+       RowBox[{"FindPath", "[", 
+        RowBox[{
+        "g", ",", " ", "st1", ",", "st2", ",", " ", "Infinity", ",", "All"}], 
+        "]"}]}], "/.", "glabs"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"crash", "/", "safe"}], " ", "states"}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"failTankStates", "[", "g_", "]"}], " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"VertexList", "@", "g"}], ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Min", "@@", "#"}], "\[Equal]", "0"}], " ", "\[Or]", " ", 
+         RowBox[{
+          RowBox[{"Max", "@@", "#"}], "\[Equal]", "ts"}]}], "&"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"successTankStates", "[", "g_", "]"}], " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"VertexList", "@", "g"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Min", "@@", "#"}], ">", "0"}], " ", "\[And]", " ", 
+         RowBox[{
+          RowBox[{"Max", "@@", "#"}], "<", "ts"}]}], "&"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"paths", " ", "to", " ", 
+      RowBox[{"crash", "/", "safe"}], " ", "states"}], ";", " ", 
+     RowBox[{
+      RowBox[{
+      "need", " ", "to", " ", "be", " ", "at", " ", "least", " ", "so"}], "-", 
+      RowBox[{
+      "many", " ", "steps", " ", "long", " ", "\[IndentingNewLine]", 
+       "debatable", " ", 
+       RowBox[{"issue", ":", " ", 
+        RowBox[{
+         RowBox[{"whether", " ", "paths", " ", "length"}], " ", 
+         "\[GreaterEqual]", " ", 
+         RowBox[{"time", " ", "horizon", " ", "or", " ", "just"}], " ", 
+         "\[Equal]", " ", 
+         RowBox[{
+         "time", " ", "horizon", "\[IndentingNewLine]", "Solution"}]}], ":", 
+        " ", 
+        RowBox[{
+        "constructing", " ", "bounded", " ", "graphs", " ", "in", " ", "a", 
+         " ", "way", " ", "that", " ", "makes", " ", "this", " ", 
+         "invariant"}]}]}]}]}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"allFailTankPaths", "[", 
+      RowBox[{
+      "g_", ",", " ", "glabs_", ",", "timeHor_", ",", " ", "initSt_"}], "]"}],
+      " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"outcomesBetween", "[", 
+            RowBox[{"g", ",", "glabs", ",", " ", "initSt", ",", "#"}], "]"}], 
+           " ", "&"}], " ", "/@", " ", 
+          RowBox[{"failTankStates", "[", "g", "]"}]}], ",", "1"}], "]"}], " ",
+        ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Plus", "@@", 
+          RowBox[{"(", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", " ", "2"}], "]"}], "]"}], ")"}]}], ">=", " ",
+          "timeHor"}], "&"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"allSuccessTankPaths", "[", 
+      RowBox[{
+      "g_", ",", " ", "glabs_", ",", "timeHor_", ",", " ", "initSt_"}], "]"}],
+      " ", ":=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"outcomesBetween", "[", 
+            RowBox[{"g", ",", " ", "glabs", ",", " ", "initSt", ",", "#"}], 
+            "]"}], " ", "&"}], " ", "/@", " ", 
+          RowBox[{"successTankStates", "[", "g", "]"}]}], ",", "1"}], "]"}], 
+       " ", ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Plus", "@@", 
+          RowBox[{"(", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", " ", "2"}], "]"}], "]"}], ")"}]}], ">=", " ",
+          "timeHor"}], "&"}]}], "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.814181485003023*^9, {3.8141831031512747`*^9, 3.814183104129847*^9}, {
+   3.814183492450124*^9, 3.8141834937720118`*^9}, {3.814185086948695*^9, 
+   3.8141851478800383`*^9}, {3.814185245982781*^9, 3.81418525037403*^9}, 
+   3.8141852866916227`*^9, {3.81418539145538*^9, 3.8141854009388447`*^9}, 
+   3.81418548027348*^9, {3.8141875312436733`*^9, 3.814187572741029*^9}, {
+   3.814187787615513*^9, 3.814187787684547*^9}, {3.816442520194573*^9, 
+   3.816442534223567*^9}, {3.816442566809429*^9, 3.816442617728442*^9}, {
+   3.816446293712467*^9, 3.816446310365003*^9}, {3.8164475427447*^9, 
+   3.816447572476926*^9}, {3.816447637293168*^9, 3.8164476459512978`*^9}, {
+   3.8164476870525513`*^9, 3.816447695919252*^9}, {3.816447782382998*^9, 
+   3.81644785806771*^9}, {3.816447893548221*^9, 3.81644790191712*^9}, {
+   3.816447937372678*^9, 3.816447987145859*^9}, {3.816457428967057*^9, 
+   3.8164574369612617`*^9}, {3.8165252438210917`*^9, 
+   3.8165252544012413`*^9}, {3.826803791661519*^9, 3.826803794597513*^9}, {
+   3.8268048449740753`*^9, 3.826804876086755*^9}, {3.826804913777389*^9, 
+   3.826805004639879*^9}, {3.826805046464705*^9, 3.8268051748195333`*^9}, {
+   3.826805381437093*^9, 3.826805382818892*^9}, {3.826805767576147*^9, 
+   3.826805839762298*^9}, {3.826805998522863*^9, 3.826806001838686*^9}, {
+   3.826806096183339*^9, 3.826806097757345*^9}, {3.826806510552125*^9, 
+   3.826806525893881*^9}, {3.826806763063692*^9, 3.826806843969755*^9}, {
+   3.826806900256214*^9, 3.8268069204448023`*^9}, {3.826807804272629*^9, 
+   3.8268078119720078`*^9}, {3.826808270705055*^9, 3.826808312480348*^9}, {
+   3.826808459056562*^9, 3.826808469570919*^9}, {3.8268085481122026`*^9, 
+   3.826808628237967*^9}, {3.826808658279911*^9, 3.826808665138146*^9}, {
+   3.826819440181796*^9, 3.826819447499275*^9}, 3.826827950639037*^9, {
+   3.8268345959719954`*^9, 3.82683461006422*^9}, {3.826834692380026*^9, 
+   3.82683473601865*^9}, {3.826836301917837*^9, 3.8268363090105457`*^9}, {
+   3.82683634230618*^9, 3.8268363694042807`*^9}, {3.82683766479427*^9, 
+   3.826837677968306*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"019dac34-449c-4e42-96a5-0fd3e47c4adc"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "Checking", " ", "hypotheses", " ", "on", " ", "paths", " ", 
+    "in", " ", 
+    RowBox[{"shorter", "/", "longer"}], " ", "models"}], " ", "**)"}], " ", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{
+     "selectSuffTankTraces", ",", " ", "selectPrefSuffTankTraces", ",", 
+      "tnss", ",", " ", "toss", ",", " ", "tnus", ",", " ", "tosu", ",", " ", 
+      "tnssItoss", ",", " ", "tossItnss", ",", " ", "tnssMtoss", ",", " ", 
+      "tossMtnss", ",", " ", "totalSummands"}], "]"}], ";"}], " ", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "returns", " ", "the", " ", "traces", " ", "from", " ", "the", " ", 
+     "first", " ", "set", " ", "that", " ", "are", " ", "suffixes", " ", "of",
+      " ", "the", " ", "traces", " ", "in", " ", "the", " ", "second", " ", 
+     "set"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"selectSuffTankTraces", "[", 
+      RowBox[{"tankSelSet_", ",", " ", "tankCompSet_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"comparedTr", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", 
+                  RowBox[{"1", ";;", "2"}]}], "]"}], "]"}]}], "}"}], " ", ",",
+              "    ", "\[IndentingNewLine]", 
+             RowBox[{"Select", "[", 
+              RowBox[{"tankSelSet", " ", ",", " ", 
+               RowBox[{
+                RowBox[{"If", "[", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Length", "@", "#"}], "<", 
+                   RowBox[{"Length", "@", "comparedTr"}]}], ",", " ", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"(*", " ", 
+                   RowBox[{
+                   "when", " ", "selector", " ", "is", " ", "shorter"}], " ", 
+                   "*)"}], "\[IndentingNewLine]", "False", " ", ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"(*", " ", 
+                   RowBox[{
+                   "when", " ", "same", " ", "length", " ", "or", " ", "the", 
+                    " ", "comparator", " ", "is", " ", "shorter"}], " ", 
+                   "*)"}], "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"1", ";;", " ", 
+                    RowBox[{"Length", "@", "comparedTr"}]}], ",", " ", 
+                    RowBox[{"1", ";;", "2"}]}], "]"}], "]"}], "==", " ", 
+                   "comparedTr"}]}], "\[IndentingNewLine]", "]"}], "&"}]}], 
+              " ", "]"}]}], "\[IndentingNewLine]", "]"}], "&"}], " ", "/@", 
+          " ", "tankCompSet"}], " ", ")"}], "//", " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{"remove", " ", "empty", " ", "lists"}], " ", "*)"}], " ", 
+        RowBox[{
+         RowBox[{"Replace", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{
+            RowBox[{"{", "}"}], "\[Rule]", 
+            RowBox[{"Sequence", "[", "]"}]}], ",", " ", 
+           RowBox[{"{", "1", "}"}]}], "]"}], "&"}]}], "//", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "flatten", " ", "extra", " ", "structure", " ", "and", " ", "remove", 
+         " ", "duplicates"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"#", "\[NotEqual]", " ", 
+           RowBox[{"{", "}"}]}], ",", " ", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}]}], "]"}], ",", "#"}], "]"}], 
+        "&"}]}], " ", "//", " ", "\[IndentingNewLine]", 
+      "DeleteDuplicates"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "returns", " ", "the", " ", "traces", " ", "from", " ", "the", " ", 
+     "first", " ", "set", " ", "that", " ", "are", " ", "either", " ", 
+     "prefixes", " ", "or", " ", "suffixes", " ", "of", " ", "the", " ", 
+     "traces", " ", "in", " ", "the", " ", "second", " ", "set"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"selectPrefSuffTankTraces", "[", 
+      RowBox[{"tankSelSet_", ",", " ", "tankCompSet_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"comparedTr", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", " ", 
+                  RowBox[{"1", ";;", "2"}]}], "]"}], "]"}]}], "}"}], " ", ",",
+              "    ", "\[IndentingNewLine]", 
+             RowBox[{"Select", "[", 
+              RowBox[{"tankSelSet", " ", ",", " ", 
+               RowBox[{
+                RowBox[{"If", "[", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Length", "@", "#"}], "\[LessEqual]", 
+                   RowBox[{"Length", "@", "comparedTr"}]}], ",", " ", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"(*", " ", 
+                   RowBox[{
+                   "when", " ", "selector", " ", "is", " ", "shorter"}], " ", 
+                   "*)"}], "\[IndentingNewLine]", 
+                  RowBox[{"#", "==", " ", 
+                   RowBox[{"comparedTr", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ";;", " ", 
+                    RowBox[{"Length", "@", "#"}]}], "]"}], "]"}]}], " ", ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"(*", " ", 
+                   RowBox[{
+                   "when", " ", "comparator", " ", "is", " ", "shorter"}], 
+                   " ", "*)"}], "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"1", ";;", " ", 
+                    RowBox[{"Length", "@", "comparedTr"}]}], ",", " ", 
+                    RowBox[{"1", ";;", "2"}]}], " ", "]"}], "]"}], "==", " ", 
+                   "comparedTr"}]}], "\[IndentingNewLine]", "]"}], "&"}]}], 
+              " ", "]"}]}], "\[IndentingNewLine]", "]"}], "&"}], " ", "/@", 
+          " ", "tankCompSet"}], " ", ")"}], "//", " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{"remove", " ", "empty", " ", "lists"}], " ", "*)"}], " ", 
+        RowBox[{
+         RowBox[{"Replace", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{
+            RowBox[{"{", "}"}], "\[Rule]", 
+            RowBox[{"Sequence", "[", "]"}]}], ",", " ", 
+           RowBox[{"{", "1", "}"}]}], "]"}], "&"}]}], "//", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"flatten", " ", "extra", " ", "structure"}], " ", "*)"}], " ",
+        "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"#", "\[NotEqual]", " ", 
+           RowBox[{"{", "}"}]}], ",", " ", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "2"}], "}"}]}], "]"}], ",", "#"}], "]"}], 
+        "&"}]}], " ", "//", " ", "\[IndentingNewLine]", 
+      "DeleteDuplicates"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "below", " ", "getting", " ", "overlapping", " ", "sets", " ", "of", " ", 
+      RowBox[{"paths", " ", ":", " ", "\[IndentingNewLine]", 
+       RowBox[{"adoxx", " ", "-", " ", 
+        RowBox[{"in", " ", "the", " ", "old"}]}]}]}], ",", " ", 
+     RowBox[{
+      RowBox[{
+      "unshifted", " ", "model", " ", "\[IndentingNewLine]", "adnxx"}], " ", 
+      "-", " ", 
+      RowBox[{"in", " ", "the", " ", "new"}]}], ",", " ", 
+     RowBox[{
+     "shifted", " ", "model", " ", "\[IndentingNewLine]", "xx", " ", "is", 
+      " ", "in", " ", 
+      RowBox[{"{", 
+       RowBox[{"uu", ",", " ", "us", ",", " ", "su", ",", " ", "ss"}], 
+       "}"}]}]}], " ", "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "do", " ", "only", " ", "suffixes", " ", "when", " ", "the", " ", 
+     "comparator", " ", "is", " ", "safe"}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"toss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"selectSuffTankTraces", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", " ", "timeHor", ",", " ", "stold"}], 
+        "]"}], ",", " ", 
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gnew", ",", "glabsnew", ",", " ", "timeHor", ",", " ", "stnew"}], 
+        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tnss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"selectSuffTankTraces", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gnew", ",", "glabsnew", ",", " ", "timeHor", ",", " ", "stnew"}], 
+        "]"}], ",", 
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", " ", "timeHor", ",", " ", "stold"}], 
+        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], " ", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"parts", " ", "of", " ", "Summand", " ", "3"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "do", " ", "both", " ", "prefixes", " ", "and", "  ", "suffixes", " ", 
+     "when", " ", "the", " ", "comparator", " ", "is", " ", "unsafe"}], " ", 
+    "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tnus", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"selectPrefSuffTankTraces", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gnew", ",", "glabsnew", ",", " ", "timeHor", ",", " ", "stnew"}], 
+        "]"}], ",", 
+       RowBox[{"allFailTankPaths", "[", 
+        RowBox[{"gold", ",", "glabsold", ",", " ", "1", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"any", " ", "fail", " ", "paths", " ", "work"}], ",", " ", 
+           
+           RowBox[{"no", " ", "min", " ", "length", " ", "required"}]}], " ", 
+          "*)"}], ",", " ", "stold"}], "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], " ", "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tosu", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"selectPrefSuffTankTraces", "[", 
+      RowBox[{
+       RowBox[{"allSuccessTankPaths", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", " ", "timeHor", ",", " ", "stold"}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"allFailTankPaths", "[", 
+        RowBox[{"gnew", ",", "glabsnew", ",", " ", "1", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"any", " ", "fail", " ", "paths", " ", "work"}], ",", " ", 
+           
+           RowBox[{"no", " ", "min", " ", "length", " ", "required"}]}], " ", 
+          "*)"}], " ", ",", " ", "stnew"}], "]"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "intersections", " ", "and", " ", "differences", " ", "between", " ", 
+     "tnss", " ", "and", " ", "toss"}], " ", "*)"}], " ", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"parts", " ", "of", " ", "Summand", " ", "1"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tnssItoss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], " ", ":=",
+      "  ", 
+     RowBox[{"intersectTrSetsTank", "[", " ", 
+      RowBox[{
+       RowBox[{"tnss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}], ",", 
+       RowBox[{"toss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}]}], " ", 
+      "]"}]}], "  ", ";"}], "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tossItnss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], " ", ":=",
+      "  ", 
+     RowBox[{"intersectTrSetsTank", "[", " ", 
+      RowBox[{
+       RowBox[{"toss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}], ",", 
+       RowBox[{"tnss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}]}], " ", 
+      "]"}]}], ";"}], " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"parts", " ", "of", " ", "Summand", " ", "2"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tnssMtoss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"complementTrSetsTank", "[", 
+      RowBox[{
+       RowBox[{"tnss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}], ",", 
+       "  ", 
+       RowBox[{"toss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}]}], 
+      "]"}]}], ";"}], " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"tossMtnss", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"complementTrSetsTank", "[", 
+      RowBox[{
+       RowBox[{"toss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}], ",", 
+       "  ", 
+       RowBox[{"tnss", "[", 
+        RowBox[{
+        "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", " ", 
+         "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], "]"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"all", " ", "three", " ", "summands", " ", "together"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"totalSummands", "[", 
+      RowBox[{
+      "gold_", ",", "glabsold_", ",", "stold_", ",", "  ", "gnew_", ",", " ", 
+       "glabsnew_", ",", " ", "stnew_", ",", " ", "timeHor_"}], "]"}], ":=", 
+     " ", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"s1", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tnssItoss", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}], " ", "-", " ", 
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tossItnss", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}]}]}], ",", " ", 
+         RowBox[{"s2", "=", 
+          RowBox[{
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tnssMtoss", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}], " ", "-", 
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tossMtnss", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}]}]}], " ", " ", ",", " ", 
+         RowBox[{"s3", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tnus", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}], "  ", "-", " ", 
+           RowBox[{"probOfOutcomes", "@", 
+            RowBox[{"tosu", "[", 
+             RowBox[{
+             "gold", ",", "glabsold", ",", "stold", ",", "  ", "gnew", ",", 
+              " ", "glabsnew", ",", " ", "stnew", ",", " ", "timeHor"}], 
+             "]"}]}]}]}]}], " ", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"s1", ",", " ", "s2", ",", " ", "s3", ",", " ", 
+         RowBox[{"s1", "+", "s2", "+", "s3"}]}], "}"}]}], "]"}]}], " ", ";"}],
+    "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"probabilities", " ", "over", " ", 
+     RowBox[{"traces", ":", " ", 
+      RowBox[{
+      "over", " ", "sets", " ", "of", " ", "sequences", " ", "of", " ", 
+       RowBox[{"(", 
+        RowBox[{"ttf", ",", " ", "steps", ",", " ", "prob"}], ")"}]}]}]}], 
+    " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Clear", "[", "probOfOutcomes", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"probOfOutcomes", "[", "outset_", "]"}], ":=", " ", 
+     RowBox[{"Plus", "@@", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Times", "@@", 
+          RowBox[{"(", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "3"}], "]"}], "]"}], ")"}]}], "&"}], "/@", 
+        "outset"}], ")"}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.81645083496548*^9, 3.8164508679034224`*^9}, {
+   3.816450915113357*^9, 3.8164509401882343`*^9}, {3.816451353512513*^9, 
+   3.8164513745631027`*^9}, {3.816454326109589*^9, 3.8164543268555737`*^9}, {
+   3.8164545049827213`*^9, 3.816454517179701*^9}, {3.8164545560706787`*^9, 
+   3.816454557046131*^9}, {3.81645468164859*^9, 3.816454692184803*^9}, {
+   3.816454740066733*^9, 3.816454779860293*^9}, {3.8164574791374197`*^9, 
+   3.8164575117533092`*^9}, {3.8164577561316347`*^9, 3.816457811646188*^9}, {
+   3.8164578732221813`*^9, 3.816457876377267*^9}, {3.816457906916771*^9, 
+   3.816457910309546*^9}, {3.816458164508109*^9, 3.81645818281982*^9}, {
+   3.8164582322792273`*^9, 3.816458233148587*^9}, {3.816458297290304*^9, 
+   3.816458335524042*^9}, {3.8164584241675873`*^9, 3.816458432182227*^9}, 
+   3.81646022732008*^9, {3.816524931296359*^9, 3.816525026988123*^9}, {
+   3.8165250674137383`*^9, 3.816525163720949*^9}, {3.816525280110236*^9, 
+   3.816525295989483*^9}, {3.816525551704267*^9, 3.816525590914937*^9}, {
+   3.816622707397266*^9, 3.8166228049341717`*^9}, {3.816622932100526*^9, 
+   3.816622958335925*^9}, {3.816623003943242*^9, 3.8166230245660133`*^9}, {
+   3.816623280311427*^9, 3.816623311921134*^9}, {3.816623390385037*^9, 
+   3.816623395610743*^9}, {3.816623435136148*^9, 3.816623446122367*^9}, {
+   3.816623514393509*^9, 3.816623548759403*^9}, {3.816623609979679*^9, 
+   3.816623618135058*^9}, {3.816623653645815*^9, 3.816623673415576*^9}, {
+   3.816623777076082*^9, 3.816623822445331*^9}, {3.816624085558873*^9, 
+   3.816624105039462*^9}, {3.816624998108115*^9, 3.8166250042675858`*^9}, {
+   3.826811019121317*^9, 3.8268110331078367`*^9}, {3.826811071215424*^9, 
+   3.826811114025848*^9}, {3.82681116078961*^9, 3.8268112051053133`*^9}, {
+   3.8268112506545773`*^9, 3.826811435150848*^9}, {3.826811691827194*^9, 
+   3.8268117190056543`*^9}, {3.8268119816571207`*^9, 
+   3.8268120821520452`*^9}, {3.8268128762809677`*^9, 3.826812910684332*^9}, {
+   3.8268129596583347`*^9, 3.8268129748089848`*^9}, {3.826818462141283*^9, 
+   3.826818464916651*^9}, {3.82681940548596*^9, 3.82681940836476*^9}, {
+   3.8268280401489553`*^9, 3.8268280715618973`*^9}, {3.826828126586523*^9, 
+   3.826828213695209*^9}, {3.826828456801395*^9, 3.826828606716234*^9}, {
+   3.826828657034699*^9, 3.8268287012625713`*^9}, 3.826828880907442*^9, {
+   3.826828924136915*^9, 3.82682893275661*^9}, {3.826828974447022*^9, 
+   3.826828998289686*^9}, {3.826833553947729*^9, 3.82683356138028*^9}, {
+   3.826833591973033*^9, 3.826833648823947*^9}, {3.826833684330986*^9, 
+   3.826833696401198*^9}, {3.826894527146541*^9, 3.8268945601599283`*^9}, {
+   3.826895018086954*^9, 3.826895022280004*^9}, {3.826895144276957*^9, 
+   3.826895146723778*^9}},ExpressionUUID->"9786bf9d-9739-4968-b107-\
+1e91a78adce5"]
+},
+WindowSize->{1149.75, 633.75},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1528a974-dec6-475e-9f91-86bae905f4d6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1823, 44, 362, "Input",ExpressionUUID->"9d4c3659-57a2-481a-b354-6032ad780700"],
+Cell[2384, 66, 5670, 135, 948, "Input",ExpressionUUID->"49d61613-3c7c-4b97-903c-657a03ea275c"],
+Cell[8057, 203, 5563, 149, 409, "Input",ExpressionUUID->"d984e8d6-6f7b-4620-860f-0dd1e628cd6e"],
+Cell[13623, 354, 13631, 334, 1135, "Input",ExpressionUUID->"28666daa-c92b-4123-8272-d9b9847e16a5"],
+Cell[27257, 690, 6413, 150, 573, "Input",ExpressionUUID->"ef1d3837-f8c6-4d42-9e8e-2a671ec15050"],
+Cell[33673, 842, 258, 6, 33, "Input",ExpressionUUID->"79d01265-d75d-40ab-b883-a188b1e23c8e"],
+Cell[33934, 850, 21550, 502, 1440, "Input",ExpressionUUID->"03aec99f-a474-4d64-acbf-61d5b9587319"],
+Cell[55487, 1354, 40514, 889, 4323, "Input",ExpressionUUID->"7eb31429-090f-4b8a-87f0-a9e86bf6f563"],
+Cell[96004, 2245, 12857, 296, 596, "Input",ExpressionUUID->"d6923755-eade-4e8f-b18e-b14036c92a53"],
+Cell[108864, 2543, 7184, 169, 455, "Input",ExpressionUUID->"019dac34-449c-4e42-96a5-0fd3e47c4adc"],
+Cell[116051, 2714, 22188, 499, 2166, "Input",ExpressionUUID->"9786bf9d-9739-4968-b107-1e91a78adce5"]
+}
+]
+*)
+
