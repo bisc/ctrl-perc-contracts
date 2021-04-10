@@ -2,7 +2,7 @@
 A repository for models and source code for probabilistic safety estimation via monotonic safety (MoS) and MoS-based abstractions. 
 
 The directory structure is as follows:
-- code: This directory contains the code for generating and running the models, for both perception and contro, along with code for generting counter examples to the monotonicity of safety rule.
+- code: This directory contains the code for generating and running the models, for both perception and control, along with code for generting counter examples to the monotonicity of safety rule.
 - models: This directory contains the generated models accompanying the paper. It is separated by perception models and control models, for both case studies.
 - results: This directory contains the data and visuals accompanying the paper, along with the code used to generate the the visuals.
 - old: old and miscellaneous files. This directory can be ignored.
