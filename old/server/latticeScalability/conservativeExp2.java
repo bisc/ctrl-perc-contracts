@@ -31,7 +31,7 @@ public class conservativeExp2 {
 
         double distanceDisc = 0.5;
 
-        int initSpeed = 20;
+        int initSpeed = 15;
 
         int numPoints = (int) Math.round((initDistUpper-initDistLower)/distanceDisc+1);
 		double[] crashProbs = new double[numPoints];
@@ -67,7 +67,7 @@ public class conservativeExp2 {
 		String resultsFolder = "/data2/mcleav/latticeScalability/results/conservatism/exp2/";
 		
         
-        String crashProbResults = resultsFolder + "smallInitDistsextraPointscrashProbsExactBaseline.csv";
+        String crashProbResults = resultsFolder + "crashProbsExactBaselineSpeed" + initSpeed + ".csv";
         PrintWriter crashProbsWriter = new PrintWriter(crashProbResults);
         for(int i=0;i<crashProbs.length;i++) {
             double tempCrashProb = crashProbs[i];

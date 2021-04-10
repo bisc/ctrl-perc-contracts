@@ -3,19 +3,19 @@ import java.io.PrintWriter;
 import prism.PrismException;
 //import PRISMConnectorAPI
 
-public class runScalabilityRamneetKandN {
+public class runScalabilityDimRemKandN {
 
 	
 	PrismConnectorAPI myPrismConnectorAPI;
 	
-	public runScalabilityRamneetKandN () throws PrismException {
+	public runScalabilityDimRemKandN () throws PrismException {
 		myPrismConnectorAPI = new PrismConnectorAPI();
 	}
 	
 	public static void main (String[] args) throws Exception {
 		
 		String m = "3";
-		String latticeFolder = "/data2/mcleav/latticeScalability/ramneetKandNModels/m" + m + "/";
+		String latticeFolder = "/data2/mcleav/latticeScalability/DimRemKandNModels/m" + m + "/";
 		
 		//int[] initDistanceValues = {120,125,130,135,140};
 		//int[] initSpeedValues = {10,14,18,22,26};
@@ -73,10 +73,10 @@ public class runScalabilityRamneetKandN {
 		
 		String resultsFolder = "/data2/mcleav/latticeScalability/results/";
 		
-        String runTimeResults = resultsFolder + "extraPointsrunTimesRamneetKandNm" + m + ".csv";
+        String runTimeResults = resultsFolder + "extraPointsrunTimesDimRemKandNm" + m + ".csv";
         PrintWriter runTimeWriter = new PrintWriter(runTimeResults);
         
-        String crashProbResults = resultsFolder + "extraPointscrashProbsRamneetKandNm" + m + ".csv";
+        String crashProbResults = resultsFolder + "extraPointscrashProbsDimRemKandNm" + m + ".csv";
         PrintWriter crashProbsWriter = new PrintWriter(crashProbResults);
         for(int i=0;i<initDistanceValues.length;i++) {
         	for(int j=0; j<initSpeedValues.length;j++) {
