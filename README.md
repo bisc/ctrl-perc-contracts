@@ -41,7 +41,7 @@ Requirements: For editing access, you require [Wolfram Mathematica](https://www.
 
 Instructions:
 1) Open a desired .nb notebook, 
-2) Either run all it (Ctrl+A, Shift+Enter) or line-by-line (select a line, Shift+Enter).
+2) Either run it all at once (Ctrl+A, Shift+Enter) or line-by-line (select a line, Shift+Enter).
 
 
 ### Running Carla simulator
